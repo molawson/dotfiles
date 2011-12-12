@@ -2,15 +2,17 @@ call pathogen#infect()
 
 set nocompatible
 
+" Layout
 set number
 set ruler
+set showcmd
+set laststatus=2
 " set cursorline
 syntax on
 
 set guifont=Inconsolata:h14
 
 set encoding=utf-8
-set showcmd
 filetype plugin indent on
 
 " Wrapping and indentation
