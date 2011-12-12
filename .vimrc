@@ -39,3 +39,7 @@ let mapleader=","
 map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 let g:CommandTMaxHeight=20
+
+" Paste from system clipboard
+map <leader>p "*p<cr>
+map <leader>P "*P<cr>
