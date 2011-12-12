@@ -49,3 +49,6 @@ let g:CommandTMaxHeight=20
 " Paste from system clipboard
 map <leader>p "*p<cr>
 map <leader>P "*P<cr>
+
+" Search results highlighted with underline
+highlight Search ctermbg=None ctermfg=None cterm=underline
