@@ -7,7 +7,6 @@ set number
 set ruler
 set showcmd
 set laststatus=2
-" set cursorline
 syntax on
 
 set guifont=Inconsolata:h14
@@ -33,6 +32,11 @@ set smartcase
 " Bash style tab completion
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
+
+if has("gui_running")
+  :colorscheme desert
+  :set go-=T
+end
 
 " Remap leader key to ,
 let mapleader=","
