@@ -3,6 +3,8 @@ source ~/.bash/aliases
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:$PATH"
 export RUBYLIB="/usr/local/lib:$RUBYLIB"
 
+export CLICOLOR=1
+
 ##
 # DELUXE-USR-LOCAL-BIN-INSERT
 # (do not remove this comment)
