@@ -1,37 +1,23 @@
 # cd
 alias ..='cd ..'
+alias cclear='cd ; clear'
 
-alias hgh='~/Code/personal/homegrouphub'
-alias awl='~/Code/personal/austinwake'
-alias pack='~/Code/personal/packify'
-alias bb='~/Code/personal/bluebook'
-alias lp='~/Code/personal/lessonplans'
-alias sf='~/Code/personal/saveface'
+# projects
+alias awl='cd ~/Code/personal/austinwake'
+alias box='cd ~/Code/personal/boxeseverywhere'
+alias lesson='cd ~/Code/personal/lessonplans'
+alias lunch='cd ~/Code/personal/lunchcrowd'
+alias mo='cd ~/Code/personal/molawson'
 
 alias igniter='cd ~/Code/rt/whm'
 alias echoh='cd ~/Code/rt/echo/hub'
 alias echohp='cd ~/Code/rt/echo/hub/posts/wordpress/wp-content/themes/echohub-bones'
-
 
 # ls
 alias ls="ls -F"
 alias l="ls -lAh"
 alias ll="ls -l"
 alias la='ls -A'
-alias lla='ls -la'
-
-# Git
-# alias gl='git pull'
-# alias gp='git push'
-# alias gd='git diff'
-# alias gc='git commit'
-# alias gca='git commit -a'
-# alias gco='git checkout'
-# alias gb='git branch'
-# alias gs='git status'
-# alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
-# alias gr='git remote'
-# alias gm='git merge'
 
 # Subversion
 alias ss='svn status'
@@ -59,13 +45,6 @@ alias hl='heroku logs'
 alias hlc='heroku logs:cron'
 alias hdbp='heroku db:push'
 alias hdbl='heroku db:pull'
-
-# Commands starting with % for pasting from web
-alias %=' '
-
-# Xcode
-alias xc='open /Developer/Applications/Xcode.app'
-alias xcd='open *.xcodeproj'
 
 # Vim
 alias v.='vim'
@@ -101,12 +80,6 @@ alias cf-start="/Applications/ColdFusion8/bin/coldfusion start"
 alias cf-stop="/Applications/ColdFusion8/bin/coldfusion stop"
 alias cf-restart="/Applications/ColdFusion8/bin/coldfusion restart"
 
-# WHM
-alias whm-clear="curl -G http://www.worshiphousemedia.com/index.cfm -d event=cache.invalidate -d transfer=true ; echo 'cleared WHM cache'"
-alias whm-restart="curl -G http://www.worshiphousemedia.com/index.cfm -d reload_app=true -d init=true ; echo 'restarted WHM ModelGlue'"
-alias whmdev-clear="curl -G http://whm.mopro.rtpcore.com/index.cfm -d event=cache.invalidate -d transfer=true ; echo 'cleared local WHM cache'"
-alias whmdev-restart="curl -G http://whm.mopro.rtpcore.com/index.cfm -d reload_app=true -d init=true ; echo 'restarted local WHM ModelGlue'"
-
 # Igniter
 alias igniter-clear="curl -G http://www.ignitermedia.com/index.cfm -d event=cache.invalidate -d transfer=true ; echo 'cleared Igniter cache'"
 alias igniter-restart="curl -s -G http://www.ignitermedia.com/index.cfm -d reload_app=true -d init=true -o 'curl_log.txt' -w 'HTTP RESPONSE CODE: %{http_code}\\n' ; rm -f curl_log.txt"
@@ -118,5 +91,7 @@ alias echo-restart="curl -G http://www.echoconference.com/index.cfm -d reload_ap
 alias echodev-restart="curl -G http://echo.mopro.rtpcore.com/index.cfm -d reload_app=true -d echo_init=true ; echo 'restarted local Echo ModelGlue'"
 
 # Echo Hub Store
+alias echohs-clear="curl -G http://echohub.com/store/index.cfm -d event=cache.invalidate -d transfer=true ; echo 'cleared local Echo Hub Store cache'"
+alias echohs-restart="curl -G http://echohub.com/store/index.cfm -d reload_app=true -d init=true -o 'curl_log.txt' -w 'HTTP RESPONSE CODE: %{http_code}\\n' ; rm -f curl_log.txt"
 alias echohsdev-clear="curl -G http://echohub.mopro.rtpcore.com/store/index.cfm -d event=cache.invalidate -d transfer=true ; echo 'cleared local Echo Hub Store cache'"
 alias echohsdev-restart="curl -G http://echohub.mopro.rtpcore.com/store/index.cfm -d reload_app=true -d init=true -o 'curl_log.txt' -w 'HTTP RESPONSE CODE: %{http_code}\\n' ; rm -f curl_log.txt"
