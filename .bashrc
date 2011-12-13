@@ -32,8 +32,8 @@ parse_git_branch ()
 
 export PS1="\w\$(parse_git_branch)$ "
 
-export PATH=/opt/subversion/bin:$PATH
+eval "$(rbenv init -)"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+export PATH=/opt/subversion/bin:$PATH
 
 export PATH
