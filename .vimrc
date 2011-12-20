@@ -52,3 +52,11 @@ map <leader>P "*P<cr>
 
 " Search results highlighted with underline
 highlight Search ctermbg=None ctermfg=None cterm=underline
+
+" Automatic split resizing
+set winwidth=60
+set winminwidth=60
+set winwidth=160
+set winheight=10
+set winminheight=10
+set winheight=999
