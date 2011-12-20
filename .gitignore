@@ -11,6 +11,8 @@
 /.android
 /.bash_history
 /.bitrock
+/.bundle
+/.bundler
 /.chef
 /.cups
 /.datastudio
