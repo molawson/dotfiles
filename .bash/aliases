@@ -88,10 +88,10 @@ alias igniterdev-restart="curl -s -G http://igniter.mopro.rtpcore.com/index.cfm 
 
 # Echo
 alias echo-restart="curl -G http://www.echoconference.com/index.cfm -d reload_app=true -d echo_init=true ; echo 'restarted Echo ModelGlue'"
-alias echodev-restart="curl -G http://echo.mopro.rtpcore.com/index.cfm -d reload_app=true -d echo_init=true ; echo 'restarted local Echo ModelGlue'"
+alias echodev-restart="curl -s -G http://echo.mopro.rtpcore.com/index.cfm -d reload_app=true -d echo_init=true ; echo 'restarted local Echo ModelGlue'"
 
 # Echo Hub Store
-alias echohs-clear="curl -G http://echohub.com/store/index.cfm -d event=cache.invalidate -d transfer=true ; echo 'cleared local Echo Hub Store cache'"
-alias echohs-restart="curl -G http://echohub.com/store/index.cfm -d reload_app=true -d init=true -o 'curl_log.txt' -w 'HTTP RESPONSE CODE: %{http_code}\\n' ; rm -f curl_log.txt"
+alias echohs-clear="curl -G http://echohub.com/store/index.cfm -d event=cache.invalidate -d transfer=true ; echo 'cleared Echo Hub Store cache'"
+alias echohs-restart="curl -s -G http://echohub.com/store/index.cfm -d reload_app=true -d init=true -o 'curl_log.txt' -w 'HTTP RESPONSE CODE: %{http_code}\\n' ; rm -f curl_log.txt"
 alias echohsdev-clear="curl -G http://echohub.mopro.rtpcore.com/store/index.cfm -d event=cache.invalidate -d transfer=true ; echo 'cleared local Echo Hub Store cache'"
-alias echohsdev-restart="curl -G http://echohub.mopro.rtpcore.com/store/index.cfm -d reload_app=true -d init=true -o 'curl_log.txt' -w 'HTTP RESPONSE CODE: %{http_code}\\n' ; rm -f curl_log.txt"
+alias echohsdev-restart="curl -s -G http://echohub.mopro.rtpcore.com/store/index.cfm -d reload_app=true -d init=true -o 'curl_log.txt' -w 'HTTP RESPONSE CODE: %{http_code}\\n' ; rm -f curl_log.txt"
