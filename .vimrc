@@ -46,9 +46,10 @@ map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 let g:CommandTMaxHeight=20
 
-" Paste from system clipboard
+" Copy to and paste from system clipboard
 map <leader>p "*p<cr>
 map <leader>P "*P<cr>
+map <leader>y "*y<cr>
 
 " Search results highlighted with underline
 highlight Search ctermbg=None ctermfg=None cterm=underline
