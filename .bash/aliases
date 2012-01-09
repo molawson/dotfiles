@@ -58,6 +58,10 @@ alias s.='subl .'
 # Finder
 alias o.='open .'
 
+# Desktop
+alias deskh='defaults write com.apple.finder CreateDesktop -bool false | killall Finder'
+alias desks='defaults write com.apple.finder CreateDesktop -bool true | killall Finder'
+
 # Misc
 alias utime="php -r 'echo time();'"
 
