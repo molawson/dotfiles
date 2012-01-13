@@ -10,6 +10,7 @@ alias lunch='cd ~/Code/personal/lunchcrowd'
 alias mo='cd ~/Code/personal/molawson'
 
 alias igniter='cd ~/Code/rt/whm'
+alias echoc='cd ~/Code/rt/echo/conf'
 alias echoh='cd ~/Code/rt/echo/hub'
 alias echohp='cd ~/Code/rt/echo/hub/posts/wordpress/wp-content/themes/echohub-bones'
 
@@ -64,9 +65,6 @@ alias desks='defaults write com.apple.finder CreateDesktop -bool true | killall 
 
 # Misc
 alias utime="php -r 'echo time();'"
-
-# Startup
-alias launch='osascript /Users/molawson/launch.scpt'
 
 # PostgreSQL
 alias pg-start="pg_ctl -D /usr/local/var/postgres -l logfile start"
