@@ -51,6 +51,10 @@ map <leader>p "*p<cr>
 map <leader>P "*P<cr>
 map <leader>y "*y<cr>
 
+" Delete to black hole register
+map <leader>d "_d<cr>
+map <leader>D "_dd<cr>
+
 " Search results highlighted with underline
 highlight Search ctermbg=None ctermfg=None cterm=underline
 
