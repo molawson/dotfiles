@@ -19,13 +19,14 @@ parse_git_branch ()
 {
         if git rev-parse --git-dir >/dev/null 2>&1
         then
+            origin=$(git config -l | grep remote.origin.url | sed -e 's/remote.origin.url=//g')
+            if [ "$origin" = 'git@github.com:molawson/dotfiles.git' ]
+            then
+                gitver=''
+            else
                 gitver=$(git branch 2>/dev/null| sed -n '/^\*/s/^\* //p')
-                if git diff --quiet 2>/dev/null >&2 
-                then
-                        gitver='['$gitver']'
-                else
-                        gitver='['$gitver']'
-                fi
+                gitver='['$gitver']'
+            fi
         else
                 return 0
         fi
