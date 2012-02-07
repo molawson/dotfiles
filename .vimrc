@@ -3,7 +3,7 @@ call pathogen#infect()
 set nocompatible
 
 " Layout
-set number
+set rnu
 set ruler
 set showcmd
 set laststatus=2
