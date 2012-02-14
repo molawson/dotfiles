@@ -1,6 +1,7 @@
 # cd
 alias ..='cd ..'
-alias cclear='cd ; clear'
+alias c='clear'
+alias cc='cd ; clear'
 
 # projects
 alias awl='cd ~/Code/personal/austinwake'
