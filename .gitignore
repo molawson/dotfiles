@@ -33,6 +33,7 @@
 /.rvm
 /.ssh
 /.subversion
+/.svn2git
 /.viminfo
 /.vim/.netrwhist
 /.vmc_target
