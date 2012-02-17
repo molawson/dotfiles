@@ -18,6 +18,7 @@
   h = !git head
   r = !git l -20
   ra = !git r --all
+  ru = remote update
   p = push
   pom = !git p origin master
   u = pull
