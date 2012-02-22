@@ -9,13 +9,16 @@ set showcmd
 set laststatus=2
 syntax on
 
-set guifont=Inconsolata:h14
+set guifont=Bitstream\ Vera\ Sans\ Mono:h12
 
 set encoding=utf-8
 filetype plugin indent on
 
+set directory=$HOME/.vim/tmp//,.
+
 " Wrapping and indentation
 set wrap
+set scrolloff=3
 set expandtab
 set tabstop=2
 set shiftwidth=2
