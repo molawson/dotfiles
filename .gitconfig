@@ -11,6 +11,8 @@
   co = checkout
   di = diff
   dc = diff --cached
+  dis = !git di --stat=100,100
+  dcs = !git dc --stat=100,100
   amend = commit --amend
   aa = add --all
   ap = add -p
