@@ -10,10 +10,10 @@ alias lesson='cd ~/Code/personal/lessonplans'
 alias lunch='cd ~/Code/personal/lunchcrowd'
 alias mo='cd ~/Code/personal/molawson'
 
-alias igniter='cd ~/Code/rt/whm'
-alias echoc='cd ~/Code/rt/echo/conf'
-alias echoh='cd ~/Code/rt/echo/hub'
-alias echohp='cd ~/Code/rt/echo/hub/posts/wordpress/wp-content/themes/echohub-bones'
+alias starbuck='cd ~/Code/rt/starbuck'
+alias husker='cd ~/Code/rt/husker'
+alias huskerp='cd ~/Code/rt/husker/posts/wordpress/wp-content/themes/echohub-bones'
+alias helo='cd ~/Code/rt/helo'
 
 # ls
 alias ls="ls -F"

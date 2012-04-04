@@ -25,6 +25,7 @@
 /.mocksmtp
 /.morena
 /.mysql_history
+/.npm
 /.pgpass
 /.post-review-cookies.txt
 /.pow

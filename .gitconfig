@@ -22,9 +22,9 @@
   ra = !git r --all
   ru = remote update
   p = push
-  pom = !git p origin master
+  po = !git p origin
   u = pull
-  uom = !git u origin master
+  uo = !git u origin
   ff = merge --ff-only
   noff = merge --no-ff
   uff = !git u --ff-only
