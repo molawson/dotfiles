@@ -1,7 +1,9 @@
 source ~/.bash/aliases
+source ~/.bash/git-completion.bash
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:$PATH"
 export RUBYLIB="/usr/local/lib:$RUBYLIB"
+export GIT_SSL_CAINFO="$HOME/.certs/cacert.pem"
 
 export CLICOLOR=1
 
@@ -37,6 +39,6 @@ export PS1="\w\$(parse_git_branch)$ "
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-export PATH=/opt/subversion/bin:$PATH
+export DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$DYLD_LIBRARY_PATH"
 
 export PATH
