@@ -37,8 +37,7 @@ parse_git_branch ()
 
 export PS1="\w\$(parse_git_branch)$ "
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 export DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$DYLD_LIBRARY_PATH"
 
 export PATH
+eval "$(rbenv init -)"
