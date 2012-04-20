@@ -39,5 +39,8 @@ export PS1="\w\$(parse_git_branch)$ "
 
 export DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$DYLD_LIBRARY_PATH"
 
-export PATH
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+export PATH
