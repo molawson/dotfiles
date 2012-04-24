@@ -18,10 +18,10 @@ set directory=$HOME/.vim/tmp//,.
 
 " Wrapping and indentation
 set wrap
-set scrolloff=3
+set scrolloff=4
 set expandtab
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set autoindent
 set backspace=indent,eol,start
 

@@ -17,6 +17,8 @@ if [ $? -eq 1 ] ; then
     export PATH
 fi
 
+set -o vi
+
 parse_git_branch ()
 {
         if git rev-parse --git-dir >/dev/null 2>&1
