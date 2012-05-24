@@ -7,10 +7,10 @@ set rnu
 set ruler
 set showcmd
 set laststatus=2
+set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+
 syntax on
-
-set guifont=Bitstream\ Vera\ Sans\ Mono:h12
-
+set guifont=Menlo:h12
 set encoding=utf-8
 filetype plugin indent on
 
@@ -31,7 +31,34 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-:noremap <CR> :nohlsearch<cr>
+noremap <CR> :nohlsearch<cr>
+
+" Smart, multipurpose tab key - insert tab or autocomplete
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <s-tab> <c-n>
+
+" Rename current file
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <leader>n :call RenameFile()<cr>
+
+" Insert a hash rocket with <c-l>
+imap <c-l> <space>=><space>
 
 " Bash style tab completion
 set wildmode=list:longest,list:full
@@ -89,6 +116,16 @@ map <leader>D "_dd<cr>
 " Search results highlighted with underline
 highlight Search ctermbg=None ctermfg=None cterm=underline
 
+augroup vimrcEx
+  " Clear all autocmds in the group
+  autocmd!
+  " Jump to last cursor position unless it's invalid or in an event handler
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+augroup END
+
 " Automatic split resizing
 set winwidth=60
 set winminwidth=60
@@ -96,3 +133,9 @@ set winwidth=160
 set winheight=10
 set winminheight=10
 set winheight=999
+
+" Move around splits with <c-hjkl>
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
