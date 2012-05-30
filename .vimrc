@@ -10,13 +10,15 @@ set laststatus=2
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
 syntax on
+set guifont=Menlo:h12
+set encoding=utf-8
 set background=dark
 colorscheme solarized
 
-set guifont=Menlo:h12
-set encoding=utf-8
-filetype plugin indent on
+" Toggle background color
+call togglebg#map("<leader>t")
 
+" Store all .swp files in a common location
 set directory=$HOME/.vim/tmp//,.
 
 " Wrapping and indentation
@@ -28,6 +30,8 @@ set softtabstop=2
 set shiftwidth=2
 set autoindent
 set backspace=indent,eol,start
+
+filetype plugin indent on
 
 " Search
 set hlsearch

@@ -8,6 +8,7 @@
 [alias]
   st = status
   ci = commit
+  cm = !git ci -m
   co = checkout
   di = diff
   dc = diff --cached
