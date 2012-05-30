@@ -131,6 +131,8 @@ augroup vimrcEx
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
+
+  autocmd FileType cf set commentstring=<!---\ %s\ --->
 augroup END
 
 " Automatic split resizing
