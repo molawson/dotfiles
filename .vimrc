@@ -36,6 +36,12 @@ set ignorecase
 set smartcase
 noremap <CR> :nohlsearch<cr>
 
+" Search results highlighted with underline
+highlight Search ctermbg=None ctermfg=None cterm=underline
+
+" Remap leader key to ,
+let mapleader=","
+
 " Smart, multipurpose tab key - insert tab or autocomplete
 function! InsertTabWrapper()
     let col = col('.') - 1
@@ -60,9 +66,6 @@ function! RenameFile()
 endfunction
 map <leader>n :call RenameFile()<cr>
 
-" Insert a hash rocket with <c-l>
-imap <c-l> <space>=><space>
-
 " Bash style tab completion
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
@@ -71,9 +74,6 @@ if has("gui_running")
   :colorscheme desert
   :set go-=T
 end
-
-" Remap leader key to ,
-let mapleader=","
 
 " CommandT
 map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
@@ -116,8 +116,8 @@ map <leader>y "*y<cr>
 map <leader>d "_d<cr>
 map <leader>D "_dd<cr>
 
-" Search results highlighted with underline
-highlight Search ctermbg=None ctermfg=None cterm=underline
+" Insert a hash rocket with <c-l>
+imap <c-l> <space>=><space>
 
 augroup vimrcEx
   " Clear all autocmds in the group
