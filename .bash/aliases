@@ -4,10 +4,8 @@ alias c='clear'
 alias cc='cd ; clear'
 
 # projects
-alias awl='cd ~/Code/personal/austinwake'
 alias box='cd ~/Code/personal/boxeseverywhere'
 alias lesson='cd ~/Code/personal/lessonplans'
-alias lunch='cd ~/Code/personal/lunchcrowd'
 alias mo='cd ~/Code/personal/molawson'
 
 alias starbuck='cd ~/Code/rt/starbuck'
@@ -22,12 +20,8 @@ alias l="ls -lAh"
 alias ll="ls -l"
 alias la='ls -A'
 
-# Subversion
-alias ss='svn status'
-alias sa='svn add'
-alias su='svn update'
-alias sc='svn commit'
-alias sco='svn checkout'
+# Git/Hub
+alias git='hub'
 
 # Rails
 alias rc='rails console'
@@ -40,17 +34,10 @@ alias migrate='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
 alias be='bundle exec'
 
-# Heroku
-alias hmon='heroku maintenance:on'
-alias hmoff='heroku maintenance:off'
-alias hr='heroku restart'
-alias hl='heroku logs'
-alias hlc='heroku logs:cron'
-alias hdbp='heroku db:push'
-alias hdbl='heroku db:pull'
-
 # Vim
-alias v.='vim'
+alias v.='vim .'
+alias v='vim .'
+alias sv='sudo vim'
 
 # TextMate
 alias m.='mate .'
@@ -65,9 +52,6 @@ alias o.='open .'
 alias deskh='defaults write com.apple.finder CreateDesktop -bool false | killall Finder'
 alias desks='defaults write com.apple.finder CreateDesktop -bool true | killall Finder'
 
-# Misc
-alias utime="php -r 'echo time();'"
-
 # PostgreSQL
 alias pg-start="pg_ctl -D /usr/local/var/postgres -l logfile start"
 alias pg-stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
@@ -77,7 +61,7 @@ alias nr="sudo nginx -s reload"
 
 # Apache
 alias ar="sudo apachectl restart"
-alias e-vhosts="mate /etc/apache2/extra/httpd-vhosts.conf"
+alias avh="sudo vim /etc/apache2/extra/httpd-vhosts.conf"
 
 # ColdFusion
 alias cf-start="/Applications/ColdFusion8/bin/coldfusion start"
@@ -89,10 +73,6 @@ alias igniter-clear="curl -G http://www.ignitermedia.com/index.cfm -d event=cach
 alias igniter-restart="curl -s -G http://www.ignitermedia.com/index.cfm -d reload_app=true -d init=true -o 'curl_log.txt' -w 'HTTP RESPONSE CODE: %{http_code}\\n' ; rm -f curl_log.txt"
 alias igniterdev-clear="curl -G http://igniter.mopro.rtpcore.com/index.cfm -d event=cache.invalidate -d transfer=true ; echo 'cleared local Igniter cache'"
 alias igniterdev-restart="curl -s -G http://igniter.mopro.rtpcore.com/index.cfm -d reload_app=true -d init=true -o 'curl_log.txt' -w 'HTTP RESPONSE CODE: %{http_code}\\n' ; rm -f curl_log.txt"
-
-# Echo
-alias echo-restart="curl -G http://www.echoconference.com/index.cfm -d reload_app=true -d echo_init=true ; echo 'restarted Echo ModelGlue'"
-alias echodev-restart="curl -s -G http://echo.mopro.rtpcore.com/index.cfm -d reload_app=true -d echo_init=true ; echo 'restarted local Echo ModelGlue'"
 
 # Echo Hub Store
 alias echohs-clear="curl -G http://echohub.com/store/index.cfm -d event=cache.invalidate -d transfer=true ; echo 'cleared Echo Hub Store cache'"
