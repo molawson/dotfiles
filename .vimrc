@@ -10,6 +10,9 @@ set laststatus=2
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
 syntax on
+set background=dark
+colorscheme solarized
+
 set guifont=Menlo:h12
 set encoding=utf-8
 filetype plugin indent on
