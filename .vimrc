@@ -2,6 +2,9 @@ call pathogen#infect()
 
 set nocompatible
 
+" Remap leader key to ,
+let mapleader=","
+
 " Layout
 set rnu
 set ruler
@@ -42,9 +45,6 @@ noremap <CR> :nohlsearch<cr>
 
 " Search results highlighted with underline
 highlight Search ctermbg=None ctermfg=None cterm=underline
-
-" Remap leader key to ,
-let mapleader=","
 
 " Smart, multipurpose tab key - insert tab or autocomplete
 function! InsertTabWrapper()
