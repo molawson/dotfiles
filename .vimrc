@@ -75,8 +75,7 @@ set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 
 if has("gui_running")
-  :colorscheme desert
-  :set go-=T
+  set go-=T
 end
 
 " CommandT
