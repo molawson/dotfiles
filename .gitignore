@@ -22,6 +22,7 @@
 /.irb-history
 /.irb_history
 /.lesshst
+/.m2
 /.mocksmtp
 /.morena
 /.mysql_history
@@ -37,6 +38,7 @@
 /.ssh
 /.subversion
 /.svn2git
+/.ts3client
 /.viminfo
 /.vim/.netrwhist
 /.vmc_target

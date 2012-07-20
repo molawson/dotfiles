@@ -79,3 +79,5 @@ alias echohs-clear="curl -G http://echohub.com/store/index.cfm -d event=cache.in
 alias echohs-restart="curl -s -G http://echohub.com/store/index.cfm -d reload_app=true -d init=true -o 'curl_log.txt' -w 'HTTP RESPONSE CODE: %{http_code}\\n' ; rm -f curl_log.txt"
 alias echohsdev-clear="curl -G http://echohub.mopro.rtpcore.com/store/index.cfm -d event=cache.invalidate -d transfer=true ; echo 'cleared local Echo Hub Store cache'"
 alias echohsdev-restart="curl -s -G http://echohub.mopro.rtpcore.com/store/index.cfm -d reload_app=true -d init=true -o 'curl_log.txt' -w 'HTTP RESPONSE CODE: %{http_code}\\n' ; rm -f curl_log.txt"
+
+alias ptime="date +'%Y%m%d%H%M%S'"
