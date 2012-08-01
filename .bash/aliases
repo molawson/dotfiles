@@ -9,6 +9,7 @@ alias lesson='cd ~/Code/personal/lessonplans'
 alias mo='cd ~/Code/personal/molawson'
 
 alias starbuck='cd ~/Code/rt/starbuck'
+alias crashdown='cd ~/Code/rt/crashdown'
 alias husker='cd ~/Code/rt/husker'
 alias huskerp='cd ~/Code/rt/husker/posts/wordpress/wp-content/themes/echohub-bones'
 alias helo='cd ~/Code/rt/helo'
