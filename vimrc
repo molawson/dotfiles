@@ -1,3 +1,5 @@
+" Inspiration (and much of the actual code) from Gary Bernhardt's dotfiles (https://github.com/garybernhardt/dotfiles)
+
 call pathogen#infect()
 
 set nocompatible
