@@ -4,8 +4,10 @@ call pathogen#infect()
 
 set nocompatible
 
+
 " Remap leader key to ,
 let mapleader=","
+
 
 " Layout
 set rnu
@@ -20,11 +22,10 @@ set encoding=utf-8
 set background=dark
 colorscheme solarized
 
-" Toggle background color
-call togglebg#map("<leader>t")
 
 " Store all .swp files in a common location
 set directory=$HOME/.vim/tmp//,.
+
 
 " Wrapping and indentation
 set wrap
@@ -38,6 +39,11 @@ set backspace=indent,eol,start
 
 filetype plugin indent on
 
+if has("gui_running")
+  set go-=T
+end
+
+
 " Search
 set hlsearch
 set incsearch
@@ -45,8 +51,15 @@ set ignorecase
 set smartcase
 noremap <CR> :nohlsearch<cr>
 
+
 " Search results highlighted with underline
 highlight Search ctermbg=None ctermfg=None cterm=underline
+
+
+" Bash style tab completion
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
+
 
 " Smart, multipurpose tab key - insert tab or autocomplete
 function! InsertTabWrapper()
@@ -60,6 +73,7 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
+
 " Rename current file
 function! RenameFile()
     let old_name = expand('%')
@@ -72,17 +86,16 @@ function! RenameFile()
 endfunction
 map <leader>n :call RenameFile()<cr>
 
-" Bash style tab completion
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
-
-if has("gui_running")
-  set go-=T
-end
 
 " CommandT
 map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+
+
+"""""""""""""""""""""""""""""
+" RAILS COMMAND-T SHORTCUTS
+"""""""""""""""""""""""""""""
+
 map <leader>gr :topleft :split config/routes.rb<cr>
 function! ShowRoutes()
   " Requires 'scratch' plugin
@@ -100,6 +113,7 @@ function! ShowRoutes()
   " Delete empty trailing line
   :normal dd
 endfunction
+
 map <leader>gR :call ShowRoutes()<cr>
 map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
 map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
@@ -108,21 +122,73 @@ map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
 map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
 map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
 map <leader>gs :CommandTFlush<cr>\|:CommandT public/stylesheets/sass<cr>
-map <leader>gf :CommandTFlush<cr>\|:CommandT features<cr>
+map <leader>gf :CommandTFlush<cr>\|:CommandT test/functional<cr>
+map <leader>gu :CommandTFlush<cr>\|:CommandT test/unit<cr>
 map <leader>gg :topleft 100 :split Gemfile<cr>
 let g:CommandTMaxHeight=20
+
+
+"""""""""""""""""
+" RUNNING TESTS
+"""""""""""""""""
+
+map <leader>t :call RunTestFile()<cr>
+map <leader>T :call RunNearestTest()<cr>
+map <leader>a :call RunTests('')<cr>
+
+function! RunTestFile(...)
+  if a:0
+    let command_suffix = a:1
+  else
+    let command_suffix = ""
+  endif
+
+  " Run the tests for the previously-marked file.
+  let in_test_file = match(expand("%"), '\(_test.rb\)$') != -1
+  if in_test_file
+    call SetTestFile()
+  elseif !exists("t:mol_test_file")
+    return
+  end
+  call RunTests(t:mol_test_file . command_suffix)
+endfunction
+
+function! SetTestFile()
+  " Set the spec file that tests will be run for.
+  let t:mol_test_file=@%
+endfunction
+
+function! RunTests(filename)
+  " Write the file and run tests for the given filename
+  :w
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  if filereadable("script/test")
+    exec ":!script/test " . a:filename
+  else
+    exec ":!ruby -Itest " . a:filename
+  end
+endfunction
+
 
 " Copy to and paste from system clipboard
 map <leader>p "*p<cr>
 map <leader>P "*P<cr>
 map <leader>y "*y<cr>
 
+
 " Delete to black hole register
 map <leader>d "_d<cr>
 map <leader>D "_dd<cr>
 
+
 " Insert a hash rocket with <c-l>
 imap <c-l> <space>=><space>
+
 
 augroup vimrcEx
   " Clear all autocmds in the group
@@ -136,6 +202,7 @@ augroup vimrcEx
   autocmd FileType cf set commentstring=<!---\ %s\ --->
 augroup END
 
+
 " Automatic split resizing
 set winwidth=60
 set winminwidth=60
@@ -143,6 +210,7 @@ set winwidth=160
 set winheight=10
 set winminheight=10
 set winheight=999
+
 
 " Move around splits with <c-hjkl>
 nnoremap <c-j> <c-w>j
