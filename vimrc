@@ -121,9 +121,7 @@ map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
 map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
 map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
 map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
-map <leader>gs :CommandTFlush<cr>\|:CommandT public/stylesheets/sass<cr>
-map <leader>gf :CommandTFlush<cr>\|:CommandT test/functional<cr>
-map <leader>gu :CommandTFlush<cr>\|:CommandT test/unit<cr>
+map <leader>gs :CommandTFlush<cr>\|:CommandT spec<cr>
 map <leader>gg :topleft 100 :split Gemfile<cr>
 let g:CommandTMaxHeight=20
 
@@ -144,7 +142,7 @@ function! RunTestFile(...)
   endif
 
   " Run the tests for the previously-marked file.
-  let in_test_file = match(expand("%"), '\(_test.rb\)$') != -1
+  let in_test_file = match(expand("%"), '\(_spec.rb\)$') != -1
   if in_test_file
     call SetTestFile()
   elseif !exists("t:mol_test_file")
@@ -169,8 +167,10 @@ function! RunTests(filename)
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
   if filereadable("script/test")
     exec ":!script/test " . a:filename
+  elseif filereadable("Gemfile")
+    exec ":!bundle exec rspec --color " . a:filename
   else
-    exec ":!ruby -Itest " . a:filename
+    exec ":!rspec --color " . a:filename
   end
 endfunction
 
