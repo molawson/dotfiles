@@ -151,6 +151,11 @@ function! RunTestFile(...)
   call RunTests(t:mol_test_file . command_suffix)
 endfunction
 
+function! RunNearestTest()
+  let spec_line_number = line('.')
+  call RunTestFile(":" . spec_line_number . " -b")
+endfunction
+
 function! SetTestFile()
   " Set the spec file that tests will be run for.
   let t:mol_test_file=@%
