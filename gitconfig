@@ -8,9 +8,10 @@
 [core]
 	quotepath = false
 [alias]
-  st = status -sb
+  st = status -s
   ci = commit
   cm = !git ci -m
+  ca = !git ci -a
   co = checkout
   d = diff
   dc = diff --cached
@@ -26,6 +27,7 @@
   r = !git l -20
   ra = !git r --all
   re = rebase
+  rh = reset HEAD
   ru = remote update
   p = push
   po = !git p origin
@@ -47,3 +49,5 @@
   tool = vimdiff
 [mergetool]
 	keepBackup = true
+[push]
+	default = simple
