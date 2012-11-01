@@ -1,2 +1,3 @@
 export POW_DST_PORT=88
-export POW_EXT_DOMAINS=mopro.rtpcore.com
+export POW_EXT_DOMAINS=mopro.rtpcore.com,moair.rtpcore.com
+# export ENABLE_HTTPS=yes
