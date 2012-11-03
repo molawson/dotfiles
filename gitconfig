@@ -8,7 +8,7 @@
 [core]
 	quotepath = false
 [alias]
-  st = status -s
+  st = status -sb
   ci = commit
   cm = !git ci -m
   ca = !git ci -a

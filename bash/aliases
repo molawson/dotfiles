@@ -30,6 +30,7 @@ alias rs='rails server'
 alias rg='rails generate'
 alias a='autotest -rails'
 alias tlog='tail -f log/development.log'
+alias tlogt='tail -f log/test.log'
 alias scaffold='rails generate nifty_scaffold'
 alias migrate='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
@@ -83,4 +84,8 @@ alias echohs-restart="curl -s -G http://echohub.com/store/index.cfm -d reload_ap
 alias echohsdev-clear="curl -G http://echohub.mopro.rtpcore.com/store/index.cfm -d event=cache.invalidate -d transfer=true ; echo 'cleared local Echo Hub Store cache'"
 alias echohsdev-restart="curl -s -G http://echohub.mopro.rtpcore.com/store/index.cfm -d reload_app=true -d init=true -o 'curl_log.txt' -w 'HTTP RESPONSE CODE: %{http_code}\\n' ; rm -f curl_log.txt"
 
+# Util
 alias ptime="date +'%Y%m%d%H%M%S'"
+
+# Fun
+alias unlocked="ruby ~/Code/util/achievement_unlocked.rb "
