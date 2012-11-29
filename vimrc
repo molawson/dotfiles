@@ -21,6 +21,7 @@ set guifont=Menlo:h12
 set encoding=utf-8
 set background=dark
 colorscheme Tomorrow-Night
+set list listchars=tab:»·,trail:·
 
 
 " Store all .swp files in a common location
