@@ -40,6 +40,7 @@ set backspace=indent,eol,start
 
 filetype plugin indent on
 
+
 if has("gui_running")
   set go-=T
 end

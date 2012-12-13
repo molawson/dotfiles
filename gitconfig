@@ -38,6 +38,7 @@
   uff = !git u --ff-only
   l = log --graph --abbrev-commit --date=relative
   la = !git l --all
+  ld = !git l -1 --pretty
   fa = fetch --all
   b = branch
   ss = stash save
