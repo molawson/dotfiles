@@ -24,6 +24,10 @@ alias la='ls -A'
 # Git/Hub
 alias git='hub'
 
+# Cloudapp
+alias cl='cloudapp'
+alias cld='cloudapp --direct'
+
 # Rails
 alias rc='rails console'
 alias rs='rails server'
