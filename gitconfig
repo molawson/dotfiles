@@ -1,12 +1,12 @@
 # Inspiration (and much of the actual code) from Gary Bernhardt's dotfiles (https://github.com/garybernhardt/dotfiles)
 
 [user]
-	name = Mo Lawson
-	email = moklawson@gmail.com
+  name = Mo Lawson
+  email = moklawson@gmail.com
 [color]
   ui = auto
 [core]
-	quotepath = false
+  quotepath = false
 [alias]
   st = status -sb
   ci = commit
@@ -49,6 +49,6 @@
 [merge]
   tool = vimdiff
 [mergetool]
-	keepBackup = true
+  keepBackup = true
 [push]
-	default = simple
+  default = simple
