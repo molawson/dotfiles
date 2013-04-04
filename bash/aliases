@@ -3,6 +3,8 @@ alias ..='cd ..'
 alias c='clear'
 alias cc='cd ; clear'
 
+alias scratch='cd ~/Dropbox/Documents/Scratch'
+
 # projects
 alias box='cd ~/Code/personal/boxeseverywhere'
 alias lesson='cd ~/Code/personal/lessonplans'
@@ -14,6 +16,7 @@ alias husker='cd ~/Code/rt/husker'
 alias huskerp='cd ~/Code/rt/husker/posts/wordpress/wp-content/themes/echohub-bones'
 alias helo='cd ~/Code/rt/helo'
 alias baltar='cd ~/Code/rt/baltar'
+alias longshot='cd ~/Code/rt/longshot'
 
 # ls
 alias ls="ls -F"
