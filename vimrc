@@ -51,11 +51,19 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-noremap <CR> :nohlsearch<cr>
-
 
 " Search results highlighted with underline
 highlight Search ctermbg=None ctermfg=None cterm=underline
+
+" Clear the search buffer when hitting return
+function! MapCR()
+  nnoremap <cr> :nohlsearch<cr>
+endfunction
+call MapCR()
+
+
+" Ack
+map <leader>a :Ack <cword><cr>
 
 
 " Bash style tab completion
@@ -238,6 +246,11 @@ augroup vimrcEx
     \ endif
 
   autocmd FileType cf set commentstring=<!---\ %s\ --->
+
+  " Leave the return key alone when in command line windows, since it's used
+  " to run commands there.
+  autocmd! CmdwinEnter * :unmap <cr>
+  autocmd! CmdwinLeave * :call MapCR()
 augroup END
 
 
