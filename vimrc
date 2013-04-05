@@ -181,8 +181,10 @@ map <leader>s :call SetTestFile()<cr>
 
 function! RunTestFile(...)
   if a:0
-    let command_suffix = a:1
+    let command_prefix = a:1
+    let command_suffix = a:2
   else
+    let command_prefix = ""
     let command_suffix = ""
   endif
 
@@ -193,12 +195,12 @@ function! RunTestFile(...)
   elseif !exists("t:mol_test_file")
     return
   end
-  call RunTests(t:mol_test_file . command_suffix)
+  call RunTests(command_prefix . t:mol_test_file . command_suffix)
 endfunction
 
 function! RunNearestTest()
   let spec_line_number = line('.')
-  call RunTestFile(":" . spec_line_number . " -b")
+  call RunTestFile("-b ", ":" . spec_line_number)
 endfunction
 
 function! SetTestFile()
