@@ -26,6 +26,12 @@ alias la='ls -A'
 
 # Git/Hub
 alias git='hub'
+alias g='git'
+
+# Tmux
+alias t='tmux'
+alias ta='tmux attach -t'
+alias tl='tmux list-sessions'
 
 # Cloudapp
 alias cl='cloudapp'
@@ -44,6 +50,14 @@ alias rst='touch tmp/restart.txt'
 alias be='bundle exec'
 alias dstart='rails server -d'
 alias dstop='kill -9 $(cat tmp/pids/server.pid)'
+
+# Zeus
+alias z='zeus start'
+alias zc='zeus console'
+alias zs='zeus server'
+alias zg='zeus generate'
+alias zr='zeus rake'
+alias zt='zeus rspec'
 
 # Vim
 alias v.='vim .'
@@ -79,17 +93,11 @@ alias cf-start="/Applications/ColdFusion8/bin/coldfusion start"
 alias cf-stop="/Applications/ColdFusion8/bin/coldfusion stop"
 alias cf-restart="/Applications/ColdFusion8/bin/coldfusion restart"
 
-# Igniter
-alias igniter-clear="curl -G http://www.ignitermedia.com/index.cfm -d event=cache.invalidate -d transfer=true ; echo 'cleared Igniter cache'"
-alias igniter-restart="curl -s -G http://www.ignitermedia.com/index.cfm -d reload_app=true -d init=true -o 'curl_log.txt' -w 'HTTP RESPONSE CODE: %{http_code}\\n' ; rm -f curl_log.txt"
-alias igniterdev-clear="curl -G http://igniter.mopro.rtpcore.com/index.cfm -d event=cache.invalidate -d transfer=true ; echo 'cleared local Igniter cache'"
-alias igniterdev-restart="curl -s -G http://igniter.mopro.rtpcore.com/index.cfm -d reload_app=true -d init=true -o 'curl_log.txt' -w 'HTTP RESPONSE CODE: %{http_code}\\n' ; rm -f curl_log.txt"
-
 # Echo Hub Store
 alias echohs-clear="curl -G http://echohub.com/store/index.cfm -d event=cache.invalidate -d transfer=true ; echo 'cleared Echo Hub Store cache'"
 alias echohs-restart="curl -s -G http://echohub.com/store/index.cfm -d reload_app=true -d init=true -o 'curl_log.txt' -w 'HTTP RESPONSE CODE: %{http_code}\\n' ; rm -f curl_log.txt"
-alias echohsdev-clear="curl -G http://echohub.mopro.rtpcore.com/store/index.cfm -d event=cache.invalidate -d transfer=true ; echo 'cleared local Echo Hub Store cache'"
-alias echohsdev-restart="curl -s -G http://echohub.mopro.rtpcore.com/store/index.cfm -d reload_app=true -d init=true -o 'curl_log.txt' -w 'HTTP RESPONSE CODE: %{http_code}\\n' ; rm -f curl_log.txt"
+alias echohsdev-clear="curl -G http://echohub.dev//store/index.cfm -d event=cache.invalidate -d transfer=true ; echo 'cleared local Echo Hub Store cache'"
+alias echohsdev-restart="curl -s -G http://echohub.dev/store/index.cfm -d reload_app=true -d init=true -o 'curl_log.txt' -w 'HTTP RESPONSE CODE: %{http_code}\\n' ; rm -f curl_log.txt"
 
 # Util
 alias ptime="date +'%Y%m%d%H%M%S'"
