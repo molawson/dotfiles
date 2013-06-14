@@ -52,3 +52,7 @@
   keepBackup = true
 [push]
   default = simple
+[github]
+	user = molawson
+[credential]
+	helper = osxkeychain
