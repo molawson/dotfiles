@@ -21,6 +21,8 @@ set guifont=Menlo:h12
 set encoding=utf-8
 set background=dark
 colorscheme Tomorrow-Night
+" set background=light
+" colorscheme Tomorrow
 set list listchars=tab:»·,trail:·
 
 
@@ -200,7 +202,8 @@ endfunction
 
 function! RunNearestTest()
   let spec_line_number = line('.')
-  call RunTestFile("-b ", ":" . spec_line_number)
+  " call RunTestFile("-b ", ":" . spec_line_number)
+  call RunTestFile("", ":" . spec_line_number)
 endfunction
 
 function! SetTestFile()
@@ -227,6 +230,21 @@ function! RunTests(filename)
     exec ":!rspec --color " . a:filename
   end
 endfunction
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PROMOTE VARIABLE TO RSPEC LET
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! PromoteToLet()
+  :normal! dd
+  " :exec '?^\s*it\>'
+  :normal! P
+  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
+  :normal ==
+endfunction
+:command! PromoteToLet :call PromoteToLet()
+:map <leader>l :PromoteToLet<cr>
+
 
 
 " Copy to and paste from system clipboard
