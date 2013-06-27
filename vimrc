@@ -57,6 +57,9 @@ endfunction
 call MapCR()
 
 
+let g:ctrlp_max_height=20
+
+
 " Bash style tab completion
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
@@ -85,9 +88,9 @@ function! RenameFile()
 endfunction
 
 
-"""""""""""""""""""""""""""""
-" RAILS COMMAND-T SHORTCUTS
-"""""""""""""""""""""""""""""
+"""""""""""""""
+" RAILS ROUTES
+"""""""""""""""
 
 function! ShowRoutes()
   " Requires 'scratch' plugin
@@ -109,8 +112,6 @@ function! ShowRoutes()
   " Delete empty trailing line
   :normal dd
 endfunction
-
-let g:CommandTMaxHeight=20
 
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -203,23 +204,25 @@ endfunction
 " LEADER SHORTCUTS
 """""""""""""""""""
 
-" CommandT
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+" CtrlP
+map <leader>f :CtrlP<cr>
+map <leader>b :CtrlPBuffer<cr>
+map <leader>c :CtrlPTag<cr>
+map <leader>r :CtrlPMRU<cr>
 
-" CommandT Rails
+" Rails
+map <leader>gg :topleft 100 :split Gemfile<cr>
 map <leader>gr :topleft :split config/routes.rb<cr>
 map <leader>gR :call ShowRoutes()<cr>
-map <leader>gs :CommandTFlush<cr>\|:CommandT app/assets/stylesheets<cr>
-map <leader>gj :CommandTFlush<cr>\|:CommandT app/assets/javascripts<cr>
-map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
-map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
-map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
-map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
-map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
-map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
-map <leader>gt :CommandTFlush<cr>\|:CommandT spec<cr>
-map <leader>gg :topleft 100 :split Gemfile<cr>
+map <leader>gs :CtrlP app/assets/stylesheets<cr>
+map <leader>gj :CtrlP app/assets/javascripts<cr>
+map <leader>gv :CtrlP app/views<cr>
+map <leader>gc :CtrlP app/controllers<cr>
+map <leader>gm :CtrlP app/models<cr>
+map <leader>gh :CtrlP app/helpers<cr>
+map <leader>gl :CtrlP lib<cr>
+map <leader>gp :CtrlP public<cr>
+map <leader>gt :CtrlP spec<cr>
 
 " Tests
 nnoremap <leader>. :call OpenTestAlternate()<cr>
