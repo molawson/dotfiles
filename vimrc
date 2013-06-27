@@ -5,30 +5,20 @@ call pathogen#infect()
 set nocompatible
 
 
+" Store all .swp files in a common location
+set directory=$HOME/.vim/tmp//,.
+
+
 " Remap leader key to ,
 let mapleader=","
 
 
 " Layout
-set rnu
+set relativenumber
 set ruler
 set showcmd
 set laststatus=2
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
-
-syntax on
-set guifont=Menlo:h12
-set encoding=utf-8
-set background=dark
-colorscheme Tomorrow-Night
-" set background=light
-" colorscheme Tomorrow
-set list listchars=tab:»·,trail:·
-
-
-" Store all .swp files in a common location
-set directory=$HOME/.vim/tmp//,.
-
 
 " Wrapping and indentation
 set wrap
@@ -39,14 +29,17 @@ set softtabstop=2
 set shiftwidth=2
 set autoindent
 set backspace=indent,eol,start
-
 filetype plugin indent on
 
-
-if has("gui_running")
-  set go-=T
-end
-
+" Display
+syntax on
+set guifont=Menlo:h12
+set encoding=utf-8
+set background=dark
+colorscheme Tomorrow-Night
+" set background=light
+" colorscheme Tomorrow
+set list listchars=tab:»·,trail:·
 
 " Search
 set hlsearch
@@ -62,10 +55,6 @@ function! MapCR()
   nnoremap <cr> :nohlsearch<cr>
 endfunction
 call MapCR()
-
-
-" Ack
-map <leader>a :Ack <cword><cr>
 
 
 " Bash style tab completion
@@ -94,19 +83,12 @@ function! RenameFile()
         exec ':Move ' . new_name
     endif
 endfunction
-map <leader>n :call RenameFile()<cr>
-
-
-" CommandT
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 
 
 """""""""""""""""""""""""""""
 " RAILS COMMAND-T SHORTCUTS
 """""""""""""""""""""""""""""
 
-map <leader>gr :topleft :split config/routes.rb<cr>
 function! ShowRoutes()
   " Requires 'scratch' plugin
   :topleft 100 :split __Routes__
@@ -128,23 +110,13 @@ function! ShowRoutes()
   :normal dd
 endfunction
 
-map <leader>gR :call ShowRoutes()<cr>
-map <leader>gs :CommandTFlush<cr>\|:CommandT app/assets/stylesheets<cr>
-map <leader>gj :CommandTFlush<cr>\|:CommandT app/assets/javascripts<cr>
-map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
-map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
-map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
-map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
-map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
-map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
-map <leader>gt :CommandTFlush<cr>\|:CommandT spec<cr>
-map <leader>gg :topleft 100 :split Gemfile<cr>
 let g:CommandTMaxHeight=20
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""
 " SWITCH BETWEEN TEST AND PRODUCTION CODE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""
+
 function! OpenTestAlternate()
   let new_file = AlternateForCurrentFile()
   exec ':e ' . new_file
@@ -170,16 +142,11 @@ function! AlternateForCurrentFile()
   endif
   return new_file
 endfunction
-nnoremap <leader>. :call OpenTestAlternate()<cr>
 
 
-"""""""""""""""""
+""""""""""""""""
 " RUNNING TESTS
-"""""""""""""""""
-
-map <leader>t :call RunTestFile()<cr>
-map <leader>T :call RunNearestTest()<cr>
-map <leader>s :call SetTestFile()<cr>
+""""""""""""""""
 
 function! RunTestFile(...)
   if a:0
@@ -232,34 +199,62 @@ function! RunTests(filename)
 endfunction
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PROMOTE VARIABLE TO RSPEC LET
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! PromoteToLet()
-  :normal! dd
-  " :exec '?^\s*it\>'
-  :normal! P
-  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
-  :normal ==
-endfunction
-:command! PromoteToLet :call PromoteToLet()
-:map <leader>l :PromoteToLet<cr>
+"""""""""""""""""""
+" LEADER SHORTCUTS
+"""""""""""""""""""
 
+" CommandT
+map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 
+" CommandT Rails
+map <leader>gr :topleft :split config/routes.rb<cr>
+map <leader>gR :call ShowRoutes()<cr>
+map <leader>gs :CommandTFlush<cr>\|:CommandT app/assets/stylesheets<cr>
+map <leader>gj :CommandTFlush<cr>\|:CommandT app/assets/javascripts<cr>
+map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
+map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
+map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
+map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
+map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
+map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
+map <leader>gt :CommandTFlush<cr>\|:CommandT spec<cr>
+map <leader>gg :topleft 100 :split Gemfile<cr>
+
+" Tests
+nnoremap <leader>. :call OpenTestAlternate()<cr>
+map <leader>t :call RunTestFile()<cr>
+map <leader>T :call RunNearestTest()<cr>
+map <leader>s :call SetTestFile()<cr>
+
+" The Silver Searcher (Ag)
+map <leader>ag :Ag! 
+map <leader>ac :Ag! <cword><cr>
+map <leader>as :AgFromSearch!<cr>
 
 " Copy to and paste from system clipboard
 map <leader>p "*p<cr>
 map <leader>P "*P<cr>
 map <leader>y "*y<cr>
 
-
 " Delete to black hole register
 map <leader>d "_d<cr>
 map <leader>D "_dd<cr>
 
+" Rename current file
+map <leader>n :call RenameFile()<cr>
 
-" Insert a hash rocket with <c-l>
+" Open .vimrc in a new tab
+map <leader>v :tabe ~/.vimrc<cr>
+
 imap <c-l> <space>=><space>
+
+
+" Move around splits with <c-hjkl>
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 
 
 augroup vimrcEx
@@ -287,10 +282,3 @@ set winwidth=160
 set winheight=10
 set winminheight=10
 set winheight=999
-
-
-" Move around splits with <c-hjkl>
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
