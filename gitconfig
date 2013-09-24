@@ -7,6 +7,7 @@
   ui = auto
 [core]
   quotepath = false
+  excludesfile = /Users/molawson/.gitignore_global
 [alias]
   st = status -sb
   ci = commit
