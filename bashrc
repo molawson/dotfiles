@@ -31,6 +31,8 @@ if [ $? -eq 1 ] ; then
     export PATH
 fi
 
+
+# Use vim key bindings in bash prompts
 set -o vi
 
 
@@ -91,5 +93,8 @@ export DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$DYLD_LIBRARY_PATH"
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# rt
+eval "$($HOME/.rt/bin/rt init -)"
 
 export PATH
