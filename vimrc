@@ -56,9 +56,7 @@ function! MapCR()
 endfunction
 call MapCR()
 
-
-let g:ctrlp_max_height=20
-
+let g:CommandTMaxHeight=20
 
 " Bash style tab completion
 set wildmode=list:longest,list:full
@@ -205,24 +203,23 @@ endfunction
 """""""""""""""""""
 
 " CtrlP
-map <leader>f :CtrlP<cr>
-map <leader>b :CtrlPBuffer<cr>
-map <leader>c :CtrlPTag<cr>
-map <leader>r :CtrlPMRU<cr>
+map <leader>f :CommandT<cr>
+map <leader>b :CommandTBuffer<cr>
+map <leader>c :CommandTTag<cr>
 
 " Rails
 map <leader>gg :topleft 100 :split Gemfile<cr>
 map <leader>gr :topleft :split config/routes.rb<cr>
 map <leader>gR :call ShowRoutes()<cr>
-map <leader>gs :CtrlP app/assets/stylesheets<cr>
-map <leader>gj :CtrlP app/assets/javascripts<cr>
-map <leader>gv :CtrlP app/views<cr>
-map <leader>gc :CtrlP app/controllers<cr>
-map <leader>gm :CtrlP app/models<cr>
-map <leader>gh :CtrlP app/helpers<cr>
-map <leader>gl :CtrlP lib<cr>
-map <leader>gp :CtrlP public<cr>
-map <leader>gt :CtrlP spec<cr>
+map <leader>gs :CommandT app/assets/stylesheets<cr>
+map <leader>gj :CommandT app/assets/javascripts<cr>
+map <leader>gv :CommandT app/views<cr>
+map <leader>gc :CommandT app/controllers<cr>
+map <leader>gm :CommandT app/models<cr>
+map <leader>gh :CommandT app/helpers<cr>
+map <leader>gl :CommandT lib<cr>
+map <leader>gp :CommandT public<cr>
+map <leader>gt :CommandT spec<cr>
 
 " Tests
 nnoremap <leader>. :call OpenTestAlternate()<cr>
