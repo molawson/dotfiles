@@ -49,3 +49,6 @@
 [submodule "vim/bundle/command-t"]
 	path = vim/bundle/command-t
 	url = git@github.com:wincent/Command-T.git
+[submodule "vim/bundle/vim-abolish"]
+	path = vim/bundle/vim-abolish
+	url = git://github.com/tpope/vim-abolish.git
