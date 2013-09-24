@@ -34,6 +34,8 @@ alias tn='tmux new -s'
 alias ta='tmux attach -t'
 alias tl='tmux list-sessions'
 
+alias pair='ssh -R 1337:localhost:22 pair@molawson.com'
+
 # Cloudapp
 alias cl='cloudapp'
 alias cld='cloudapp --direct'
