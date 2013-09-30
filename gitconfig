@@ -44,9 +44,13 @@
   ld = !git l -1 --pretty
   fa = fetch --all
   b = branch
-  ss = stash save
-  sp = !git ss --patch
+  s = stash save
+  sp = !git s --patch
+  sl = stash list
   so = stash pop
+  ss = stash show
+  ssp = !git ss --patch
+  sd = stash drop
 [format]
   pretty = format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
 [merge]
