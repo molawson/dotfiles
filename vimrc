@@ -56,7 +56,10 @@ function! MapCR()
 endfunction
 call MapCR()
 
-let g:CommandTMaxHeight=20
+" CtrlP
+let g:ctrlp_match_window = 'order:ttb,max:20'
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_use_caching = 0
 
 " Bash style tab completion
 set wildmode=list:longest,list:full
@@ -202,24 +205,25 @@ endfunction
 " LEADER SHORTCUTS
 """""""""""""""""""
 
-" CommandT
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-map <leader>b :CommandTFlush<cr>\|:CommandTBuffer<cr>
-map <leader>c :CommandTFlush<cr>\|:CommandTTag<cr>
+" CtrlP
+map <leader>f :CtrlP<cr>
+map <leader>b :CtrlPBuffer<cr>
+map <leader>c :CtrlPTag<cr>
+map <leader>r :CtrlPMRU<cr>
 
 " Rails
 map <leader>gg :topleft 100 :split Gemfile<cr>
 map <leader>gr :topleft :split config/routes.rb<cr>
 map <leader>gR :call ShowRoutes()<cr>
-map <leader>gs :CommandTFlush<cr>\|:CommandT app/assets/stylesheets<cr>
-map <leader>gj :CommandTFlush<cr>\|:CommandT app/assets/javascripts<cr>
-map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
-map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
-map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
-map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
-map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
-map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
-map <leader>gt :CommandTFlush<cr>\|:CommandT spec<cr>
+map <leader>gs :CtrlP app/assets/stylesheets<cr>
+map <leader>gj :CtrlP app/assets/javascripts<cr>
+map <leader>gv :CtrlP app/views<cr>
+map <leader>gc :CtrlP app/controllers<cr>
+map <leader>gm :CtrlP app/models<cr>
+map <leader>gh :CtrlP app/helpers<cr>
+map <leader>gl :CtrlP lib<cr>
+map <leader>gp :CtrlP public<cr>
+map <leader>gt :CtrlP spec<cr>
 
 " Tests
 nnoremap <leader>. :call OpenTestAlternate()<cr>
