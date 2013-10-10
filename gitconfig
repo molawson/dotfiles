@@ -30,8 +30,7 @@
   rb = !git r --branches --remotes --tags
   re = rebase
   rh = reset HEAD
-  ru = remote update
-  rp = remote prune
+  ru = remote update --prune
   p = push
   po = !git p origin
   u = pull

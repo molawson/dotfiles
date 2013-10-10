@@ -65,6 +65,7 @@ let g:ctrlp_use_caching = 0
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 
+au! BufRead,BufNewFile *.pp setfiletype ruby
 
 " Smart, multipurpose tab key - insert tab or autocomplete
 function! InsertTabWrapper()
