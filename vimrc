@@ -58,7 +58,8 @@ call MapCR()
 
 " CtrlP
 let g:ctrlp_match_window = 'order:ttb,max:20'
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_user_command = 'ag %s -lU --hidden --nocolor -g ""'
+let g:ctrlp_show_hidden = 1
 let g:ctrlp_use_caching = 0
 
 " Bash style tab completion
