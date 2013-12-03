@@ -3,7 +3,7 @@ source ~/.bash/git-completion.bash
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:$PATH"
 export RUBYLIB="/usr/local/lib:$RUBYLIB"
-export GIT_SSL_CAINFO="$HOME/.certs/cacert.pem"
+export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 
 BLACK=$(tput setaf 0)
 RED=$(tput setaf 1)
