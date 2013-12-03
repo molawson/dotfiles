@@ -55,7 +55,7 @@ better_git_prompt() {
     if [[ ${state} != "" ]]; then
       state=" "$state
     fi
-    
+
     # Set color based on status against remote.
     remote_pattern="# Your branch is (.*) '"
     if [[ ${git_status} =~ ${remote_pattern} ]]; then
@@ -76,6 +76,14 @@ better_git_prompt() {
     branch_pattern="^# On branch ([^${IFS}]*)"    
     if [[ ${git_status} =~ ${branch_pattern} ]]; then
       branch=${BASH_REMATCH[1]}
+    else
+      git_tag="$(git describe --tags --exact-match 2> /dev/null)"
+      if [[ ${git_tag} != "" ]]; then
+        branch=${git_tag}
+      else
+        git_sha="$(git rev-parse --short HEAD 2> /dev/null)"
+        branch=${git_sha}
+      fi
     fi
 
     # Set the final branch string.
@@ -85,10 +93,9 @@ better_git_prompt() {
 }
 
 
+
 export PS1="\h:\W\$(better_git_prompt)$ "
 
-
-export DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$DYLD_LIBRARY_PATH"
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
