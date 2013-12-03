@@ -1,2 +1,4 @@
 .DS_Store
+.agignore
 doc/tags
+tags
