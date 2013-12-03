@@ -52,6 +52,7 @@ alias migrate='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
 alias be='bundle exec'
 alias bi='bundle install'
+alias bu='bundle update'
 alias dstart='rails server -d'
 alias dstop='kill -9 $(cat tmp/pids/server.pid)'
 
