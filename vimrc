@@ -33,7 +33,7 @@ filetype plugin indent on
 
 " Display
 syntax on
-set guifont=Menlo:h12
+set guifont=Menlo:h15
 set encoding=utf-8
 set background=dark
 colorscheme Tomorrow-Night
@@ -277,11 +277,18 @@ augroup vimrcEx
   autocmd!
   " Jump to last cursor position unless it's invalid or in an event handler
   autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
 
   autocmd FileType cf set commentstring=<!---\ %s\ --->
+
+  " Enable spellchecking for Markdown fiels and Git commits
+  autocmd BufRead,BufNewFile *.md setlocal spell
+  autocmd FileType gitcommit setlocal spell
+
+  " Automatically wrap at 80 characters for Markdown
+  autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 
   " Leave the return key alone when in command line windows, since it's used
   " to run commands there.
@@ -293,7 +300,7 @@ augroup END
 " Automatic split resizing
 set winwidth=60
 set winminwidth=60
-set winwidth=160
+set winwidth=120
 set winheight=10
 set winminheight=10
 set winheight=999
