@@ -57,23 +57,25 @@ better_git_prompt() {
     fi
 
     # Set color based on status against remote.
-    remote_pattern="# Your branch is (.*) '"
+    remote_pattern="Your branch is (.*)'"
     if [[ ${git_status} =~ ${remote_pattern} ]]; then
-      if [[ ${BASH_REMATCH[1]} == "ahead of" ]]; then
-        remote="${GREEN}" # ahead
-      else
-        remote="${YELLOW}" # behind
+      match="${BASH_REMATCH[1]}"
+      if [[ ${match} =~ "ahead" ]]; then
+        remote="${GREEN}"
+      elif [[ ${match} =~ "behind" ]]; then
+        remote="${YELLOW}"
+      elif [[ ${match} =~ "up-to-date" ]]; then
+        remote="${BLUE}"
       fi
     else
-      remote="${BLUE}" # in sync
-    fi
-    diverge_pattern="# Your branch and (.*) have diverged"
-    if [[ ${git_status} =~ ${diverge_pattern} ]]; then
-      remote="${RED}" # diverged
+      diverge_pattern="Your branch and (.*) have diverged"
+      if [[ ${git_status} =~ ${diverge_pattern} ]]; then
+        remote="${RED}"
+      fi
     fi
 
     # Get the name of the branch.
-    branch_pattern="^# On branch ([^${IFS}]*)"    
+    branch_pattern="On branch ([^${IFS}]*)"
     if [[ ${git_status} =~ ${branch_pattern} ]]; then
       branch=${BASH_REMATCH[1]}
     else
