@@ -214,6 +214,40 @@ endfunction
 
 
 """""""""""""""""""
+" RUBY REFACTORING
+"""""""""""""""""""
+
+function! PromoteToLet()
+  normal 0
+  if empty(matchstr(getline("."), "=")) == 1
+    echo "Can't find an assignment"
+    return
+  end
+  normal! dd
+  exec "?^\\s*\\<\\(describe\\|context\\)\\>"
+  normal! $p
+  exec 's/\v([a-z_][a-zA-Z0-9_]*) \= (.+)/let(:\1) { \2 }'
+  normal V=
+endfunction
+
+function! ExtractVariable()
+  let name = input("Variable name: ")
+  if name == ''
+    return
+  endif
+  " Enter visual mode (not sure why this is needed since we're already in
+  " visual mode anyway)
+  normal! gv
+  " Replace selected text with the variable name
+  exec "normal c" . name
+  " Define the variable on the line above
+  exec "normal! O" . name . " = "
+  " Paste the original selected text to be the variable value
+  normal! $p
+endfunction
+
+
+"""""""""""""""""""
 " LEADER SHORTCUTS
 """""""""""""""""""
 
@@ -242,6 +276,10 @@ nnoremap <leader>. :call OpenTestAlternate()<cr>
 map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
 map <leader>s :call SetTestFile()<cr>
+
+" Ruby Refactoring
+map <leader>rel :call PromoteToLet()<cr>
+map <leader>rev :call ExtractVariable()<cr>
 
 " The Silver Searcher (Ag)
 map <leader>ag :Ag! 
