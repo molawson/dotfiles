@@ -10,9 +10,6 @@
 [submodule "vim/bundle/vim-commentary"]
 	path = vim/bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "vim/bundle/vim-ruby"]
-	path = vim/bundle/vim-ruby
-	url = git://github.com/vim-ruby/vim-ruby.git
 [submodule "vim/bundle/vim-tomorrow-theme"]
 	path = vim/bundle/vim-tomorrow-theme
 	url = git://github.com/chriskempson/vim-tomorrow-theme.git
@@ -25,12 +22,6 @@
 [submodule "vim/bundle/vim-markdown"]
 	path = vim/bundle/vim-markdown
 	url = git://github.com/tpope/vim-markdown.git
-[submodule "vim/bundle/gist-vim"]
-	path = vim/bundle/gist-vim
-	url = git://github.com/mattn/gist-vim.git
-[submodule "vim/bundle/webapi-vim"]
-	path = vim/bundle/webapi-vim
-	url = git://github.com/mattn/webapi-vim.git
 [submodule "vim/bundle/vim-ruby-refactoring"]
 	path = vim/bundle/vim-ruby-refactoring
 	url = git@github.com:ecomba/vim-ruby-refactoring.git
@@ -52,3 +43,6 @@
 [submodule "vim/bundle/ctrlp.vim"]
 	path = vim/bundle/ctrlp.vim
 	url = git@github.com:kien/ctrlp.vim.git
+[submodule "vim/bundle/ctrlp-cmatcher"]
+	path = vim/bundle/ctrlp-cmatcher
+	url = git://github.com/JazzCore/ctrlp-cmatcher.git

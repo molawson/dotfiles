@@ -57,6 +57,7 @@ endfunction
 call MapCR()
 
 " CtrlP
+let g:ctrlp_match_func = { 'match' : 'matcher#cmatch' }
 let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:ctrlp_user_command = 'ag %s -lU --hidden --nocolor -g ""'
 let g:ctrlp_show_hidden = 1
@@ -288,7 +289,7 @@ augroup vimrcEx
   autocmd FileType gitcommit setlocal spell
 
   " Automatically wrap at 80 characters for Markdown
-  autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+  " autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 
   " Leave the return key alone when in command line windows, since it's used
   " to run commands there.
