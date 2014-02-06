@@ -79,8 +79,8 @@ alias s.='subl .'
 alias o.='open .'
 
 # Desktop
-alias deskh='defaults write com.apple.finder CreateDesktop -bool false | killall Finder'
-alias desks='defaults write com.apple.finder CreateDesktop -bool true | killall Finder'
+alias dh='defaults write com.apple.finder CreateDesktop -bool false ; killall Finder'
+alias ds='defaults write com.apple.finder CreateDesktop -bool true ; killall Finder'
 
 # PostgreSQL
 alias pg-start="pg_ctl -D /usr/local/var/postgres -l logfile start"
