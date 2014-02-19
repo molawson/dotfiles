@@ -17,6 +17,7 @@ install postgresql
 install qt
 install rbenv
 install rbenv-vars
+install rbenv-gem-rehash
 install redis
 install ruby-build
 install ssh-copy-id
