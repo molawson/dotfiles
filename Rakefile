@@ -3,7 +3,7 @@ require 'rake'
 desc "install the dot files into user's home directory"
 task :install do
   replace_all = false
-  files = Dir['*'] - %w[Rakefile Brewfile]
+  files = Dir['*'] - %w[Rakefile Brewfile default-gems]
   files.each do |file|
     system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
     if File.exist?(File.join(ENV['HOME'], ".#{file}"))
@@ -28,6 +28,16 @@ task :install do
     else
       link_file(file)
     end
+  end
+end
+
+namespace :install do
+  desc 'Symlink rbenv default-gems file'
+  task :default_gems do
+    file = 'default-gems'
+    system %Q{mkdir -p "$HOME/.rbenv"}
+    puts "linking ~/.rbenv/#{file}"
+    system %Q{ln -s "$PWD/#{file}" "$HOME/.rbenv/#{file}"}
   end
 end
 

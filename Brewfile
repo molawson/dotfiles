@@ -18,6 +18,7 @@ install qt
 install rbenv
 install rbenv-vars
 install rbenv-gem-rehash
+install rbenv-default-gems
 install redis
 install ruby-build
 install ssh-copy-id
