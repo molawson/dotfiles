@@ -40,6 +40,9 @@ alias pair='ssh -R 1337:localhost:22 pair@molawson.com'
 alias cl='cloudapp'
 alias cld='cloudapp --direct'
 
+# Rbenv
+alias ri='rbenv install $(rbenv local)'
+
 # Rails
 alias rc='rails console'
 alias rs='rails server'
@@ -50,11 +53,11 @@ alias tlogt='tail -f log/test.log'
 alias scaffold='rails generate nifty_scaffold'
 alias migrate='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
+
+# Bundler
 alias be='bundle exec'
 alias bi='bundle install'
 alias bu='bundle update'
-alias dstart='rails server -d'
-alias dstop='kill -9 $(cat tmp/pids/server.pid)'
 
 # Zeus
 alias z='zeus start'
