@@ -40,3 +40,6 @@
 [submodule "vim/bundle/ctrlp-cmatcher"]
 	path = vim/bundle/ctrlp-cmatcher
 	url = git://github.com/JazzCore/ctrlp-cmatcher.git
+[submodule "vim/bundle/vim-rubocop"]
+	path = vim/bundle/vim-rubocop
+	url = git@github.com:ngmy/vim-rubocop.git

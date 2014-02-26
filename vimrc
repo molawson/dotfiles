@@ -12,7 +12,6 @@ set directory=$HOME/.vim/tmp//,.
 " Remap leader key to ,
 let mapleader=","
 
-
 " Layout
 set relativenumber
 set ruler
@@ -68,6 +67,19 @@ set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 
 au! BufRead,BufNewFile *.pp setfiletype ruby
+
+" Let Rubocop auto correct style issues
+function! AutoCop()
+  let l:extra_args = g:vimrubocop_extra_args
+  let l:filename = @%
+  let l:rubocop_cmd = g:vimrubocop_rubocop_cmd
+  let l:rubocop_opts = ' -a '.l:extra_args.''
+  if g:vimrubocop_config != ''
+    let l:rubocop_opts = ' '.l:rubocop_opts.' --config '.g:vimrubocop_config
+  endif
+  system(l:rubocop_cmd.l:rubocop_opts.' '.l:filename)
+  edit
+endfunction
 
 " Smart, multipurpose tab key - insert tab or autocomplete
 function! InsertTabWrapper()
@@ -276,6 +288,8 @@ nnoremap <leader>. :call OpenTestAlternate()<cr>
 map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
 map <leader>s :call SetTestFile()<cr>
+
+map <leader>rr :call AutoCop()<cr>
 
 " Ruby Refactoring
 map <leader>rel :call PromoteToLet()<cr>
