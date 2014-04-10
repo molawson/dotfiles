@@ -80,7 +80,11 @@ function! AutoCop()
   if g:vimrubocop_config != ''
     let l:rubocop_opts = ' '.l:rubocop_opts.' --config '.g:vimrubocop_config
   endif
-  system(l:rubocop_cmd.l:rubocop_opts.' '.l:filename)
+  " go ahead and save the current file
+  write
+  " let rubocop do its thing
+  call system(l:rubocop_cmd.l:rubocop_opts.' '.l:filename)
+  " refresh the buffer
   edit
 endfunction
 
