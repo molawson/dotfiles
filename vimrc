@@ -66,6 +66,9 @@ let g:ctrlp_use_caching = 0
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 
+" Markdown code block syntax highlighting
+let g:markdown_fenced_languages=['ruby', 'eruby', 'javascript', 'coffee', 'html', 'sh']
+
 au! BufRead,BufNewFile *.pp setfiletype ruby
 
 " Let Rubocop auto correct style issues
