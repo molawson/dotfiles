@@ -66,3 +66,6 @@
   templatedir = /Users/molawson/.git_template
 [pull]
   rebase = true
+[gitsh]
+  noGreeting = true
+  defaultCommand = st

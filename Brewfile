@@ -1,4 +1,5 @@
 tap marcqualie/nginx
+tap thoughtbot/formulae
 
 install ctags
 install curl-ca-bundle
@@ -6,6 +7,7 @@ install dnsmasq
 install elixir
 install freetds
 install git
+install gitsh
 install go
 install graphviz
 install hub

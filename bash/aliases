@@ -27,6 +27,7 @@ alias la='ls -A'
 # Git/Hub
 alias git='hub'
 alias g='git'
+alias gs='gitsh --git $(which hub)'
 
 # Tmux
 alias t='tmux'
