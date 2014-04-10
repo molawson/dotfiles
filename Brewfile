@@ -3,8 +3,11 @@ tap marcqualie/nginx
 install ctags
 install curl-ca-bundle
 install dnsmasq
+install elixir
 install freetds
 install git
+install go
+install graphviz
 install hub
 install memcached
 install mongodb
