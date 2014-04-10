@@ -191,7 +191,7 @@ function! RunTestFile(...)
   endif
 
   " Run the tests for the previously-marked file.
-  let in_test_file = match(expand("%"), '\(_spec.rb\)$') != -1
+  let in_test_file = match(expand("%"), '\(_spec.rb\|_test.exs\)$') != -1
   if in_test_file
     call SetTestFile()
   elseif !exists("t:mol_test_file")
@@ -220,14 +220,18 @@ function! RunTests(filename)
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  if filereadable("script/test")
-    exec ":!script/test " . a:filename
-  elseif getfsize(".zeus.sock") >= 0
-    exec ":!zeus test " . a:filename
-  elseif filereadable("Gemfile")
-    exec ":!bundle exec rspec --color " . a:filename
-  else
-    exec ":!rspec --color " . a:filename
+  if match(a:filename, '\(.rb\)') != -1
+    if filereadable("script/test")
+      exec ":!script/test " . a:filename
+    elseif getfsize(".zeus.sock") >= 0
+      exec ":!zeus test " . a:filename
+    elseif filereadable("Gemfile")
+      exec ":!bundle exec rspec --color " . a:filename
+    else
+      exec ":!rspec --color " . a:filename
+    end
+  elseif match(a:filename, '\(.exs\)') != -1
+    exec ":!elixir " . a:filename
   end
 endfunction
 
