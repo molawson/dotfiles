@@ -18,6 +18,7 @@ install openssl
 install phantomjs
 install postgresql
 install qt
+install reattach-to-user-namespace
 install rbenv
 install rbenv-vars
 install rbenv-gem-rehash
