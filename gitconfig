@@ -64,3 +64,5 @@
   helper = osxkeychain
 [init]
   templatedir = /Users/molawson/.git_template
+[pull]
+  rebase = true
