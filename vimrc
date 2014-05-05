@@ -151,10 +151,13 @@ function! AlternateForCurrentFile()
   let in_spec = match(current_file, 'spec/') != -1
   let going_to_spec = !in_spec
   let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1 || match(current_file, '\<presenters\>') != -1
+  let in_gem = !empty(glob('*.gemspec'))
   let in_engine = match(current_file, '^engines/') != -1
   if going_to_spec
     if in_app
       let new_file = substitute(new_file, 'app/', '', '')
+    elseif in_gem
+      let new_file = substitute(new_file, 'lib/', '', '')
     end
     let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
     if in_engine
@@ -171,6 +174,8 @@ function! AlternateForCurrentFile()
       else
         let new_file = 'app/' . new_file
       end
+    elseif in_gem
+      let new_file = 'lib/' . new_file
     end
   endif
   return new_file
