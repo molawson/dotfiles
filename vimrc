@@ -360,6 +360,11 @@ augroup vimrcEx
   autocmd! CmdwinLeave * :call MapCR()
 augroup END
 
+" Use real tabs in golang files and hide tab listchars
+autocmd FileType go setlocal noexpandtab
+autocmd FileType go setlocal list listchars=tab:\ \ 
+" Run gofmt when saving golang a file
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 " Automatic split resizing
 set winwidth=60
