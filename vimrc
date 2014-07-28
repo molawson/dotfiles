@@ -150,9 +150,8 @@ function! AlternateForCurrentFile()
   let new_file = current_file
   let in_spec = match(current_file, 'spec/') != -1
   let going_to_spec = !in_spec
-  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1 || match(current_file, '\<presenters\>') != -1
+  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1 || match(current_file, '\<presenters\>') != -1 || match(current_file, '\<services\>') != -1
   let in_gem = !empty(glob('*.gemspec'))
-  let in_engine = match(current_file, '^engines/') != -1
   if going_to_spec
     if in_app
       let new_file = substitute(new_file, 'app/', '', '')
@@ -160,20 +159,12 @@ function! AlternateForCurrentFile()
       let new_file = substitute(new_file, 'lib/', '', '')
     end
     let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
-    if in_engine
-      let new_file = substitute(new_file, '^engines/\([^/]\+\)/', 'engines/\1/spec/', '')
-    else
-      let new_file = 'spec/' . new_file
-    end
+    let new_file = 'spec/' . new_file
   else
     let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
     let new_file = substitute(new_file, 'spec/', '', '')
     if in_app
-      if in_engine
-        let new_file = substitute(new_file, '^engines/\([^/]\+\)/', 'engines/\1/app/', '')
-      else
-        let new_file = 'app/' . new_file
-      end
+      let new_file = 'app/' . new_file
     elseif in_gem
       let new_file = 'lib/' . new_file
     end
@@ -231,9 +222,9 @@ function! RunTests(filename)
     elseif getfsize(".zeus.sock") >= 0
       exec ":!zeus test " . a:filename
     elseif filereadable("Gemfile")
-      exec ":!bundle exec rspec --color " . a:filename
+      exec ":!bundle exec spec --color " . a:filename
     else
-      exec ":!rspec --color " . a:filename
+      exec ":!spec --color " . a:filename
     end
   elseif match(a:filename, '\(.exs\)') != -1
     exec ":!elixir " . a:filename
