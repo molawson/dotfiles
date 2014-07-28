@@ -41,6 +41,10 @@ alias scaffold='rails generate nifty_scaffold'
 alias migrate='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
 
+# Rails 2
+alias sc='script/console'
+alias ss='script/server'
+
 # Bundler
 alias be='bundle exec'
 alias bi='bundle install'
