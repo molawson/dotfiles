@@ -1,25 +1,19 @@
-tap marcqualie/nginx
 tap thoughtbot/formulae
 
 install ctags
 install curl-ca-bundle
-install dnsmasq
 install elixir
-install freetds
 install git
 install gitsh
 install go
-install graphviz
-install hub
 install memcached
 install mongodb
 install mysql
-install nginx-full --with-mod-zip-module
+install nginx
 install node
 install openssl
 install phantomjs
 install postgresql
-install qt
 install reattach-to-user-namespace
 install rbenv
 install rbenv-vars
