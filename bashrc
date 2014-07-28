@@ -30,7 +30,7 @@ export PS1="\h:\W\$(better_git_prompt)$ "
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-# rt
-eval "$($HOME/.rt/bin/rt init -)"
+# ht
+eval "$($HOME/.ht/bin/ht init -)"
 
 export PATH
