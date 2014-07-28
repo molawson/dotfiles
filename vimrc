@@ -6,7 +6,7 @@ set nocompatible
 
 
 " Store all .swp files in a common location
-set directory=$HOME/.vim/tmp//,.
+set directory=$HOME/.vim/tmp/,.
 
 
 " Remap leader key to ,
