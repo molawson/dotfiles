@@ -1,6 +1,7 @@
 source ~/.bash/aliases
 source ~/.bash/git-completion
 source ~/.bash/git-prompt
+source ~/.private
 
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:$PATH"
