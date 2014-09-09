@@ -37,12 +37,10 @@ alias rg='rails generate'
 alias a='autotest -rails'
 alias tlog='tail -f log/development.log'
 alias tlogt='tail -f log/test.log'
-alias scaffold='rails generate nifty_scaffold'
-alias migrate='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
 
 # Rails 2
-alias sc='script/console'
+alias sc='script/console --irb=pry'
 alias ss='script/server'
 
 # Bundler
@@ -62,9 +60,6 @@ alias zt='zeus rspec'
 alias v.='vim .'
 alias v='vim'
 alias sv='sudo vim'
-
-# TextMate
-alias m.='mate .'
 
 # Sublime Text
 alias s.='subl .'
@@ -86,17 +81,6 @@ alias nr="sudo nginx -s reload"
 # Apache
 alias ar="sudo apachectl restart"
 alias avh="sudo vim /etc/apache2/extra/httpd-vhosts.conf"
-
-# ColdFusion
-alias cf-start="/Applications/ColdFusion8/bin/coldfusion start"
-alias cf-stop="/Applications/ColdFusion8/bin/coldfusion stop"
-alias cf-restart="/Applications/ColdFusion8/bin/coldfusion restart"
-
-# Echo Hub Store
-alias echohs-clear="curl -G http://echohub.com/store/index.cfm -d event=cache.invalidate -d transfer=true ; echo 'cleared Echo Hub Store cache'"
-alias echohs-restart="curl -s -G http://echohub.com/store/index.cfm -d reload_app=true -d init=true -o 'curl_log.txt' -w 'HTTP RESPONSE CODE: %{http_code}\\n' ; rm -f curl_log.txt"
-alias echohsdev-clear="curl -G http://echohub.dev//store/index.cfm -d event=cache.invalidate -d transfer=true ; echo 'cleared local Echo Hub Store cache'"
-alias echohsdev-restart="curl -s -G http://echohub.dev/store/index.cfm -d reload_app=true -d init=true -o 'curl_log.txt' -w 'HTTP RESPONSE CODE: %{http_code}\\n' ; rm -f curl_log.txt"
 
 # Util
 alias ptime="date +'%Y%m%d%H%M%S'"
