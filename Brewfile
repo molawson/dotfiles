@@ -16,9 +16,10 @@ install phantomjs
 install postgresql
 install reattach-to-user-namespace
 install rbenv
-install rbenv-vars
-install rbenv-gem-rehash
+install rbenv-aliases
 install rbenv-default-gems
+install rbenv-gem-rehash
+install rbenv-vars
 install redis
 install ruby-build
 install ssh-copy-id
