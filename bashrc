@@ -34,3 +34,6 @@ eval "$(rbenv init -)"
 eval "$($HOME/.ht/bin/ht init -)"
 
 export PATH
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
