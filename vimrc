@@ -17,7 +17,7 @@ set relativenumber
 set ruler
 set showcmd
 set laststatus=2
-set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%{fugitive#statusline()}\ %-19(%3l,%02c%03V%)
+set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
 " Wrapping and indentation
 set wrap
