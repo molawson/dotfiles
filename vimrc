@@ -39,6 +39,7 @@ colorscheme Tomorrow-Night
 " set background=light
 " colorscheme Tomorrow
 set list listchars=tab:»·,trail:·
+set cursorline
 
 " Search
 set hlsearch
