@@ -307,6 +307,7 @@ map <leader>rev :call ExtractVariable()<cr>
 map <leader>ag :Ag! 
 map <leader>ac :Ag! <cword><cr>
 map <leader>as :AgFromSearch!<cr>
+map <leader>ai :Ag! -i 
 
 " Copy to and paste from system clipboard
 map <leader>p "*p<cr>
