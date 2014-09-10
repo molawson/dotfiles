@@ -70,3 +70,5 @@
   defaultCommand = st
 [mergetool "fugitive"]
   cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+[include]
+  path = .gitconfig_private
