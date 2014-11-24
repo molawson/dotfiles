@@ -56,6 +56,12 @@ alias zg='zeus generate'
 alias zr='zeus rake'
 alias zt='zeus rspec'
 
+# Vagrant
+alias vt='vagrant status'
+alias vu='vagrant up'
+alias vs='vagrant suspend'
+alias vh='vagrant halt'
+
 # Vim
 alias v.='vim .'
 alias v='vim'
