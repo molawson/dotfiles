@@ -6,6 +6,7 @@ brew install ctags
 brew install elixir
 brew install git
 brew install gitsh
+brew install gh
 brew install go
 brew install memcached
 brew install mongodb

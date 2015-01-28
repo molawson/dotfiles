@@ -11,8 +11,9 @@ alias l="ls -lAh"
 alias ll="ls -l"
 alias la='ls -A'
 
-# Git/Hub
+# Git
 alias g='git'
+alias gs='gitsh'
 
 # Tmux
 alias t='tmux'

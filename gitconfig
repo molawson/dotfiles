@@ -69,6 +69,7 @@
 [gitsh]
   noGreeting = true
   defaultCommand = st
+  gitCommand = /usr/local/bin/gh
 [mergetool "fugitive"]
   cmd = vim -f -c \"Gdiff\" \"$MERGED\"
 [include]

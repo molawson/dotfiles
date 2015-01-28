@@ -17,13 +17,13 @@ if [ $? -eq 1 ] ; then
     export PATH
 fi
 
-
 # Use vim key bindings in bash prompts
 set -o vi
 
+# Alias git to gh
+eval "$(gh alias -s)"
 
 export PS1="\h:\W\$(better_git_prompt)$ "
-
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
