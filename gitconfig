@@ -8,6 +8,7 @@
 [core]
   quotepath = false
   excludesfile = /Users/molawson/.gitignore_global
+  editor = /usr/local/bin/vim
 [alias]
   st = status -sb
   ci = commit
