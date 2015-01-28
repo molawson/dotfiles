@@ -3,11 +3,9 @@ source ~/.bash/git-completion
 source ~/.bash/git-prompt
 source ~/.private
 
-
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:$PATH"
 export RUBYLIB="/usr/local/lib:$RUBYLIB"
-export SSL_CERT_FILE="/usr/local/etc/openssl/cert.pem"
-
+# export SSL_CERT_FILE="/usr/local/etc/openssl/cert.pem"
 
 ##
 # DELUXE-USR-LOCAL-BIN-INSERT
