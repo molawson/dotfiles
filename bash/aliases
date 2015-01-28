@@ -62,6 +62,14 @@ alias vu='vagrant up'
 alias vs='vagrant suspend'
 alias vh='vagrant halt'
 
+# PCO Box
+alias pb='pco box'
+alias pbi='pco box bundle install'
+alias pbc='pco box rails console'
+alias pbg='pco box rails generate'
+alias pbm='pco box rake db:migrate'
+alias pbr='pco box apprestart'
+
 # Vim
 alias v.='vim .'
 alias v='vim'
