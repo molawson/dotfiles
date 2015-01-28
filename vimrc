@@ -316,6 +316,9 @@ map <leader>p "*p<cr>
 map <leader>P "*P<cr>
 map <leader>y "*y<cr>
 
+" Git
+map <leader>u :diffupdate<cr>
+
 " Delete to black hole register
 map <leader>d "_d<cr>
 map <leader>D "_dd<cr>
@@ -325,6 +328,9 @@ map <leader>n :call RenameFile()<cr>
 
 " Open .vimrc in a new tab
 map <leader>v :tabe ~/.vimrc<cr>
+
+" Reload .vimrc config
+map <leader>V :source ~/.vimrc<cr>
 
 imap <c-l> <space>=><space>
 
