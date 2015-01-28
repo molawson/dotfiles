@@ -222,8 +222,10 @@ function! RunTests(filename)
       exec ":!script/test " . a:filename
     elseif getfsize(".zeus.sock") >= 0
       exec ":!zeus test " . a:filename
+    elseif filereadable("bin/spring")
+      exec ":!spring rspec --color " . a:filename
     elseif filereadable("Gemfile")
-      exec ":!bundle exec spec --color " . a:filename
+      exec ":!bundle exec rspec --color " . a:filename
     else
       exec ":!spec --color " . a:filename
     end
