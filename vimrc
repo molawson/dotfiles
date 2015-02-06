@@ -136,21 +136,32 @@ endfunction
 function! AlternateForCurrentFile()
   let current_file = expand("%")
   let new_file = current_file
-  let in_spec = match(current_file, 'spec/') != -1
-  let going_to_spec = !in_spec
+  let using_rspec = isdirectory('spec')
+  let in_test = match(current_file, 'spec/') != -1 || match(current_file, 'test/') != -1
+  let going_to_test = !in_test
   let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1 || match(current_file, '\<presenters\>') != -1 || match(current_file, '\<services\>') != -1
   let in_gem = !empty(glob('*.gemspec'))
-  if going_to_spec
+  if going_to_test
     if in_app
       let new_file = substitute(new_file, 'app/', '', '')
     elseif in_gem
       let new_file = substitute(new_file, 'lib/', '', '')
     end
-    let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
-    let new_file = 'spec/' . new_file
+    if using_rspec
+      let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
+      let new_file = 'spec/' . new_file
+    else
+      let new_file = substitute(new_file, '\.rb$', '_test.rb', '')
+      let new_file = 'test/' . new_file
+    end
   else
-    let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
-    let new_file = substitute(new_file, 'spec/', '', '')
+    if using_rspec
+      let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
+      let new_file = substitute(new_file, 'spec/', '', '')
+    else
+      let new_file = substitute(new_file, '_test\.rb$', '.rb', '')
+      let new_file = substitute(new_file, 'test/', '', '')
+    end
     if in_app
       let new_file = 'app/' . new_file
     elseif in_gem
@@ -194,6 +205,15 @@ function! ExtractVariable()
   normal! $p
 endfunction
 
+function! CtrlPTestsDynamic()
+  if isdirectory('spec')
+    let dir = 'spec'
+  else
+    let dir = 'test'
+  end
+  execute "" . g:ctrlp_cmd . " " . dir
+endfunction
+
 
 """""""""""""""""""
 " LEADER SHORTCUTS
@@ -217,7 +237,7 @@ map <leader>gm :CtrlP app/models<cr>
 map <leader>gh :CtrlP app/helpers<cr>
 map <leader>gl :CtrlP lib<cr>
 map <leader>gp :CtrlP public<cr>
-map <leader>gt :CtrlP spec<cr>
+map <leader>gt :call CtrlPTestsDynamic()<cr>
 
 " Tests
 nnoremap <leader>. :call OpenTestAlternate()<cr>
