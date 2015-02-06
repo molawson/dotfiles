@@ -161,67 +161,6 @@ function! AlternateForCurrentFile()
 endfunction
 
 
-""""""""""""""""
-" RUNNING TESTS
-""""""""""""""""
-
-function! RunTestFile(...)
-  if a:0
-    let command_prefix = a:1
-    let command_suffix = a:2
-  else
-    let command_prefix = ""
-    let command_suffix = ""
-  endif
-
-  " Run the tests for the previously-marked file.
-  let in_test_file = match(expand("%"), '\(_spec.rb\|_test.exs\)$') != -1
-  if in_test_file
-    call SetTestFile()
-  elseif !exists("t:mol_test_file")
-    return
-  end
-  call RunTests(command_prefix . t:mol_test_file . command_suffix)
-endfunction
-
-function! RunNearestTest()
-  let spec_line_number = line('.')
-  " call RunTestFile("-b ", ":" . spec_line_number)
-  call RunTestFile("", ":" . spec_line_number)
-endfunction
-
-function! SetTestFile()
-  " Set the spec file that tests will be run for.
-  let t:mol_test_file=@%
-endfunction
-
-function! RunTests(filename)
-  " Write the file and run tests for the given filename
-  :w
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  if match(a:filename, '\(.rb\)') != -1
-    if filereadable("script/test")
-      exec ":!script/test " . a:filename
-    elseif getfsize(".zeus.sock") >= 0
-      exec ":!zeus test " . a:filename
-    elseif filereadable("bin/spring")
-      exec ":!spring rspec --color " . a:filename
-    elseif filereadable("Gemfile")
-      exec ":!bundle exec rspec --color " . a:filename
-    else
-      exec ":!spec --color " . a:filename
-    end
-  elseif match(a:filename, '\(.exs\)') != -1
-    exec ":!elixir " . a:filename
-  end
-endfunction
-
-
 """""""""""""""""""
 " RUBY REFACTORING
 """""""""""""""""""
@@ -282,9 +221,8 @@ map <leader>gt :CtrlP spec<cr>
 
 " Tests
 nnoremap <leader>. :call OpenTestAlternate()<cr>
-map <leader>t :call RunTestFile()<cr>
-map <leader>T :call RunNearestTest()<cr>
-map <leader>s :call SetTestFile()<cr>
+map <leader>t :VroomRunTestFile<cr>
+map <leader>T :VroomRunNearestTest<cr>
 
 map <leader>rr :call AutoCop()<cr>
 
