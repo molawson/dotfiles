@@ -70,6 +70,7 @@
   noGreeting = true
   defaultCommand = st
   gitCommand = /usr/local/bin/gh
+  prompt = "%D %c%b%#%w"
 [mergetool "fugitive"]
   cmd = vim -f -c \"Gdiff\" \"$MERGED\"
 [include]
