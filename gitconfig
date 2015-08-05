@@ -12,6 +12,7 @@
 [alias]
   st = status -sb
   ci = commit
+  cf = !git ci --fixup
   cm = !git ci -m
   ca = !git ci -a
   co = checkout
@@ -34,6 +35,7 @@
   ru = remote update --prune
   p = push
   po = !git p origin
+  pof = !git po --force-with-lease
   u = pull
   uo = !git u origin
   ff = merge --ff-only
@@ -73,5 +75,8 @@
   prompt = "%D %c%b%#%w"
 [mergetool "fugitive"]
   cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+  keepBackup = false
 [include]
   path = .gitconfig_private
+[rebase]
+  autosquash = true

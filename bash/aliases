@@ -5,6 +5,19 @@ alias cc='cd ; clear'
 
 alias scratch='cd ~/Dropbox/Documents/Scratch'
 
+# PCO
+alias accounts='cd ~/Code/accounts'
+alias check-ins='cd ~/Code/check-ins'
+alias giving='cd ~/Code/giving'
+alias people='cd ~/Code/people'
+alias registrations='cd ~/Code/registrations'
+alias resources='cd ~/Code/resources'
+alias services='cd ~/Code/services'
+alias aci='cd ~/Code/account_center_integration'
+
+alias personal='cd ~/Code/_other/personal'
+alias hub='cd ~/Code/_other/hub'
+
 # ls
 alias ls="ls -F"
 alias l="ls -lAh"
@@ -59,17 +72,23 @@ alias zt='zeus rspec'
 
 # Vagrant
 alias vt='vagrant status'
+alias vgt='vagrant global-status'
 alias vu='vagrant up'
 alias vs='vagrant suspend'
 alias vh='vagrant halt'
 
 # PCO Box
 alias pb='pco box'
+alias pbr='pco box rake'
 alias pbi='pco box bundle install'
 alias pbc='pco box rails console'
 alias pbg='pco box rails generate'
 alias pbm='pco box rake db:migrate'
-alias pbr='pco box apprestart'
+alias pbar='pco box apprestart'
+
+alias pbu='(cd ~/pco-box && vagrant up)'
+alias pbs='(cd ~/pco-box && vagrant suspend)'
+alias pbh='(cd ~/pco-box && vagrant halt)'
 
 # Vim
 alias v.='vim .'

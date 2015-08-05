@@ -18,6 +18,7 @@ set ruler
 set showcmd
 set laststatus=2
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+" set cc=100
 
 " Wrapping and indentation
 set wrap
@@ -34,10 +35,10 @@ filetype plugin indent on
 syntax on
 set guifont=Menlo:h15
 set encoding=utf-8
-set background=dark
 colorscheme Tomorrow-Night
+" set background=dark
 " set background=light
-" colorscheme Tomorrow
+" colorscheme solarized
 set list listchars=tab:»·,trail:·
 set cursorline
 
