@@ -21,8 +21,8 @@ fi
 # Use vim key bindings in bash prompts
 set -o vi
 
-# Alias git to gh
-eval "$(gh alias -s)"
+# Alias git to hub
+eval "$(hub alias -s)"
 
 export PS1="\h:\W\$(better_git_prompt)$ "
 

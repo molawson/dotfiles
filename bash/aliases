@@ -16,7 +16,7 @@ alias services='cd ~/Code/services'
 alias aci='cd ~/Code/account_center_integration'
 
 alias personal='cd ~/Code/_other/personal'
-alias hub='cd ~/Code/_other/hub'
+# alias hub='cd ~/Code/_other/hub'
 
 # ls
 alias ls="ls -F"
