@@ -64,6 +64,14 @@ let g:ctrlp_user_command = 'ag %s -lU --hidden --nocolor -g ""'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_use_caching = 0
 
+let g:vroom_use_spring = 1
+let g:vroom_test_unit_command = 'rake test'
+
+" Keep JS snippets out of html files
+" let g:snipMate = {}
+" let g:snipMate.scope_aliases = {}
+" let g:snipMate.scope_aliases['html'] = ''
+
 " Bash style tab completion
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
@@ -72,6 +80,8 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 let g:markdown_fenced_languages=['ruby', 'eruby', 'javascript', 'coffee', 'html', 'sh']
 
 au! BufRead,BufNewFile *.pp setfiletype ruby
+
+let g:vimrubocop_rubocop_cmd = 'bundle exec rubocop '
 
 " Let Rubocop auto correct style issues
 function! AutoCop()
@@ -97,6 +107,12 @@ function! RenameFile()
     if new_name != '' && new_name != old_name
         exec ':Move ' . new_name
     endif
+endfunction
+
+" Create parent directories and write
+function! WriteCreatingDirs()
+    call system('mkdir -p '.expand('%:h'))
+    write
 endfunction
 
 
@@ -137,10 +153,10 @@ endfunction
 function! AlternateForCurrentFile()
   let current_file = expand("%")
   let new_file = current_file
-  let using_rspec = isdirectory('spec')
+  let using_rspec = !isdirectory('test')
   let in_test = match(current_file, 'spec/') != -1 || match(current_file, 'test/') != -1
   let going_to_test = !in_test
-  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1 || match(current_file, '\<presenters\>') != -1 || match(current_file, '\<services\>') != -1
+  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1 || match(current_file, '\<presenters\>') != -1 || match(current_file, '\<services\>') != -1 || match(current_file, '\<jobs\>') != -1 || match(current_file, '\<mailers\>') != -1
   let in_gem = !empty(glob('*.gemspec'))
   if going_to_test
     if in_app
@@ -207,10 +223,10 @@ function! ExtractVariable()
 endfunction
 
 function! CtrlPTestsDynamic()
-  if isdirectory('spec')
-    let dir = 'spec'
-  else
+  if isdirectory('test')
     let dir = 'test'
+  else
+    let dir = 'spec'
   end
   execute "" . g:ctrlp_cmd . " " . dir
 endfunction
@@ -220,24 +236,31 @@ endfunction
 " LEADER SHORTCUTS
 """""""""""""""""""
 
+" Easy escape
+imap <C-K> <Esc>
+
 " CtrlP
 map <leader>f :CtrlP<cr>
 map <leader>b :CtrlPBuffer<cr>
 map <leader>c :CtrlPTag<cr>
 map <leader>r :CtrlPMRU<cr>
+map <leader>f :CtrlP<cr>
 
 " Rails
 map <leader>gg :topleft 100 :split Gemfile<cr>
 map <leader>gr :topleft :split config/routes.rb<cr>
 map <leader>gR :call ShowRoutes()<cr>
-map <leader>gs :CtrlP app/assets/stylesheets<cr>
-map <leader>gj :CtrlP app/assets/javascripts<cr>
+map <leader>gst :CtrlP app/assets/stylesheets<cr>
+map <leader>gja :CtrlP app/assets/javascripts<cr>
 map <leader>gv :CtrlP app/views<cr>
 map <leader>gc :CtrlP app/controllers<cr>
-map <leader>gm :CtrlP app/models<cr>
+map <leader>gmo :CtrlP app/models<cr>
+map <leader>gma :CtrlP app/mailers<cr>
+map <leader>gse :CtrlP app/services<cr>
+map <leader>gjo :CtrlP app/jobs<cr>
+map <leader>gp :CtrlP app/presenters<cr>
 map <leader>gh :CtrlP app/helpers<cr>
 map <leader>gl :CtrlP lib<cr>
-map <leader>gp :CtrlP public<cr>
 map <leader>gt :call CtrlPTestsDynamic()<cr>
 
 " Tests
@@ -246,6 +269,8 @@ map <leader>t :VroomRunTestFile<cr>
 map <leader>T :VroomRunNearestTest<cr>
 
 map <leader>rr :call AutoCop()<cr>
+
+map <leader>w :call WriteCreatingDirs()<cr>
 
 " Ruby Refactoring
 map <leader>rel :call PromoteToLet()<cr>
@@ -279,6 +304,10 @@ map <leader>v :tabe ~/.vimrc<cr>
 map <leader>V :source ~/.vimrc<cr>
 
 imap <c-l> <space>=><space>
+
+map <leader>C :tabnew<cr>
+
+nmap <space> zz
 
 
 " Move around splits with <c-hjkl>
