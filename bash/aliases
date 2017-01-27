@@ -2,21 +2,22 @@
 alias ..='cd ..'
 alias c='clear'
 alias cc='cd ; clear'
-
 alias scratch='cd ~/Dropbox/Documents/Scratch'
 
 # PCO
 alias accounts='cd ~/Code/accounts'
 alias check-ins='cd ~/Code/check-ins'
 alias giving='cd ~/Code/giving'
+alias groups='cd ~/Code/groups'
 alias people='cd ~/Code/people'
 alias registrations='cd ~/Code/registrations'
 alias resources='cd ~/Code/resources'
 alias services='cd ~/Code/services'
 alias aci='cd ~/Code/account_center_integration'
+alias pssh='~/.pco/lib/vpn-check; ssh app@console.planningcenter.plumbing'
 
 alias personal='cd ~/Code/_other/personal'
-# alias hub='cd ~/Code/_other/hub'
+alias lib='cd ~/Code/_other/lib'
 
 # ls
 alias ls="ls -F"
@@ -48,55 +49,20 @@ alias ri='rbenv install $(rbenv local)'
 alias rc='rails console'
 alias rs='rails server'
 alias rg='rails generate'
-alias a='autotest -rails'
 alias tlog='tail -f log/development.log'
 alias tlogt='tail -f log/test.log'
 alias rst='touch tmp/restart.txt'
-
-# Rails 2
-alias sc='script/console --irb=pry'
-alias ss='script/server'
 
 # Bundler
 alias be='bundle exec'
 alias bi='bundle install'
 alias bu='bundle update'
-
-# Zeus
-alias z='zeus start'
-alias zc='zeus console'
-alias zs='zeus server'
-alias zg='zeus generate'
-alias zr='zeus rake'
-alias zt='zeus rspec'
-
-# Vagrant
-alias vt='vagrant status'
-alias vgt='vagrant global-status'
-alias vu='vagrant up'
-alias vs='vagrant suspend'
-alias vh='vagrant halt'
-
-# PCO Box
-alias pb='pco box'
-alias pbr='pco box rake'
-alias pbi='pco box bundle install'
-alias pbc='pco box rails console'
-alias pbg='pco box rails generate'
-alias pbm='pco box rake db:migrate'
-alias pbar='pco box apprestart'
-
-alias pbu='(cd ~/pco-box && vagrant up)'
-alias pbs='(cd ~/pco-box && vagrant suspend)'
-alias pbh='(cd ~/pco-box && vagrant halt)'
+alias br='bundle exec rake'
+alias brm='bundle exec rake db:migrate'
 
 # Vim
-alias v.='vim .'
-alias v='vim'
-alias sv='sudo vim'
-
-# Sublime Text
-alias s.='subl .'
+alias v='nvim'
+alias sv='sudo nvim'
 
 # Finder
 alias o.='open .'
@@ -104,17 +70,6 @@ alias o.='open .'
 # Desktop
 alias dh='defaults write com.apple.finder CreateDesktop -bool false ; killall Finder'
 alias ds='defaults write com.apple.finder CreateDesktop -bool true ; killall Finder'
-
-# PostgreSQL
-alias pg-start="pg_ctl -D /usr/local/var/postgres -l logfile start"
-alias pg-stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
-
-# Nginx
-alias nr="sudo nginx -s reload"
-
-# Apache
-alias ar="sudo apachectl restart"
-alias avh="sudo vim /etc/apache2/extra/httpd-vhosts.conf"
 
 # Util
 alias ptime="date +'%Y%m%d%H%M%S'"

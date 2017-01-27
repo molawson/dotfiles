@@ -2,3 +2,4 @@
 .agignore
 doc/tags
 tags
+tmux.sh

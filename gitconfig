@@ -17,6 +17,7 @@
   ca = !git ci -a
   co = checkout
   d = diff
+  db = diff-branch
   dc = diff --cached
   dh = diff HEAD^
   ds = !git d --stat=100,100
@@ -31,6 +32,7 @@
   ra = !git r --all
   rb = !git r --branches --remotes --tags
   re = rebase
+  rc = rebase --continue
   rh = reset HEAD
   ru = remote update --prune
   p = push
@@ -52,6 +54,9 @@
   so = stash pop
   ss = stash show
   ssp = !git ss --patch
+  br = browse
+  rib = rebase-branch
+  mt = mergetool
 [format]
   pretty = format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
 [merge]
