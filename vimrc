@@ -8,7 +8,6 @@ set nocompatible
 " Store all .swp files in a common location
 set directory=$HOME/.vim/tmp/,.
 
-
 " Remap leader key to ,
 let mapleader=","
 
@@ -18,7 +17,7 @@ set ruler
 set showcmd
 set laststatus=2
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
-" set cc=100
+set cc=100
 
 " Wrapping and indentation
 set wrap
@@ -64,8 +63,12 @@ let g:ctrlp_user_command = 'ag %s -lU --hidden --nocolor -g ""'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_use_caching = 0
 
-let g:vroom_use_spring = 1
-let g:vroom_test_unit_command = 'rake test'
+" let g:vroom_use_spring = 1
+" let g:vroom_test_unit_command = 'bin/rails test '
+let g:vroom_test_unit_command = 'rake test '
+let g:vroom_use_bundle_exec = 1
+
+let g:jsx_ext_required = 0
 
 " Keep JS snippets out of html files
 " let g:snipMate = {}
@@ -260,6 +263,8 @@ map <leader>gse :CtrlP app/services<cr>
 map <leader>gjo :CtrlP app/jobs<cr>
 map <leader>gp :CtrlP app/presenters<cr>
 map <leader>gh :CtrlP app/helpers<cr>
+map <leader>gav :CtrlP app/graphs/app_graph/vertices<cr>
+map <leader>gae :CtrlP app/graphs/app_graph/edges<cr>
 map <leader>gl :CtrlP lib<cr>
 map <leader>gt :call CtrlPTestsDynamic()<cr>
 
@@ -316,6 +321,8 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" Use local version of eslint per directory
+let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
 
 augroup vimrcEx
   " Clear all autocmds in the group
@@ -327,13 +334,14 @@ augroup vimrcEx
     \ endif
 
   autocmd FileType cf set commentstring=<!---\ %s\ --->
+  autocmd! BufWritePost * Neomake
 
   " Enable spellchecking for Markdown fiels and Git commits
   autocmd BufRead,BufNewFile *.md setlocal spell
   autocmd FileType gitcommit setlocal spell
 
   " Automatically wrap at 80 characters for Markdown
-  " autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+  autocmd BufRead,BufNewFile *.md setlocal numberwidth=4 columns=85 linebreak nolist
 
   " Leave the return key alone when in command line windows, since it's used
   " to run commands there.
