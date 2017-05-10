@@ -87,7 +87,7 @@ let g:ctrlp_use_caching = 0
 
 " let g:vroom_use_spring = 1
 " let g:vroom_test_unit_command = 'bin/rails test '
-let g:vroom_test_unit_command = 'rake test '
+" let g:vroom_test_unit_command = 'rake test '
 let g:vroom_use_bundle_exec = 1
 
 let g:jsx_ext_required = 0
@@ -181,7 +181,7 @@ function! AlternateForCurrentFile()
   let using_rspec = !isdirectory('test')
   let in_test = match(current_file, 'spec/') != -1 || match(current_file, 'test/') != -1
   let going_to_test = !in_test
-  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1 || match(current_file, '\<presenters\>') != -1 || match(current_file, '\<services\>') != -1 || match(current_file, '\<jobs\>') != -1 || match(current_file, '\<mailers\>') != -1
+  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1 || match(current_file, '\<presenters\>') != -1 || match(current_file, '\<services\>') != -1 || match(current_file, '\<jobs\>') != -1 || match(current_file, '\<mailers\>') != -1 || match(current_file, '\<csvs\>') != -1
   let in_gem = !empty(glob('*.gemspec'))
   if going_to_test
     if in_app
@@ -369,7 +369,7 @@ augroup vimrcEx
   autocmd FileType gitcommit setlocal spell
 
   " Automatically wrap at 80 characters for Markdown
-  autocmd BufRead,BufNewFile *.md setlocal numberwidth=4 columns=85 linebreak nolist
+  " autocmd BufRead,BufNewFile *.md setlocal numberwidth=4 columns=85 linebreak nolist
 
   " Leave the return key alone when in command line windows, since it's used
   " to run commands there.
