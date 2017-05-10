@@ -30,12 +30,34 @@ set autoindent
 set backspace=indent,eol,start
 filetype plugin indent on
 
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+let g:tmuxline_preset = {
+      \ 'a': '#S',
+      \ 'b': ' #(cd #{pane_current_path};git ref)',
+      \ 'c': '#W',
+      \ 'win': '#I #W#F',
+      \ 'cwin': '#I #W',
+      \ 'y': '%a %b %d - %-l:%M %p',
+      \ 'z': '#(battery_percentage)'}
+
+
 " Display
 syntax on
-set guifont=Menlo:h15
+set guifont=Menlo\ for\ Powerline:h15
 set encoding=utf-8
 colorscheme Tomorrow-Night
-" set background=dark
 " set background=light
 " colorscheme solarized
 set list listchars=tab:»·,trail:·
