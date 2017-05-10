@@ -43,5 +43,7 @@ export PATH
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+export PATH="node_modules/.bin:$PATH"
+
 # added by travis gem
 [ -f /Users/molawson/.travis/travis.sh ] && source /Users/molawson/.travis/travis.sh

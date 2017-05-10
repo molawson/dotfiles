@@ -299,6 +299,9 @@ map <leader>rr :call AutoCop()<cr>
 
 map <leader>w :call WriteCreatingDirs()<cr>
 
+map <leader>en :lnext<cr>
+map <leader>ep :lprev<cr>
+
 " Ruby Refactoring
 map <leader>rel :call PromoteToLet()<cr>
 map <leader>rev :call ExtractVariable()<cr>
@@ -343,8 +346,9 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" Use local version of eslint per directory
-let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
+let g:neomake_jsx_enabled_makers = ['eslint']
+let g:neomake_javascript_eslint_args = ['-f', 'compact', '--fix']
+let g:neomake_ruby_rubocop_exe = $PWD . "/bin/rubocop"
 
 augroup vimrcEx
   " Clear all autocmds in the group
@@ -356,7 +360,9 @@ augroup vimrcEx
     \ endif
 
   autocmd FileType cf set commentstring=<!---\ %s\ --->
-  autocmd! BufWritePost * Neomake
+  " Call neomake#Make directly instead of the Neomake provided command so we can
+  " inject the callback
+  autocmd BufWritePost * call neomake#Make(1, [], function('s:Neomake_callback'))
 
   " Enable spellchecking for Markdown fiels and Git commits
   autocmd BufRead,BufNewFile *.md setlocal spell
@@ -376,6 +382,14 @@ autocmd FileType go setlocal noexpandtab
 autocmd FileType go setlocal list listchars=tab:\ \ 
 " Run gofmt when saving golang a file
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
+" Callback for reloading file in buffer when eslint has finished and maybe has
+" autofixed some stuff
+function! s:Neomake_callback(options)
+  if (a:options.name ==? 'eslint') && (a:options.has_next == 0)
+    checktime
+  endif
+endfunction
 
 " Automatic split resizing
 set winwidth=60
