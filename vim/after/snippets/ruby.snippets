@@ -1,0 +1,21 @@
+snippet! def
+	def ${1:method_name}
+	end
+
+snippet tcas
+	require "test_helper"
+
+	class ${1:`substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`} < ActiveSupport::TestCase
+		def subject
+			described_class.new
+		end
+
+		${0}
+	end
+
+snippet tcac
+	require "test_helper"
+
+	class ${1:`substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`} < ActionController::TestCase
+		${0}
+	end
