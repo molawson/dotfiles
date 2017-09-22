@@ -47,11 +47,6 @@ def replace_file(file)
 end
 
 def link_file(file)
-  if file =~ /bashrc$/ # copy bashrc instead of link
-    puts "copying ~/.#{file}"
-    system %Q{cp "$PWD/#{file}" "$HOME/.#{file}"}
-  else
-    puts "linking ~/.#{file}"
-    system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
-  end
+  puts "linking ~/.#{file}"
+  system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
 end
