@@ -38,6 +38,8 @@ eval "$($HOME/.pco/bin/pco init -)"
 # jump
 eval "$(jump shell bash)"
 
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+
 export PATH
 
 ### Added by the Heroku Toolbelt

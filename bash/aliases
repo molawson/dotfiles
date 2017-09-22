@@ -61,6 +61,7 @@ alias bi='bundle install'
 alias bu='bundle update'
 alias br='bundle exec rake'
 alias brm='bundle exec rake db:migrate'
+alias brp='bundle exec rake db:test:prepare'
 
 # Vim
 alias v='nvim'

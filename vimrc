@@ -12,6 +12,7 @@ set directory=$HOME/.vim/tmp/,.
 let mapleader=","
 
 " Layout
+set number
 set relativenumber
 set ruler
 set showcmd
@@ -294,7 +295,7 @@ nnoremap <leader>. :call OpenTestAlternate()<cr>
 map <leader>t :VroomRunTestFile<cr>
 map <leader>T :VroomRunNearestTest<cr>
 
-map <leader>rr :call AutoCop()<cr>
+map <leader>rf :call AutoCop()<cr>
 
 map <leader>w :call WriteCreatingDirs()<cr>
 
