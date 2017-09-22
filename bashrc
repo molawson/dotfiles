@@ -4,7 +4,7 @@ source ~/.bash/git-prompt
 source ~/.bash/pcomux
 source ~/.private
 
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:$HOME/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:$HOME/.bin:$PATH"
 export RUBYLIB="/usr/local/lib:$RUBYLIB"
 # export SSL_CERT_FILE="/usr/local/etc/openssl/cert.pem"
 

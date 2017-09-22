@@ -1,0 +1,18 @@
+git_status="$(git status 2> /dev/null)"
+
+if [[ ${git_status} != "" ]]; then
+  branch_pattern="On branch ([^${IFS}]*)"
+  if [[ ${git_status} =~ ${branch_pattern} ]]; then
+    branch=${BASH_REMATCH[1]}
+  else
+    git_tag="$(git describe --tags --exact-match 2> /dev/null)"
+    if [[ ${git_tag} != "" ]]; then
+      branch=${git_tag}
+    else
+      git_sha="$(git rev-parse --short HEAD 2> /dev/null)"
+      branch=${git_sha}
+    fi
+  fi
+
+  echo ${branch}
+fi
