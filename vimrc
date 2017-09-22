@@ -85,10 +85,9 @@ let g:ctrlp_user_command = 'ag %s -lU --hidden --nocolor -g ""'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_use_caching = 0
 
-" let g:vroom_use_spring = 1
-" let g:vroom_test_unit_command = 'bin/rails test '
-" let g:vroom_test_unit_command = 'rake test '
+let g:vroom_test_unit_command = 'bin/rails test '
 let g:vroom_use_bundle_exec = 1
+let g:vroom_use_terminal = 1
 
 let g:jsx_ext_required = 0
 
