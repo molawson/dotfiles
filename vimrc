@@ -1,6 +1,41 @@
 " Inspiration (and much of the actual code) from Gary Bernhardt's dotfiles (https://github.com/garybernhardt/dotfiles)
 
-call pathogen#infect()
+call plug#begin('~/.vim/plugged')
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'rking/ag.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'JazzCore/ctrlp-cmatcher'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'vim-scripts/matchit.zip'
+Plug 'benekastah/neomake'
+Plug 'tomtom/tlib_vim'
+Plug 'ervandew/supertab'
+Plug 'edkolev/tmuxline.vim'
+Plug 'tpope/vim-abolish'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Townk/vim-autoclose'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tpope/vim-commentary'
+Plug 'elixir-lang/vim-elixir'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'jnwhiteh/vim-golang'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-repeat'
+Plug 'ngmy/vim-rubocop'
+Plug 'vim-ruby/vim-ruby'
+Plug 'ecomba/vim-ruby-refactoring'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'tpope/vim-surround'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'skalnik/vim-vroom'
+call plug#end()
 
 set nocompatible
 
