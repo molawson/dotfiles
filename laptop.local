@@ -11,6 +11,7 @@ ln -s "$HOME/.vimrc" "$HOME/.config/nvim/init.vim"
 
 echo "Installing other work apps..."
 brew bundle --file= <<EOF
+cask "basecamp"
 cask "iterm2"
 cask "screenhero"
 cask "slack"
