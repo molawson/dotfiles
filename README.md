@@ -1,6 +1,6 @@
 # Dot Files
 
-These are config files to set up a system the way I like it. It includes configuration for vim, bash, git, Ruby gems, pow, OSX, and others.
+These are config files to set up a system the way I like it. It includes configuration for vim, zsh, git, Ruby gems, OSX, and others.
 
 I am running on Mac OS X, but it will likely work on Linux as well.
 
@@ -24,7 +24,7 @@ rake install
 
 After installing, open a new terminal window to see the effects.
 
-Feel free to customize the .bashrc file to match your preference.
+Feel free to customize the .zshrc file to match your preference.
 
 For more info on installing the vim plugins and other pieces related to these dot files, take a look at [this gist](https://gist.github.com/2402229) that I use when setting up a new machine.
 
