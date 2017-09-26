@@ -8,5 +8,6 @@ ZSH_THEME="robbyrussell"
 plugins=(gitfast)
 
 eval "$($HOME/.pco/bin/pco init -)"
+eval "$(jump shell)"
 
 source $ZSH/oh-my-zsh.sh
