@@ -9,7 +9,7 @@ GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWCOLORHINTS=1
 
-plugins=(gitfast)
+plugins=(gitfast rails bundler rake-fast)
 
 eval "$($HOME/.pco/bin/pco init -)"
 eval "$(jump shell)"
