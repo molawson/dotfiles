@@ -5,6 +5,10 @@ source "$HOME/.zsh/aliases"
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_SHOWCOLORHINTS=1
+
 plugins=(gitfast)
 
 eval "$($HOME/.pco/bin/pco init -)"
