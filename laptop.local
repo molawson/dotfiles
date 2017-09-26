@@ -11,17 +11,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 (cd "$HOME/.dotfiles"; rake install)
 ln -s "$HOME/.vimrc" "$HOME/.config/nvim/init.vim"
 
-echo "Installing other work apps..."
-brew bundle --file=- <<EOF
-cask "basecamp"
-cask "iterm2"
-cask "screenhero"
-cask "slack"
-cask "trailer"
-cask "viscosity"
-cask "zoomus"
-EOF
-
 echo "Installing Menlo Powerline font..."
 echo "  "
 echo "Check that Dropbox has finished syncing the Documents/Fonts/ folder"
