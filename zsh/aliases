@@ -1,2 +1,14 @@
 alias c="clear"
+alias o.="open ."
+
 alias v="nvim"
+alias sv="sudo nvim"
+
+alias tt="./tmux.sh"
+
+alias rake="noglob rake"
+alias rst="touch tmp/restart.txt"
+alias tlog="tail -f log/development.log"
+
+alias fat="make atreus-mo && avrdude -p atmega32u4 -c avr109 -U flash:w:atreus_mo.hex -P /dev/cu.usbmodem1421"
+

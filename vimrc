@@ -80,10 +80,13 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
+let g:airline_section_b = ''
+let g:airline_section_y = ''
+let g:airline_section_z = airline#section#create(['linenr',  ':%3v'])
+
 let g:tmuxline_preset = {
       \ 'a': '#S',
       \ 'b': ' #(cd #{pane_current_path};git ref)',
-      \ 'c': '#W',
       \ 'win': '#I #W#F',
       \ 'cwin': '#I #W',
       \ 'y': '%a %b %d - %-l:%M %p',
@@ -316,7 +319,7 @@ map <leader>gg :topleft 100 :split Gemfile<cr>
 map <leader>gr :topleft :split config/routes.rb<cr>
 map <leader>gR :call ShowRoutes()<cr>
 map <leader>gst :CtrlP app/assets/stylesheets<cr>
-map <leader>gja :CtrlP app/assets/javascripts<cr>
+map <leader>gja :CtrlP app/javascript<cr>
 map <leader>gv :CtrlP app/views<cr>
 map <leader>gc :CtrlP app/controllers<cr>
 map <leader>gmo :CtrlP app/models<cr>
@@ -376,9 +379,15 @@ map <leader>V :source ~/.vimrc<cr>
 imap <c-l> <space>=><space>
 
 map <leader>C :tabnew<cr>
+map <leader>s :!sh .git/hooks/ctags<cr>
 
 nmap <space> zz
 
+" Disable arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
 
 " Move around splits with <c-hjkl>
 nnoremap <c-j> <c-w>j
