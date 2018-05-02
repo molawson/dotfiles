@@ -7,7 +7,7 @@
   ui = auto
 [core]
   quotepath = false
-  excludesfile = /Users/molawson/.gitignore_global
+  excludesfile = ~/.gitignore_global
   editor = /usr/local/bin/vim
 [alias]
   st = status -sb
@@ -70,7 +70,7 @@
 [credential]
   helper = osxkeychain
 [init]
-  templatedir = /Users/molawson/.git_template
+  templatedir = ~/.git_template
 [pull]
   rebase = true
 [gitsh]
@@ -82,6 +82,6 @@
   cmd = vim -f -c \"Gdiff\" \"$MERGED\"
   keepBackup = false
 [include]
-  path = .gitconfig_private
+  path = ~/.gitconfig_private
 [rebase]
   autosquash = true
