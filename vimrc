@@ -2,7 +2,7 @@
 
 call plug#begin('~/.vim/plugged')
 Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'JazzCore/ctrlp-cmatcher'
 Plug 'editorconfig/editorconfig-vim'
@@ -116,7 +116,7 @@ endfunction
 call MapCR()
 
 " CtrlP
-let g:ctrlp_match_func = { 'match' : 'matcher#cmatch' }
+" let g:ctrlp_match_func = { 'match' : 'matcher#cmatch' }
 let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:ctrlp_user_command = 'ag %s -lU --hidden --nocolor -g ""'
 let g:ctrlp_show_hidden = 1
@@ -127,6 +127,10 @@ let g:vroom_use_bundle_exec = 1
 let g:vroom_use_terminal = 1
 
 let g:jsx_ext_required = 0
+
+if executable('ag')
+  let g:ackprg = 'ag -F --vimgrep'
+endif
 
 " Keep JS snippets out of html files
 " let g:snipMate = {}
@@ -343,10 +347,10 @@ map <leader>rel :call PromoteToLet()<cr>
 map <leader>rev :call ExtractVariable()<cr>
 
 " The Silver Searcher (Ag)
-map <leader>ag :Ag! 
-map <leader>ac :Ag! <cword><cr>
-map <leader>as :AgFromSearch!<cr>
-map <leader>ai :Ag! -i 
+map <leader>ag :Ack! 
+map <leader>ac :Ack! <cword><cr>
+map <leader>as :AckFromSearch!<cr>
+map <leader>ai :Ack! -i 
 
 " Copy to and paste from system clipboard
 map <leader>p "*p<cr>
