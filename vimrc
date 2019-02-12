@@ -35,7 +35,9 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'skalnik/vim-vroom'
+Plug 'slim-template/vim-slim'
 Plug 'fatih/vim-go'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 set nocompatible
