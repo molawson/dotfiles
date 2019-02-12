@@ -7,7 +7,6 @@ Plug 'kien/ctrlp.vim'
 Plug 'JazzCore/ctrlp-cmatcher'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-scripts/matchit.zip'
-Plug 'benekastah/neomake'
 Plug 'tomtom/tlib_vim'
 Plug 'ervandew/supertab'
 Plug 'edkolev/tmuxline.vim'
@@ -35,6 +34,7 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'skalnik/vim-vroom'
+Plug 'w0rp/ale'
 Plug 'slim-template/vim-slim'
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
@@ -397,9 +397,12 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-let g:neomake_jsx_enabled_makers = ['eslint']
-let g:neomake_javascript_eslint_args = ['-f', 'compact', '--fix']
-let g:neomake_ruby_rubocop_exe = $PWD . "/bin/rubocop"
+let g:ale_fixers = {
+\   'javascript': ['prettier', 'eslint'],
+\}
+let g:ale_fix_on_save = 1
+let g:ale_set_highlights = 0
+let g:airline#extensions#ale#enabled = 1
 
 augroup vimrcEx
   " Clear all autocmds in the group
@@ -409,11 +412,6 @@ augroup vimrcEx
     \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
-
-  autocmd FileType cf set commentstring=<!---\ %s\ --->
-  " Call neomake#Make directly instead of the Neomake provided command so we can
-  " inject the callback
-  autocmd BufWritePost * call neomake#Make(1, [], function('s:Neomake_callback'))
 
   " Enable spellchecking for Markdown fiels and Git commits
   autocmd BufRead,BufNewFile *.md setlocal spell
@@ -430,14 +428,6 @@ augroup END
 
 " Hide tab listchars in golang files
 autocmd FileType go setlocal list listchars=tab:\ \ 
-
-" Callback for reloading file in buffer when eslint has finished and maybe has
-" autofixed some stuff
-function! s:Neomake_callback(options)
-  if (a:options.name ==? 'eslint') && (a:options.has_next == 0)
-    checktime
-  endif
-endfunction
 
 " Automatic split resizing
 set winwidth=60
