@@ -26,7 +26,7 @@ GIT_PS1_SHOWCOLORHINTS=1
 
 plugins=(gitfast rails bundler rake-fast)
 
-eval "$($HOME/.pco/bin/pco init -)"
+eval "$($HOME/Code/pco/bin/pco init -)"
 eval "$(jump shell)"
 eval "$(hub alias -s)"
 
