@@ -21,7 +21,6 @@ Plug 'tpope/vim-commentary'
 Plug 'elixir-lang/vim-elixir'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
-Plug 'jnwhiteh/vim-golang'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'tpope/vim-markdown'
@@ -36,6 +35,7 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'skalnik/vim-vroom'
+Plug 'fatih/vim-go'
 call plug#end()
 
 set nocompatible
@@ -426,11 +426,8 @@ augroup vimrcEx
   autocmd! CmdwinLeave * :call MapCR()
 augroup END
 
-" Use real tabs in golang files and hide tab listchars
-autocmd FileType go setlocal noexpandtab
+" Hide tab listchars in golang files
 autocmd FileType go setlocal list listchars=tab:\ \ 
-" Run gofmt when saving golang a file
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 " Callback for reloading file in buffer when eslint has finished and maybe has
 " autofixed some stuff
