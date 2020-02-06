@@ -34,7 +34,7 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'skalnik/vim-vroom'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'slim-template/vim-slim'
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
@@ -44,7 +44,10 @@ set nocompatible
 
 
 " Store all .swp files in a common location
-set directory=$HOME/.vim/tmp/,.
+set directory^=$HOME/.vim/tmp//
+
+" Add .git/tags for ctag support (vim-fugitive used to do this)
+set tags^=./.git/tags;
 
 " Remap leader key to ,
 let mapleader=","
@@ -121,7 +124,7 @@ endfunction
 call MapCR()
 
 " CtrlP
-" let g:ctrlp_match_func = { 'match' : 'matcher#cmatch' }
+let g:ctrlp_match_func = { 'match' : 'matcher#cmatch' }
 let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:ctrlp_user_command = 'ag %s -lU --hidden --nocolor -g ""'
 let g:ctrlp_show_hidden = 1
@@ -226,7 +229,7 @@ function! AlternateForCurrentFile()
   let using_rspec = !isdirectory('test')
   let in_test = match(current_file, 'spec/') != -1 || match(current_file, 'test/') != -1
   let going_to_test = !in_test
-  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1 || match(current_file, '\<presenters\>') != -1 || match(current_file, '\<services\>') != -1 || match(current_file, '\<jobs\>') != -1 || match(current_file, '\<mailers\>') != -1 || match(current_file, '\<csvs\>') != -1
+  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1 || match(current_file, '\<presenters\>') != -1 || match(current_file, '\<services\>') != -1 || match(current_file, '\<jobs\>') != -1 || match(current_file, '\<mailers\>') != -1 || match(current_file, '\<csvs\>') != -1 || match(current_file, '\<types\>') != -1 || match(current_file, '\<policies\>') != -1
   let in_gem = !empty(glob('*.gemspec'))
   if going_to_test
     if in_app
@@ -328,10 +331,11 @@ map <leader>gmo :CtrlP app/models<cr>
 map <leader>gma :CtrlP app/mailers<cr>
 map <leader>gse :CtrlP app/services<cr>
 map <leader>gjo :CtrlP app/jobs<cr>
-map <leader>gp :CtrlP app/presenters<cr>
+map <leader>gpr :CtrlP app/presenters<cr>
+map <leader>gpo :CtrlP app/policies<cr>
 map <leader>gh :CtrlP app/helpers<cr>
-map <leader>gav :CtrlP app/graphs/app_graph/vertices<cr>
-map <leader>gae :CtrlP app/graphs/app_graph/edges<cr>
+map <leader>gaa :CtrlP app/graphs/app_graph<cr>
+map <leader>gac :CtrlP app/graphs/church_center_graph<cr>
 map <leader>gl :CtrlP lib<cr>
 map <leader>gt :call CtrlPTestsDynamic()<cr>
 
@@ -399,6 +403,7 @@ nnoremap <c-l> <c-w>l
 
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
+\   'elixir': ['mix_format'],
 \}
 let g:ale_fix_on_save = 1
 let g:ale_set_highlights = 0
