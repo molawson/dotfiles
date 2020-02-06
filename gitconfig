@@ -11,11 +11,15 @@
   editor = /usr/local/bin/vim
   pager = less -FX
 [alias]
-  st = status -sb
-  ci = commit
-  cf = !git ci --fixup
-  cm = !git ci -m
+  aa = add --all
+  amend = commit --amend
+  ap = add -p
+  b = branch
+  br = browse
   ca = !git ci -a
+  cf = !git ci --fixup
+  ci = commit
+  cm = !git ci -m
   co = checkout
   d = diff
   db = diff-branch
@@ -24,40 +28,36 @@
   ds = !git d --stat=100,100
   dsc = !git dc --stat=100,100
   dsh = !git d --stat=100,100 HEAD^
-  amend = commit --amend
-  aa = add --all
-  ap = add -p
-  head = !git l -1
-  h = !git head
-  r = !git l -20
-  ra = !git r --all
-  rb = !git r --branches --remotes --tags
-  re = rebase
-  rc = rebase --continue
-  rh = reset HEAD
-  ru = remote update --prune
-  p = push
-  po = !git p origin
-  pof = !git po --force-with-lease
-  u = pull
-  uo = !git u origin
+  fa = fetch --all
   ff = merge --ff-only
-  noff = merge --no-ff
-  uff = !git u --ff-only
+  h = !git head
+  head = !git l -1
   l = log --graph --abbrev-commit --date=relative
   la = !git l --all
   ld = !git l -1 --pretty
-  fa = fetch --all
-  b = branch
+  mt = mergetool
+  noff = merge --no-ff
+  p = push
+  po = !git p origin
+  pof = !git po --force-with-lease
+  r = !git l -20
+  ra = !git r --all
+  rb = !git r --branches --remotes --tags
+  rc = rebase --continue
+  re = rebase
+  rh = reset HEAD
+  rib = rebase-branch
+  ru = remote update --prune
   s = stash save
-  sp = !git s --patch
   sl = stash list
   so = stash pop
+  sp = !git s --patch
   ss = stash show
   ssp = !git ss --patch
-  br = browse
-  rib = rebase-branch
-  mt = mergetool
+  st = status -sb
+  u = pull
+  uff = !git u --ff-only
+  uo = !git u origin
 [format]
   pretty = format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
 [merge]
