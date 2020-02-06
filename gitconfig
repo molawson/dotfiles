@@ -9,6 +9,7 @@
   quotepath = false
   excludesfile = ~/.gitignore_global
   editor = /usr/local/bin/vim
+  pager = less -FX
 [alias]
   st = status -sb
   ci = commit
@@ -60,7 +61,7 @@
 [format]
   pretty = format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
 [merge]
-  tool = fugitive
+  tool = vim
 [mergetool]
   keepBackup = true
 [push]
@@ -78,6 +79,9 @@
   defaultCommand = st
   gitCommand = /usr/local/bin/hub
   prompt = "%D %c%b%#%w"
+[mergetool "vim"]
+  cmd = vim -f -c \"e\" \"$MERGED\"
+  keepBackup = false
 [mergetool "fugitive"]
   cmd = vim -f -c \"Gdiff\" \"$MERGED\"
   keepBackup = false
