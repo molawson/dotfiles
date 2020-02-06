@@ -20,7 +20,7 @@
   cf = !git ci --fixup
   ci = commit
   cm = !git ci -m
-  co = checkout
+  co = no-checkout
   d = diff
   db = diff-branch
   dc = diff --cached
@@ -45,6 +45,7 @@
   rb = !git r --branches --remotes --tags
   rc = rebase --continue
   re = rebase
+  rs = restore
   rh = reset HEAD
   rib = rebase-branch
   ru = remote update --prune
@@ -55,6 +56,7 @@
   ss = stash show
   ssp = !git ss --patch
   st = status -sb
+  sw = switch
   u = pull
   uff = !git u --ff-only
   uo = !git u origin

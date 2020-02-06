@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "WARNING: Stop using \`git checkout\`.
+It still works but it was always a little confusing at best.
+Try using one of these instead...
+  git switch    : switching between branches
+  git switch -c : creating new branches
+  git restore   : reset files in working directory"
