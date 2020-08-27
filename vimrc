@@ -26,7 +26,6 @@ Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
-Plug 'ngmy/vim-rubocop'
 Plug 'vim-ruby/vim-ruby'
 Plug 'ecomba/vim-ruby-refactoring'
 Plug 'garbas/vim-snipmate'
@@ -154,24 +153,24 @@ let g:markdown_fenced_languages=['ruby', 'eruby', 'javascript', 'html', 'sh']
 
 au! BufRead,BufNewFile *.pp setfiletype ruby
 
-let g:vimrubocop_rubocop_cmd = 'bundle exec rubocop '
 
-" Let Rubocop auto correct style issues
-function! AutoCop()
-  let l:extra_args = g:vimrubocop_extra_args
-  let l:filename = @%
-  let l:rubocop_cmd = g:vimrubocop_rubocop_cmd
-  let l:rubocop_opts = ' -a '.l:extra_args.''
-  if g:vimrubocop_config != ''
-    let l:rubocop_opts = ' '.l:rubocop_opts.' --config '.g:vimrubocop_config
-  endif
-  " go ahead and save the current file
-  write
-  " let rubocop do its thing
-  call system(l:rubocop_cmd.l:rubocop_opts.' '.l:filename)
-  " refresh the buffer
-  edit
-endfunction
+" TODO: come up with a decent way to do this with ale
+" " Let Rubocop auto correct style issues
+" function! AutoCop()
+"   let l:extra_args = g:vimrubocop_extra_args
+"   let l:filename = @%
+"   let l:rubocop_cmd = g:vimrubocop_rubocop_cmd
+"   let l:rubocop_opts = ' -a '.l:extra_args.''
+"   if g:vimrubocop_config != ''
+"     let l:rubocop_opts = ' '.l:rubocop_opts.' --config '.g:vimrubocop_config
+"   endif
+"   " go ahead and save the current file
+"   write
+"   " let rubocop do its thing
+"   call system(l:rubocop_cmd.l:rubocop_opts.' '.l:filename)
+"   " refresh the buffer
+"   edit
+" endfunction
 
 " Rename current file
 function! RenameFile()
@@ -344,7 +343,7 @@ nnoremap <leader>. :call OpenTestAlternate()<cr>
 map <leader>t :VroomRunTestFile<cr>
 map <leader>T :VroomRunNearestTest<cr>
 
-map <leader>rf :call AutoCop()<cr>
+" map <leader>rf :call AutoCop()<cr>
 
 map <leader>w :call WriteCreatingDirs()<cr>
 
