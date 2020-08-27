@@ -8,7 +8,7 @@
 [core]
   quotepath = false
   excludesfile = ~/.gitignore_global
-  editor = /usr/local/bin/vim
+  editor = /usr/local/bin/nvim
   pager = less -FX
 [alias]
   aa = add --all
@@ -63,7 +63,7 @@
 [format]
   pretty = format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
 [merge]
-  tool = vim
+  tool = nvim
 [mergetool]
   keepBackup = true
 [push]
@@ -81,11 +81,11 @@
   defaultCommand = st
   gitCommand = /usr/local/bin/hub
   prompt = "%D %c%b%#%w"
-[mergetool "vim"]
-  cmd = vim -f -c \"e\" \"$MERGED\"
+[mergetool "nvim"]
+  cmd = nvim -f -c \"e\" \"$MERGED\"
   keepBackup = false
 [mergetool "fugitive"]
-  cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+  cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
   keepBackup = false
 [include]
   path = ~/.gitconfig_private
