@@ -404,6 +404,10 @@ let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \   'elixir': ['mix_format'],
 \}
+let g:ale_linters = {
+\   'ruby': ['rubocop'],
+\}
+let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_fix_on_save = 1
 let g:ale_set_highlights = 0
 let g:airline#extensions#ale#enabled = 1
