@@ -10,5 +10,5 @@ alias rake="noglob rake"
 alias rst="touch tmp/restart.txt"
 alias tlog="tail -f log/development.log"
 
-alias fat="make atreus-mo && avrdude -p atmega32u4 -c avr109 -U flash:w:atreus_mo.hex -P /dev/cu.usbmodem1421"
+alias fat="make atreus:mo && avrdude -p atmega32u4 -c avr109 -U flash:w:atreus_mo.hex -P /dev/cu.usbmodem3201"
 
