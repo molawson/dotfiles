@@ -308,9 +308,6 @@ endfunction
 " LEADER SHORTCUTS
 """""""""""""""""""
 
-" Easy escape
-imap <C-K> <Esc>
-
 " CtrlP
 map <leader>f :CtrlP<cr>
 map <leader>b :CtrlPBuffer<cr>
