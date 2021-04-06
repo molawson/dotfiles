@@ -2,7 +2,8 @@
 
 [user]
   name = Mo Lawson
-  email = moklawson@gmail.com
+  email = mo@molawson.com
+  signingkey = 565014C3296D5826
 [color]
   ui = auto
 [core]
@@ -97,3 +98,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[commit]
+  gpgsign = true
