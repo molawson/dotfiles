@@ -1,5 +1,7 @@
+version 1
+
 snippet! def
-	def ${1:method_name}
+	def ${0}
 	end
 
 snippet tcas
@@ -19,3 +21,9 @@ snippet tcac
 	class ${1:`substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`} < ActionController::TestCase
 		${0}
 	end
+
+snippet in
+	include ${1:Module}
+
+snippet ivi
+	@${1:ivar} = ${2:$1}${0}
