@@ -4,6 +4,7 @@ alias o.="open ."
 alias v="nvim"
 alias sv="sudo nvim"
 
+alias t='tmux new -s $(basename "$PWD")'
 alias tt="./tmux.sh"
 
 alias rake="noglob rake"
@@ -12,3 +13,4 @@ alias tlog="tail -f log/development.log"
 
 alias fat="make atreus:mo && avrdude -p atmega32u4 -c avr109 -U flash:w:atreus_mo.hex -P /dev/cu.usbmodem3201"
 
+alias byd="bundle install && yarn install && rake db:migrate && rake db:test:prepare"
