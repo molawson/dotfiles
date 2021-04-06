@@ -49,6 +49,7 @@
   rs = restore
   rh = reset HEAD
   rib = rebase-branch
+  ribo = rebase-branch-old
   ru = remote update --prune
   s = stash save
   sl = stash list
@@ -76,6 +77,7 @@
   helper = osxkeychain
 [init]
   templatedir = ~/.git_template
+  defaultBranch = main
 [pull]
   rebase = true
 [gitsh]
