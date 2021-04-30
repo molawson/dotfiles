@@ -3,7 +3,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'mileszs/ack.vim'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'JazzCore/ctrlp-cmatcher'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-scripts/matchit.zip'
@@ -143,6 +143,7 @@ endif
 " let g:snipMate = {}
 " let g:snipMate.scope_aliases = {}
 " let g:snipMate.scope_aliases['html'] = ''
+" let g:snipMate.snippet_version = 0
 
 " Bash style tab completion
 set wildmode=list:longest,list:full
@@ -399,6 +400,7 @@ nnoremap <c-l> <c-w>l
 
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
+\   'ruby': ['prettier'],
 \   'elixir': ['mix_format'],
 \}
 let g:ale_linters = {
