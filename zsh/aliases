@@ -7,6 +7,8 @@ alias sv="sudo nvim"
 alias t='tmux new -s $(basename "$PWD")'
 alias tt="./tmux.sh"
 
+alias g="git"
+
 alias rake="noglob rake"
 alias rst="touch tmp/restart.txt"
 alias tlog="tail -f log/development.log"
