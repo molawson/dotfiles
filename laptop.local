@@ -1,20 +1,13 @@
 #!/bin/sh
 
 brew bundle --file=- <<EOF
-brew "vim"
+brew "hub"
+brew "jump"
+brew "the_silver_searcher"
 brew "neovim"
-brew "elixir"
-brew "mysql", restart_service: :changed
+brew "gitsh"
 EOF
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 (cd "$HOME/.dotfiles"; rake install)
 ln -s "$HOME/.vimrc" "$HOME/.config/nvim/init.vim"
-
-echo "Installing Menlo Powerline font..."
-echo "  "
-echo "Check that Dropbox has finished syncing the Documents/Fonts/ folder"
-echo "Press any key to continue"
-read dropbox_finished
-
-open "$HOME/Dropbox/Documents/Fonts/Menlo-Powerline/Menlo-Powerline.otf"
