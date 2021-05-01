@@ -3,8 +3,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'mileszs/ack.vim'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'JazzCore/ctrlp-cmatcher'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-scripts/matchit.zip'
 Plug 'tomtom/tlib_vim'
@@ -37,6 +35,8 @@ Plug 'dense-analysis/ale'
 Plug 'slim-template/vim-slim'
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 set nocompatible
@@ -122,12 +122,9 @@ function! MapCR()
 endfunction
 call MapCR()
 
-" CtrlP
-let g:ctrlp_match_func = { 'match' : 'matcher#cmatch' }
-let g:ctrlp_match_window = 'order:ttb,max:20'
-let g:ctrlp_user_command = 'ag %s -lU --hidden --nocolor -g ""'
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_use_caching = 0
+" FZF
+let $FZF_DEFAULT_COMMAND='ag -lU --hidden --nocolor -g ""'
+let $FZF_DEFAULT_OPTS='--layout=reverse'
 
 let g:vroom_test_unit_command = 'bin/rails test '
 let g:vroom_use_bundle_exec = 1
@@ -295,13 +292,13 @@ function! ExtractVariable()
   normal! $p
 endfunction
 
-function! CtrlPTestsDynamic()
+function! FZFTestsDynamic()
   if isdirectory('test')
     let dir = 'test'
   else
     let dir = 'spec'
   end
-  execute "" . g:ctrlp_cmd . " " . dir
+  execute ":Files" . " " . dir
 endfunction
 
 
@@ -309,32 +306,30 @@ endfunction
 " LEADER SHORTCUTS
 """""""""""""""""""
 
-" CtrlP
-map <leader>f :CtrlP<cr>
-map <leader>b :CtrlPBuffer<cr>
-map <leader>c :CtrlPTag<cr>
-map <leader>r :CtrlPMRU<cr>
-map <leader>f :CtrlP<cr>
+" FZF
+map <leader>f :Files<cr>
+map <leader>b :Buffers<cr>
+map <leader>c :Tags<cr>
 
 " Rails
 map <leader>gg :topleft 100 :split Gemfile<cr>
 map <leader>gr :topleft :split config/routes.rb<cr>
 map <leader>gR :call ShowRoutes()<cr>
-map <leader>gst :CtrlP app/assets/stylesheets<cr>
-map <leader>gja :CtrlP app/javascript<cr>
-map <leader>gv :CtrlP app/views<cr>
-map <leader>gc :CtrlP app/controllers<cr>
-map <leader>gmo :CtrlP app/models<cr>
-map <leader>gma :CtrlP app/mailers<cr>
-map <leader>gse :CtrlP app/services<cr>
-map <leader>gjo :CtrlP app/jobs<cr>
-map <leader>gpr :CtrlP app/presenters<cr>
-map <leader>gpo :CtrlP app/policies<cr>
-map <leader>gh :CtrlP app/helpers<cr>
-map <leader>gaa :CtrlP app/graphs/app_graph<cr>
-map <leader>gac :CtrlP app/graphs/church_center_graph<cr>
-map <leader>gl :CtrlP lib<cr>
-map <leader>gt :call CtrlPTestsDynamic()<cr>
+map <leader>gst :Files app/assets/stylesheets<cr>
+map <leader>gja :Files app/javascript<cr>
+map <leader>gv :Files app/views<cr>
+map <leader>gc :Files app/controllers<cr>
+map <leader>gmo :Files app/models<cr>
+map <leader>gma :Files app/mailers<cr>
+map <leader>gse :Files app/services<cr>
+map <leader>gjo :Files app/jobs<cr>
+map <leader>gpr :Files app/presenters<cr>
+map <leader>gpo :Files app/policies<cr>
+map <leader>gh :Files app/helpers<cr>
+map <leader>gaa :Files app/graphs/app_graph<cr>
+map <leader>gac :Files app/graphs/church_center_graph<cr>
+map <leader>gl :Files lib<cr>
+map <leader>gt :call FZFTestsDynamic()<cr>
 
 " Tests
 nnoremap <leader>. :call OpenTestAlternate()<cr>
