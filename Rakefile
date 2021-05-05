@@ -2,11 +2,13 @@ require 'rake'
 
 desc "install the dot files into user's home directory"
 task :install do
-  files = Dir['*'] - %w[Rakefile README.md default-gems]
   @replace_all = false
+  files = Dir['*'] - %w[Rakefile README.md default-gems nvim_init.vim]
   files.each do |file|
     install_file(File.join(ENV['PWD'], file), File.join(ENV['HOME'], ".#{file}"))
   end
+  # special case for nvim_init.vim to avoid clobbering ~/.config
+  install_file(File.join(ENV['PWD'], "nvim_init.vim"), File.join(ENV['HOME'], ".config/nvim/init.vim"))
 end
 
 namespace :install do

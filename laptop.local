@@ -73,7 +73,6 @@ install() {
   installCtags
   installNeovim
   (cd "$HOME/.dotfiles"; rake install)
-  ln -s "$HOME/.vimrc" "$HOME/.config/nvim/init.vim"
 }
 
 install
