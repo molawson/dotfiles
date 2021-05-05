@@ -1,8 +1,19 @@
-#!/bin/sh
+#!/bin/bash
 
-os=$(uname)
-macOS="Darwin"
-linux="Linux"
+macOS="macOS"
+ubuntu="ubuntu"
+uname=$(uname -v)
+
+if [[ $uname == *Darwin* ]]
+then
+  os=$macOS
+elif [[ $uname == *Ubuntu* ]]
+then
+  os=$ubuntu
+else
+  echo "ERROR: Don't know how to handle this OS"
+  exit 1
+fi
 
 createPrivateFiles() {
   touch $HOME/.private
