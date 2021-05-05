@@ -2,32 +2,10 @@ require 'rake'
 
 desc "install the dot files into user's home directory"
 task :install do
-  replace_all = false
   files = Dir['*'] - %w[Rakefile README.md default-gems]
+  @replace_all = false
   files.each do |file|
-    system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
-    if File.exist?(File.join(ENV['HOME'], ".#{file}"))
-      if File.identical? file, File.join(ENV['HOME'], ".#{file}")
-        puts "identical ~/.#{file}"
-      elsif replace_all
-        replace_file(file)
-      else
-        print "overwrite ~/.#{file}? [ynaq] "
-        case $stdin.gets.chomp
-        when 'a'
-          replace_all = true
-          replace_file(file)
-        when 'y'
-          replace_file(file)
-        when 'q'
-          exit
-        else
-          puts "skipping ~/.#{file}"
-        end
-      end
-    else
-      link_file(file)
-    end
+    install_file(File.join(ENV['PWD'], file), File.join(ENV['HOME'], ".#{file}"))
   end
 end
 
@@ -41,12 +19,42 @@ namespace :install do
   end
 end
 
-def replace_file(file)
-  system %Q{rm -rf "$HOME/.#{file}"}
-  link_file(file)
+def install_file(source, destination)
+  system %Q{mkdir -p "#{File.dirname(destination)}"}
+  if File.exist?(destination)
+    if File.identical?(source, destination)
+      puts "identical #{output_filepath(destination)}"
+    elsif @replace_all
+      replace_file(source, destination)
+    else
+      print "overwrite #{output_filepath(destination)}? [ynaq] "
+      case $stdin.gets.chomp
+      when 'a'
+        @replace_all = true
+        replace_file(source, destination)
+      when 'y'
+        replace_file(source, destination)
+      when 'q'
+        exit
+      else
+        puts "skipping #{output_filepath(destination)}"
+      end
+    end
+  else
+    link_file(source, destination)
+  end
 end
 
-def link_file(file)
-  puts "linking ~/.#{file}"
-  system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
+def replace_file(source, destination)
+  system %Q{rm -rf "#{destination}"}
+  link_file(source, destination)
+end
+
+def link_file(source, destination)
+  puts "linking #{output_filepath(destination)}"
+  system %Q{ln -s "#{source}" "#{destination}"}
+end
+
+def output_filepath(path)
+  path.to_s.sub(/^#{ENV['HOME']}/, "~")
 end
