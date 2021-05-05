@@ -6,6 +6,7 @@ brew "jump"
 brew "the_silver_searcher"
 brew "neovim"
 brew "gitsh"
+brew "ctags"
 EOF
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
