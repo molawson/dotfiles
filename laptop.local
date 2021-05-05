@@ -1,6 +1,14 @@
 #!/bin/sh
 
-brew bundle --file=- <<EOF
+os=$(uname)
+macOS="Darwin"
+linux="Linux"
+
+install() {
+case $os in
+  $macOS)
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    brew bundle --file=- <<EOF
 brew "hub"
 brew "jump"
 brew "the_silver_searcher"
@@ -8,7 +16,12 @@ brew "neovim"
 brew "gitsh"
 brew "ctags"
 EOF
+    (cd "$HOME/.dotfiles"; rake install)
+    ln -s "$HOME/.vimrc" "$HOME/.config/nvim/init.vim"
+;;
+  $linux)
+    echo "coming soon";;
+esac
+}
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-(cd "$HOME/.dotfiles"; rake install)
-ln -s "$HOME/.vimrc" "$HOME/.config/nvim/init.vim"
+install
