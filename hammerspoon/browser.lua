@@ -35,10 +35,17 @@ browserWatcher:start()
 
 function httpCallback(scheme, _, _, fullURL)
    local spotifyRegex = "^https://open.spotify.com/"
+   local zoomRegex = "^https://.*zoom.us/j/(%d+)"
+   local zoomWithPasswordRegex = "^https://.*zoom.us/j/(%d+)?pwd=(%w+)"
 
    if fullURL:match(spotifyRegex) then
       fullURL = fullURL:gsub("^https://open.spotify.com/", "spotify://")
-
+      hs.urlevent.openURL(fullURL)
+   elseif fullURL:match(zoomWithPasswordRegex) then
+      fullURL = fullURL:gsub(zoomWithPasswordRegex, "zoommtg://zoom.us/join?confno=%1&pwd=%2")
+      hs.urlevent.openURL(fullURL)
+   elseif fullURL:match(zoomRegex) then
+      fullURL = fullURL:gsub(zoomRegex, "zoommtg://zoom.us/join?confno=%1")
       hs.urlevent.openURL(fullURL)
    else
       for _, browser in ipairs(browsers) do
