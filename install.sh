@@ -46,6 +46,46 @@ installPackageManager() {
   esac
 }
 
+installGit() {
+  case $os in
+    $macOS)
+      brew install git
+      ;;
+    $ubuntu)
+      sudo apt-get -y install git-all
+      ;;
+  esac
+}
+
+installGo() {
+  case $os in
+    $macOS)
+      brew install go
+      ;;
+    $ubuntu)
+      sudo apt-get -y install golang-go
+      ;;
+  esac
+}
+
+installRuby() {
+  case $os in
+    $macOS)
+      brew install rbenv
+      ;;
+    $ubuntu)
+      sudo apt-get -y install rbenv
+      ;;
+  esac
+
+  mkdir -p "$(rbenv root)/plugins"
+  git clone git://github.com/tpope/rbenv-aliases.git "$(rbenv root)/plugins/rbenv-aliases"
+  rbenv alias --auto
+
+  rbenv install 2.7
+  rbenv global 2.7
+}
+
 installHub() {
   case $os in
     $macOS)
@@ -109,6 +149,17 @@ installCtags() {
   esac
 }
 
+installTmux() {
+  case $os in
+    $macOS)
+      brew install tmux
+      ;;
+    $ubuntu)
+      sudo apt-get -y install tmux
+      ;;
+  esac
+}
+
 installNeovim() {
   case $os in
     $macOS)
@@ -133,20 +184,18 @@ createPrivateFiles
 # TODO: add me
 # generateSSHKey
 # generateGPGKey
-# TODO: make these assumptions explicit
-# installGit
-# installGo
-# installRuby (rbenv)
-installZsh
 installPackageManager
+installGit
+installGo
+installRuby
+installZsh
 installHub
 installJump
 installAg
 installGitsh
 installCtags
 installNeovim
-# TODO: add me
-# installTmux
+installTmux
 intallOMZsh
 (cd "$HOME/.dotfiles"; rake install)
 setupNeovim
