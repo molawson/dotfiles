@@ -3,7 +3,8 @@ export PATH="$HOME/.bin:$PATH"
 source "$HOME/.zsh/aliases"
 source "$HOME/.private"
 
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:$HOME/.bin:$PATH"
+export GOPATH="$HOME/.go"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:$GOPATH/bin:$HOME/.bin:$PATH"
 
 ##
 # DELUXE-USR-LOCAL-BIN-INSERT
