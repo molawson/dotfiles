@@ -1,8 +1,8 @@
 # Dot Files
 
-These are config files to set up a system the way I like it. It includes configuration for vim, zsh, git, Ruby gems, OSX, and others.
+These are config files to set up a system the way I like it. It includes configuration for vim, zsh, git, Ruby gems, and others.
 
-I am running on Mac OS X, but it will likely work on Linux as well.
+I am running on macOS mostly, but I have used these on recent versions of Ubuntu, as well.
 
 ## Before you start
 
@@ -13,13 +13,30 @@ The installation instructions below don't include installing vim plugins or runn
 
 ## Installation
 
-Run the following commands in your terminal. It will prompt you before it does anything destructive. Check out the [Rakefile](https://github.com/molawson/dotfiles/blob/master/Rakefile) to see exactly what it does.
+Clone this repo and `cd` into it.
 
 ```terminal
 git clone git://github.com/molawson/dotfiles ~/.dotfiles
 cd ~/.dotfiles
+```
+
+### Two Options
+
+**Option 1: Dotfiles only**
+
+```terminal
 rake install
 ```
+It will prompt you before it does anything destructive. Check out the [Rakefile](https://github.com/molawson/dotfiles/blob/main/Rakefile) to see exactly what it does.
+
+**Option 2: Install software & dotfiles**
+
+```terminal
+/bin/bash install.sh
+```
+
+That will make sure you have all of the key bits of software I use for development (some of which these dotfiles rely on). It will also run the command above to install the dotfiles.
+
 **NB:** Please update the gitconfig file to use your name and email rather than my own.
 
 After installing, open a new terminal window to see the effects.
