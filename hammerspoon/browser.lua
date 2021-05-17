@@ -35,11 +35,15 @@ browserWatcher:start()
 
 function httpCallback(scheme, _, _, fullURL)
    local spotifyRegex = "^https://open.spotify.com/"
+   local notionRegex = "^https://.*notion.so/"
    local zoomRegex = "^https://.*zoom.us/j/(%d+)"
    local zoomWithPasswordRegex = "^https://.*zoom.us/j/(%d+)?pwd=(%w+)"
 
    if fullURL:match(spotifyRegex) then
       fullURL = fullURL:gsub("^https://open.spotify.com/", "spotify://")
+      hs.urlevent.openURL(fullURL)
+   elseif fullURL:match(notionRegex) then
+      fullURL = fullURL:gsub("^https://.*notion.so/", "notion://")
       hs.urlevent.openURL(fullURL)
    elseif fullURL:match(zoomWithPasswordRegex) then
       fullURL = fullURL:gsub(zoomWithPasswordRegex, "zoommtg://zoom.us/join?confno=%1&pwd=%2")
