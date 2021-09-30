@@ -438,3 +438,10 @@ set winwidth=120
 set winheight=10
 set winminheight=10
 set winheight=999
+
+" Git specific configuration
+let git_path = system("git rev-parse --git-dir 2>/dev/null")
+let git_vimrc = substitute(git_path, '\n', '', '') . "/vimrc"
+if !empty(glob(git_vimrc))
+    exec ":source " . git_vimrc
+endif
