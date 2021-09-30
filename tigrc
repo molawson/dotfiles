@@ -1,0 +1,43 @@
+set ignore-case = smart-case
+
+color title-blur blue default
+color title-focus white blue bold
+
+# Selections from tig/contrib/vim.tigrc with some modifications
+bind generic h scroll-left
+bind generic l scroll-right
+
+bind generic o enter
+
+bind generic g  none
+bind generic gg move-first-line
+bind generic gj next
+bind generic gk previous
+bind generic gp parent
+bind generic gP back
+bind generic gn view-next
+
+bind main    G move-last-line
+bind generic G move-last-line
+
+bind generic <C-f> move-page-down
+bind generic <C-b> move-page-up
+
+bind generic v  none
+bind generic vm view-main
+bind generic vd view-diff
+bind generic vl view-log
+bind generic vR view-reflog
+bind generic vt view-tree
+bind generic vb view-blob
+bind generic vx view-blame
+bind generic vr view-refs
+bind generic vp view-pager
+bind generic vh view-help
+bind generic vs view-status
+bind generic vu view-stage
+bind generic vy view-stash
+bind generic vg view-grep
+
+bind generic K view-help
+bind generic <C-w><C-w> view-next
