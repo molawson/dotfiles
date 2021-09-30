@@ -59,6 +59,7 @@
   st = status -sb
   sw = switch
   swd = switch --detach
+  t = !tig
   u = pull
   uff = !git u --ff-only
   uo = !git u origin

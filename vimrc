@@ -185,6 +185,18 @@ function! WriteCreatingDirs()
     write
 endfunction
 
+function! OpenCurrentFileTigLog()
+  let current_file = expand('%')
+  tabnew | call termopen('tig log -- '.current_file) | startinsert
+endfunction
+command TigLog call OpenCurrentFileTigLog()
+
+function! OpenCurrentFileTigBlame()
+  let current_file = expand('%')
+  tabnew | call termopen('tig blame -- '.current_file) | startinsert
+endfunction
+command TigBlame call OpenCurrentFileTigBlame()
+
 
 """""""""""""""
 " RAILS ROUTES
