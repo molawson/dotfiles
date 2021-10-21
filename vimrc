@@ -107,6 +107,16 @@ if has('termguicolors')
   set termguicolors
 endif
 
+function! s:sonokai_custom()
+  highlight! link TSLabel OrangeItalic
+  highlight! link TSConstant Orange
+endfunction
+
+augroup SonokaiCustom
+  autocmd!
+  autocmd ColorScheme sonokai call s:sonokai_custom()
+augroup END
+
 let g:sonokai_enable_italic = 1
 colorscheme sonokai
 
