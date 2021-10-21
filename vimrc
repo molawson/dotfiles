@@ -1,7 +1,6 @@
 " Inspiration (and much of the actual code) from Gary Bernhardt's dotfiles (https://github.com/garybernhardt/dotfiles)
 
 call plug#begin('~/.vim/plugged')
-Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'mileszs/ack.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-scripts/matchit.zip'
@@ -13,7 +12,6 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Townk/vim-autoclose'
-Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-commentary'
 Plug 'elixir-lang/vim-elixir'
 Plug 'tpope/vim-eunuch'
@@ -29,7 +27,6 @@ Plug 'ecomba/vim-ruby-refactoring'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
-Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'skalnik/vim-vroom'
 Plug 'dense-analysis/ale'
 Plug 'slim-template/vim-slim'
@@ -37,6 +34,7 @@ Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'sainnhe/sonokai'
 call plug#end()
 
 set nocompatible
@@ -91,6 +89,8 @@ let g:airline_section_b = ''
 let g:airline_section_y = ''
 let g:airline_section_z = airline#section#create(['linenr',  ':%3v'])
 
+let g:airline_theme = 'sonokai'
+
 let g:tmuxline_preset = {
       \ 'a': '#S',
       \ 'b': ' #(cd #{pane_current_path};git ref)',
@@ -102,11 +102,16 @@ let g:tmuxline_preset = {
 
 " Display
 syntax on
-set guifont=Menlo\ for\ Powerline:h15
+set guifont=Fira\ Code:h15
 set encoding=utf-8
-colorscheme Tomorrow-Night
-" set background=light
-" colorscheme solarized
+
+if has('termguicolors')
+  set termguicolors
+endif
+
+let g:sonokai_enable_italic = 1
+colorscheme sonokai
+
 set list listchars=tab:»·,trail:·
 set cursorline
 
@@ -118,6 +123,7 @@ set smartcase
 
 " Search results highlighted with underline
 highlight Search ctermbg=None ctermfg=None cterm=underline
+highlight Search guibg=guibg guifg=guifg gui=underline,bold
 
 " Clear the search buffer when hitting return
 function! MapCR()
