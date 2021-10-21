@@ -71,6 +71,9 @@ set autoindent
 set backspace=indent,eol,start
 filetype plugin indent on
 
+" reselect pasted text
+nnoremap gp `[v`]
+
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
