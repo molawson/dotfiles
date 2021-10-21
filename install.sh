@@ -174,6 +174,7 @@ installTmux() {
   case $os in
     $macOS)
       brew install tmux
+      fixTmux256ColorTerm
       ;;
     $ubuntu)
       sudo apt-get -y install tmux
@@ -200,6 +201,18 @@ setupNeovim() {
   echo $e
 }
 
+fixTmux256ColorTerm() {
+  curl -OL https://gist.githubusercontent.com/nicm/ea9cf3c93f22e0246ec858122d9abea1/raw/37ae29fc86e88b48dbc8a674478ad3e7a009f357/tmux-256color
+  echo '8f259a31649900b9a8f71cbc28be762aa55206316d33d51fd8d08e4275b5f6a3  tmux-256color' | shasum -a 256 -c
+  if [ $? == 0 ]
+  then
+    /usr/bin/tic -x tmux-256color
+  else
+    echo 'tmux-256color checksum has changed'
+  fi
+  rm tmux-256color
+}
+
 echo "Running installation for $os..."
 createPrivateFiles
 # TODO: add me
@@ -218,7 +231,7 @@ installTig
 installCtags
 installNeovim
 installTmux
-intallOMZsh
+installOMZsh
 (cd "$HOME/.dotfiles"; rake install)
 setupNeovim
 bin/bash "$HOME/.bin/ctags_init"
