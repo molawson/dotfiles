@@ -1,5 +1,8 @@
 " Inspiration (and much of the actual code) from Gary Bernhardt's dotfiles (https://github.com/garybernhardt/dotfiles)
 
+" Use tpope's markdown plugin instead
+let g:polyglot_disabled = ['markdown']
+
 call plug#begin('~/.vim/plugged')
 Plug 'mileszs/ack.vim'
 Plug 'editorconfig/editorconfig-vim'
@@ -13,27 +16,21 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Townk/vim-autoclose'
 Plug 'tpope/vim-commentary'
-Plug 'elixir-lang/vim-elixir'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
-Plug 'vim-ruby/vim-ruby'
 Plug 'ecomba/vim-ruby-refactoring'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'skalnik/vim-vroom'
 Plug 'dense-analysis/ale'
-Plug 'slim-template/vim-slim'
-Plug 'fatih/vim-go'
-Plug 'rust-lang/rust.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'sheerun/vim-polyglot'
 Plug 'sainnhe/sonokai'
 call plug#end()
 
