@@ -32,6 +32,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'sainnhe/sonokai'
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 call plug#end()
 
 set nocompatible
@@ -450,6 +451,23 @@ augroup END
 
 " Hide tab listchars in golang files
 autocmd FileType go setlocal list listchars=tab:\ \ 
+
+" tree-sitter
+lua <<EOF
+require"nvim-treesitter.configs".setup {
+  ensure_installed = {
+    "bash", "comment", "css", "go", "html", "javascript", "json", "lua", "regex", "ruby", "scss",
+    "typescript", "vim"
+  },
+  highlight = { 
+    enable = true,
+    disable = { "javascript" },
+    additional_vim_regex_highlighting = false,
+  },
+  indent = { enable = true },
+  incremental_selection = { enable = true },
+}
+EOF
 
 " Automatic split resizing
 set winwidth=60
