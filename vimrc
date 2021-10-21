@@ -141,6 +141,8 @@ endif
 " let g:snipMate.scope_aliases = {}
 " let g:snipMate.scope_aliases['html'] = ''
 " let g:snipMate.snippet_version = 0
+let g:snipMate = { 'snippet_version' : 0 }
+
 
 " Bash style tab completion
 set wildmode=list:longest,list:full
