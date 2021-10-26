@@ -199,8 +199,7 @@ installNeovim() {
       brew install neovim
       ;;
     $ubuntu)
-      sudo apt-get -y install neovim
-      ln -s /usr/bin/nvim /usr/local/bin/nvim
+      sudo snap install nvim --classic
       ;;
   esac
 }
