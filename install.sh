@@ -46,6 +46,17 @@ installPackageManager() {
   esac
 }
 
+installGpg() {
+  case $os in
+    $macOS)
+      brew install --cask gpg-suite-no-mail
+      ;;
+    $ubuntu)
+      sudo apt-get -y install gnupg
+      ;;
+  esac
+}
+
 installGit() {
   case $os in
     $macOS)
@@ -215,10 +226,8 @@ fixTmux256ColorTerm() {
 
 echo "Running installation for $os..."
 createPrivateFiles
-# TODO: add me
-# generateSSHKey
-# generateGPGKey
 installPackageManager
+installGpg
 installGit
 installGo
 installRuby
