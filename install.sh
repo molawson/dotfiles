@@ -208,8 +208,6 @@ installNeovim() {
 setupNeovim() {
   nvim -c "PlugInstall"
   ln -s $HOME/.vim/plugged/fzf/bin/fzf /usr/local/bin/fzf
-  read e
-  echo $e
 }
 
 fixTmux256ColorTerm() {
@@ -243,4 +241,4 @@ installTmux
 installOMZsh
 (cd "$HOME/.dotfiles"; rake install)
 setupNeovim
-bin/bash "$HOME/.bin/ctags_init"
+/bin/bash "$HOME/.bin/ctags_init"
