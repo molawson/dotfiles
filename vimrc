@@ -144,7 +144,7 @@ let $FZF_DEFAULT_COMMAND='ag -lU --hidden --nocolor -g ""'
 let $FZF_DEFAULT_OPTS='--layout=reverse'
 
 let g:vroom_test_unit_command = 'bin/rails test '
-let g:vroom_use_bundle_exec = 1
+let g:vroom_use_bundle_exec = 0
 let g:vroom_use_terminal = 1
 
 let g:jsx_ext_required = 0
