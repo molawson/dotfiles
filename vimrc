@@ -153,12 +153,11 @@ if executable('ag')
   let g:ackprg = 'ag -F --vimgrep'
 endif
 
+let g:snipMate = get(g:, 'snipMate', {})
+let g:snipMate.snippet_version = 0
 " Keep JS snippets out of html files
-" let g:snipMate = {}
 " let g:snipMate.scope_aliases = {}
 " let g:snipMate.scope_aliases['html'] = ''
-" let g:snipMate.snippet_version = 0
-let g:snipMate = { 'snippet_version' : 0 }
 
 
 " Bash style tab completion
