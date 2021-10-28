@@ -16,7 +16,7 @@ The installation instructions below don't include installing vim plugins or runn
 Clone this repo and `cd` into it.
 
 ```terminal
-git clone git://github.com/molawson/dotfiles ~/.dotfiles
+git clone git@github.com:molawson/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ```
 
