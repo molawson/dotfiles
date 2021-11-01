@@ -63,7 +63,7 @@ installGit() {
       brew install git
       ;;
     $ubuntu)
-      sudo apt-get -y install git-all
+      sudo apt-get -y install git
       ;;
   esac
 }
