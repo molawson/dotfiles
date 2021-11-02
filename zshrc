@@ -3,18 +3,10 @@ export PATH="$HOME/.bin:$PATH"
 source "$HOME/.zsh/aliases"
 source "$HOME/.private"
 
-export GOPATH="$HOME/.go"
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:$GOPATH/bin:$HOME/.bin:$PATH"
+export PATH="$HOME/.bin:$PATH"
 
-##
-# DELUXE-USR-LOCAL-BIN-INSERT
-# (do not remove this comment)
-##
-echo $PATH | grep -q -s "/usr/local/bin"
-if [ $? -eq 1 ] ; then
-    PATH=$PATH:/usr/local/bin
-    export PATH
-fi
+export GOPATH="$HOME/.go"
+export PATH="$GOPATH/bin:$PATH"
 
 ZSH_CUSTOM=$HOME/.zsh/custom
 ZSH_THEME=robbyrussell
@@ -31,19 +23,26 @@ eval "$($HOME/Code/pco/bin/pco init -)"
 eval "$(jump shell)"
 eval "$(hub alias -s)"
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
-
 export PATH="node_modules/.bin:$PATH"
 
 export EDITOR="nvim"
 
 source $ZSH/oh-my-zsh.sh
-export RBENV_ROOT=$HOME/.rbenv
-eval "$(rbenv init -)"
 
 export MYSQL_PORT_3306_TCP_ADDR=127.0.0.1
 export MYSQL_READER_PORT_3306_TCP_ADDR=127.0.0.1
 export MYSQL_READER_PORT_3306_TCP_PORT=3307
 export PATH=$HOME/pco-box/bin:/usr/local/bin:$PATH
+
+##
+# DELUXE-USR-LOCAL-BIN-INSERT
+# (do not remove this comment)
+##
+echo $PATH | grep -q -s "/usr/local/bin"
+if [ $? -eq 1 ] ; then
+    PATH=$PATH:/usr/local/bin
+    export PATH
+fi
+
+export RBENV_ROOT=$HOME/.rbenv
+eval "$(rbenv init -)"
