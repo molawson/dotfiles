@@ -205,7 +205,7 @@ installNeovim() {
 }
 
 setupNeovim() {
-  nvim -c "PlugInstall"
+  nvim --headless +PlugInstall +qall
   ln -s $HOME/.vim/plugged/fzf/bin/fzf /usr/local/bin/fzf
 }
 
