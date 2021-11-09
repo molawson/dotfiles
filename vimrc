@@ -24,6 +24,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'ecomba/vim-ruby-refactoring'
 Plug 'honza/vim-snippets'
 Plug 'dcampos/nvim-snippy'
+Plug 'quangnguyen30192/cmp-nvim-tags'
 Plug 'dcampos/cmp-snippy'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
@@ -518,11 +519,23 @@ lua <<EOF
         end
       end, { "i", "s" }),
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ['<C-r>'] = cmp.mapping.complete(),
     },
     completion = {
       autocomplete = false
     },
+    formatting = {
+      format = function(entry, vim_item)
+        vim_item.menu = ({
+          tags = "[Tag]",
+          buffer = "[Buffer]",
+        })[entry.source.name]
+        return vim_item
+      end
+    },
     sources = cmp.config.sources({
+      { name = 'tags' },
+      { name = 'snippy' },
       { name = 'buffer' },
     })
   })
