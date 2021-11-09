@@ -8,7 +8,6 @@ Plug 'mileszs/ack.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-scripts/matchit.zip'
 Plug 'tomtom/tlib_vim'
-Plug 'ervandew/supertab'
 Plug 'edkolev/tmuxline.vim'
 Plug 'tpope/vim-abolish'
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -23,8 +22,11 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'ecomba/vim-ruby-refactoring'
-Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
+Plug 'dcampos/nvim-snippy'
+Plug 'dcampos/cmp-snippy'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
 Plug 'tpope/vim-surround'
 Plug 'skalnik/vim-vroom'
 Plug 'dense-analysis/ale'
@@ -476,6 +478,54 @@ require"nvim-treesitter.configs".setup {
   indent = { enable = false },
   incremental_selection = { enable = true },
 }
+EOF
+
+" cmp
+lua <<EOF
+  local has_words_before = function()
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+  end
+
+  local snippy = require("snippy")
+  local cmp = require("cmp")
+
+  cmp.setup({
+    snippet = {
+      expand = function(args)
+        require'snippy'.expand_snippet(args.body) -- For `snippy` users.
+      end,
+    },
+    mapping = {
+      ["<Tab>"] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item()
+        elseif snippy.can_expand_or_advance() then
+          snippy.expand_or_advance()
+        elseif has_words_before() then
+          cmp.complete()
+        else
+          fallback()
+        end
+      end, { "i", "s" }),
+      ["<S-Tab>"] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item()
+        elseif snippy.can_jump(-1) then
+          snippy.previous()
+        else
+          fallback()
+        end
+      end, { "i", "s" }),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    },
+    completion = {
+      autocomplete = false
+    },
+    sources = cmp.config.sources({
+      { name = 'buffer' },
+    })
+  })
 EOF
 
 " Automatic split resizing
