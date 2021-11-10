@@ -522,7 +522,8 @@ lua <<EOF
       ['<C-r>'] = cmp.mapping.complete(),
     },
     completion = {
-      autocomplete = false
+      autocomplete = false,
+      completeopt = "menu,menuone,noinsert"
     },
     formatting = {
       format = function(entry, vim_item)
