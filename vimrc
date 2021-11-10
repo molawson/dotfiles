@@ -98,7 +98,7 @@ let g:tmuxline_preset = {
       \ 'win': '#I #W#F',
       \ 'cwin': '#I #W',
       \ 'y': '%a %b %d - %-l:%M %p',
-      \ 'z': '#(battery_percentage)'}
+      \ 'z': '#h #(battery_percentage)'}
 
 
 " Display
