@@ -209,6 +209,16 @@ setupNeovim() {
   ln -s $HOME/.vim/plugged/fzf/bin/fzf /usr/local/bin/fzf
 }
 
+setupOS() {
+  case $os in
+    $macOS)
+      ;;
+    $ubuntu)
+      sudo timedatectl set-timezone America/Chicago
+      ;;
+  esac
+}
+
 fixTmux256ColorTerm() {
   curl -OL https://gist.githubusercontent.com/nicm/ea9cf3c93f22e0246ec858122d9abea1/raw/37ae29fc86e88b48dbc8a674478ad3e7a009f357/tmux-256color
   echo '8f259a31649900b9a8f71cbc28be762aa55206316d33d51fd8d08e4275b5f6a3  tmux-256color' | shasum -a 256 -c
@@ -240,4 +250,5 @@ installTmux
 installOMZsh
 (cd "$HOME/.dotfiles"; rake install)
 setupNeovim
+setupOS
 /bin/bash "$HOME/.bin/ctags_init"
