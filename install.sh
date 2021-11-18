@@ -20,30 +20,13 @@ createPrivateFiles() {
   touch $HOME/.gitconfig_private
 }
 
-installZsh() {
-  case $os in
-    $macOS)
-      brew install zsh
-      ;;
-    $ubuntu)
-      sudo apt-get install -y zsh
-      ;;
-  esac
-}
-
 installOMZsh() {
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
-installPackageManager() {
-  case $os in
-    $macOS)
-      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      ;;
-    $ubuntu)
-      sudo apt-get -y update
-      ;;
-  esac
+installHomebrew() {
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  brew bundle
 }
 
 installGpg() {
@@ -57,151 +40,13 @@ installGpg() {
   esac
 }
 
-installGit() {
-  case $os in
-    $macOS)
-      brew install git
-      ;;
-    $ubuntu)
-      sudo apt-get -y install git
-      ;;
-  esac
-}
-
-installTig() {
-
-  case $os in
-    $macOS)
-      brew install tig
-      ;;
-    $ubuntu)
-      if ! command -v tig >/dev/null 2>&1; then
-        wget -O tig-2.5.4.tar.gz "https://github.com/jonas/tig/releases/download/tig-2.5.4/tig-2.5.4.tar.gz"
-        tar -xvf tig-2.5.4.tar.gz
-        cd tig-2.5.4 || exit
-        make prefix=/usr/local
-        sudo make install prefix=/usr/local
-        cd ..
-        rm -rf tig-2.5.4
-        rm tig-2.5.4.tar.gz
-      fi
-      ;;
-  esac
-}
-
-installGo() {
-  case $os in
-    $macOS)
-      brew install go
-      ;;
-    $ubuntu)
-      sudo apt-get -y install golang-go
-      ;;
-  esac
-}
-
-installRuby() {
-  case $os in
-    $macOS)
-      brew install rbenv
-      ;;
-    $ubuntu)
-      sudo apt-get -y install rbenv
-      ;;
-  esac
-
+setupRbenv() {
   mkdir -p "$(rbenv root)/plugins"
   git clone git://github.com/tpope/rbenv-aliases.git "$(rbenv root)/plugins/rbenv-aliases"
   rbenv alias --auto
 
   rbenv install 2.7
   rbenv global 2.7
-}
-
-installHub() {
-  case $os in
-    $macOS)
-      brew install hub
-      ;;
-    $ubuntu)
-      sudo apt-get -y install hub
-      ln -s /usr/bin/hub /usr/local/bin/hub
-      ;;
-  esac
-}
-
-installJump() {
-  case $os in
-    $macOS)
-      brew install jump
-      ;;
-    $ubuntu)
-      go get github.com/gsamokovarov/jump
-      ;;
-  esac
-}
-
-installAg() {
-  case $os in
-    $macOS)
-      brew install the_silver_searcher
-      ;;
-    $ubuntu)
-      sudo apt-get -y install silversearcher-ag
-      ;;
-  esac
-}
-
-installGitsh() {
-  case $os in
-    $macOS)
-      brew install gitsh
-      ;;
-    $ubuntu)
-      curl -OL https://github.com/thoughtbot/gitsh/releases/download/v0.14/gitsh-0.14.tar.gz
-      tar -zxvf gitsh-0.14.tar.gz
-      cd gitsh-0.14
-      ./configure
-      make
-      sudo make install
-      cd ..
-      rm -rf gitsh-0.14*
-      ;;
-  esac
-}
-
-installCtags() {
-  case $os in
-    $macOS)
-      brew install ctags
-      ;;
-    $ubuntu)
-      sudo apt-get -y install ctags
-      ;;
-  esac
-}
-
-installTmux() {
-  case $os in
-    $macOS)
-      brew install tmux
-      fixTmux256ColorTerm
-      ;;
-    $ubuntu)
-      sudo apt-get -y install tmux
-      ;;
-  esac
-}
-
-installNeovim() {
-  case $os in
-    $macOS)
-      brew install neovim
-      ;;
-    $ubuntu)
-      sudo snap install nvim --classic
-      ;;
-  esac
 }
 
 setupNeovim() {
@@ -233,22 +78,12 @@ fixTmux256ColorTerm() {
 
 echo "Running installation for $os..."
 createPrivateFiles
-installPackageManager
+installHomebrew
 installGpg
-installGit
-installGo
-installRuby
-installZsh
-installHub
-installJump
-installAg
-installGitsh
-installTig
-installCtags
-installNeovim
-installTmux
 installOMZsh
 (cd "$HOME/.dotfiles"; rake install)
+setupRbenv
 setupNeovim
-setupOS
+fixTmux256ColorTerm
 /bin/bash "$HOME/.bin/ctags_init"
+setupOS
