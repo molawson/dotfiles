@@ -40,7 +40,6 @@ call plug#end()
 
 set nocompatible
 
-
 " Store all .swp files in a common location
 set directory^=$HOME/.vim/tmp//
 
@@ -156,13 +155,6 @@ if executable('ag')
   let g:ackprg = 'ag -F --vimgrep'
 endif
 
-let g:snipMate = get(g:, 'snipMate', {})
-let g:snipMate.snippet_version = 0
-" Keep JS snippets out of html files
-" let g:snipMate.scope_aliases = {}
-" let g:snipMate.scope_aliases['html'] = ''
-
-
 " Bash style tab completion
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
@@ -171,25 +163,6 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 let g:markdown_fenced_languages=['ruby', 'eruby', 'javascript', 'html', 'sh']
 
 au! BufRead,BufNewFile *.pp setfiletype ruby
-
-
-" TODO: come up with a decent way to do this with ale
-" " Let Rubocop auto correct style issues
-" function! AutoCop()
-"   let l:extra_args = g:vimrubocop_extra_args
-"   let l:filename = @%
-"   let l:rubocop_cmd = g:vimrubocop_rubocop_cmd
-"   let l:rubocop_opts = ' -a '.l:extra_args.''
-"   if g:vimrubocop_config != ''
-"     let l:rubocop_opts = ' '.l:rubocop_opts.' --config '.g:vimrubocop_config
-"   endif
-"   " go ahead and save the current file
-"   write
-"   " let rubocop do its thing
-"   call system(l:rubocop_cmd.l:rubocop_opts.' '.l:filename)
-"   " refresh the buffer
-"   edit
-" endfunction
 
 " Rename current file
 function! RenameFile()
@@ -222,7 +195,6 @@ command TigBlame call OpenCurrentFileTigBlame()
 """""""""""""""
 " RAILS ROUTES
 """""""""""""""
-
 function! ShowRoutes()
   " Requires 'scratch' plugin
   :topleft 100 :split __Routes__
@@ -248,7 +220,6 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""
 " SWITCH BETWEEN TEST AND PRODUCTION CODE
 """"""""""""""""""""""""""""""""""""""""""
-
 function! OpenTestAlternate()
   let new_file = AlternateForCurrentFile()
   exec ':e ' . new_file
@@ -289,40 +260,6 @@ function! AlternateForCurrentFile()
     end
   endif
   return new_file
-endfunction
-
-
-"""""""""""""""""""
-" RUBY REFACTORING
-"""""""""""""""""""
-
-function! PromoteToLet()
-  normal 0
-  if empty(matchstr(getline("."), "=")) == 1
-    echo "Can't find an assignment"
-    return
-  end
-  normal! dd
-  exec "?^\\s*\\<\\(describe\\|context\\)\\>"
-  normal! $p
-  exec 's/\v([a-z_][a-zA-Z0-9_]*) \= (.+)/let(:\1) { \2 }'
-  normal V=
-endfunction
-
-function! ExtractVariable()
-  let name = input("Variable name: ")
-  if name == ''
-    return
-  endif
-  " Enter visual mode (not sure why this is needed since we're already in
-  " visual mode anyway)
-  normal! gv
-  " Replace selected text with the variable name
-  exec "normal c" . name
-  " Define the variable on the line above
-  exec "normal! O" . name . " = "
-  " Paste the original selected text to be the variable value
-  normal! $p
 endfunction
 
 function! FZFTestsDynamic()
@@ -369,16 +306,7 @@ nnoremap <leader>. :call OpenTestAlternate()<cr>
 map <leader>t :VroomRunTestFile<cr>
 map <leader>T :VroomRunNearestTest<cr>
 
-" map <leader>rf :call AutoCop()<cr>
-
 map <leader>w :call WriteCreatingDirs()<cr>
-
-map <leader>en :lnext<cr>
-map <leader>ep :lprev<cr>
-
-" Ruby Refactoring
-map <leader>rel :call PromoteToLet()<cr>
-map <leader>rev :call ExtractVariable()<cr>
 
 " The Silver Searcher (Ag)
 map <leader>ag :Ack! 
