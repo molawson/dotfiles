@@ -16,7 +16,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'Townk/vim-autoclose'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
@@ -183,13 +182,13 @@ function! OpenCurrentFileTigLog()
   let current_file = expand('%')
   tabnew | call termopen('tig log -- '.current_file) | startinsert
 endfunction
-command TigLog call OpenCurrentFileTigLog()
+command Glog call OpenCurrentFileTigLog()
 
 function! OpenCurrentFileTigBlame()
   let current_file = expand('%')
   tabnew | call termopen('tig blame -- '.current_file) | startinsert
 endfunction
-command TigBlame call OpenCurrentFileTigBlame()
+command Gblame call OpenCurrentFileTigBlame()
 
 
 """""""""""""""
@@ -318,9 +317,6 @@ map <leader>ai :Ack! -i
 map <leader>p "*p<cr>
 map <leader>P "*P<cr>
 map <leader>y "*y<cr>
-
-" Git
-map <leader>u :diffupdate<cr>
 
 " Delete to black hole register
 map <leader>d "_d<cr>
