@@ -42,4 +42,4 @@ bind generic vg view-grep
 bind generic K view-help
 bind generic <C-w><C-w> view-next
 
-bind status D @rm %(file)
+bind status D ?@rm %(file)
