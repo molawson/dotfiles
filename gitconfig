@@ -84,10 +84,7 @@
   gitCommand = /usr/local/bin/hub
   prompt = "%D %c%b%#%w"
 [mergetool "nvim"]
-  cmd = nvim -f -c \"e\" \"$MERGED\"
-  keepBackup = false
-[mergetool "fugitive"]
-  cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
+  cmd = nvim -d $LOCAL $REMOTE $MERGED
   keepBackup = false
 [include]
   path = ~/.gitconfig_private
