@@ -466,6 +466,18 @@ lua <<EOF
   })
 EOF
 
+" snippy
+lua <<EOF
+  require('snippy').setup({
+    scopes = {
+      ruby = function(scopes)
+        table.insert(scopes, 'rails')
+        return scopes
+      end,
+    }
+  })
+EOF
+
 " Automatic split resizing
 set winwidth=60
 set winminwidth=60
