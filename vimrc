@@ -271,6 +271,24 @@ function! FZFTestsDynamic()
 endfunction
 
 
+" Run sorbet typcheck like vim-vroom
+function! RunSorbetTypeCheck()
+  let cmd = 'bundle exec srb tc --file '. expand('%')
+  if exists('t:srb_terminal_bufnr') && bufexists(t:srb_terminal_bufnr)
+    exec ":bd! ".t:srb_terminal_bufnr
+  end
+
+  let height = winheight(0) * 1/4
+  exec ":belowright " . height . "split"
+
+  exec ":terminal " . cmd
+  " terminal runs by default in insert mode which kills the buffer after exit,
+  " let's change to normal mode
+  exec ":stopinsert"
+  let t:srb_terminal_bufnr = bufnr('%')
+endfunction
+
+
 """""""""""""""""""
 " LEADER SHORTCUTS
 """""""""""""""""""
@@ -305,6 +323,8 @@ nnoremap <leader>. :call OpenTestAlternate()<cr>
 map <leader>t :VroomRunTestFile<cr>
 map <leader>T :VroomRunNearestTest<cr>
 
+map <leader>s :call RunSorbetTypeCheck()<cr>
+
 map <leader>w :call WriteCreatingDirs()<cr>
 
 " The Silver Searcher (Ag)
@@ -334,7 +354,7 @@ map <leader>V :source ~/.vimrc<cr>
 imap <c-l> <space>=><space>
 
 map <leader>C :tabnew<cr>
-map <leader>s :!sh .git/hooks/ctags<cr>
+map <leader>S :!sh .git/hooks/ctags<cr>
 
 nmap <space> zz
 
@@ -356,7 +376,7 @@ let g:ale_fixers = {
 \   'elixir': ['mix_format'],
 \}
 let g:ale_linters = {
-\   'ruby': ['rubocop'],
+\   'ruby': ['rubocop', 'srb'],
 \}
 let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_fix_on_save = 1
