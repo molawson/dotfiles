@@ -296,7 +296,8 @@ endfunction
 " FZF
 map <leader>f :Files<cr>
 map <leader>b :Buffers<cr>
-map <leader>c :Tags<cr>
+map <leader>ca :Tags<cr>
+map <leader>cf :BTags<cr>
 
 " Rails
 map <leader>gg :topleft 100 :split Gemfile<cr>
