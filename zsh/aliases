@@ -16,3 +16,5 @@ alias tlog="tail -f log/development.log"
 alias fat="make atreus:mo && avrdude -p atmega32u4 -c avr109 -U flash:w:atreus_mo.hex -P /dev/cu.usbmodem3201"
 
 alias byd="bundle install && yarn install && rake db:migrate && rake db:test:prepare"
+
+alias pcb="pco cloud-box"
