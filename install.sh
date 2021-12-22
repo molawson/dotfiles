@@ -57,6 +57,15 @@ setupNeovim() {
 setupOS() {
   case $os in
     $macOS)
+      echo -e "Make sure you've launched the Mac App Store and signed into your account?"
+      echo -e "Type 'done' when you're ready to continue"
+      read confirm
+      if [ "$confirm" != "done" ] ; then
+        echo "Glad I asked! Bye."
+        exit 1
+      else
+        brew bundle --file=$HOME/.Brewfile-macos_apps
+      fi
       ;;
     $ubuntu)
       sudo timedatectl set-timezone America/Chicago
