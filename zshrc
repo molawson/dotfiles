@@ -19,10 +19,6 @@ GIT_PS1_SHOWCOLORHINTS=1
 
 plugins=(gitfast rails bundler rake-fast)
 
-eval "$($HOME/Code/pco/bin/pco init -)"
-eval "$(jump shell)"
-eval "$(hub alias -s)"
-
 export PATH="node_modules/.bin:$PATH"
 
 export EDITOR="nvim"
@@ -46,3 +42,6 @@ fi
 
 export RBENV_ROOT=$HOME/.rbenv
 eval "$(rbenv init -)"
+eval "$($HOME/Code/pco/bin/pco init -)"
+eval "$(jump shell)"
+eval "$(hub alias -s)"
