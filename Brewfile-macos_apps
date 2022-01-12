@@ -1,6 +1,6 @@
 tap "homebrew/cask-drivers"
-brew "elgato-control-center"
-brew "elgato-stream-deck"
+cask "elgato-control-center"
+cask "elgato-stream-deck"
 
 cask "1password"
 cask "acorn"
