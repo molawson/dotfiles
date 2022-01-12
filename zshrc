@@ -21,6 +21,8 @@ plugins=(gitfast rails bundler rake-fast)
 
 export PATH="node_modules/.bin:$PATH"
 
+export PATH="/opt/homebrew/bin:$PATH"
+
 export EDITOR="nvim"
 
 source $ZSH/oh-my-zsh.sh
