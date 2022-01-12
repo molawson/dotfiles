@@ -52,7 +52,7 @@ setupRbenv() {
 
 setupNeovim() {
   nvim --headless +PlugInstall +qall
-  ln -s $HOME/.vim/plugged/fzf/bin/fzf /usr/local/bin/fzf
+  sudo ln -s $HOME/.vim/plugged/fzf/bin/fzf /usr/local/bin/fzf
 }
 
 setupOS() {
