@@ -63,6 +63,3 @@ mas "Xcode", id: 497799835
 tap "homebrew/cask-fonts"
 brew "font-fira-code"
 
-brew "maestral"
-maestral start
-maestral autostart -Y
