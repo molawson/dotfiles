@@ -81,7 +81,7 @@
 [gitsh]
   noGreeting = true
   defaultCommand = st
-  gitCommand = /usr/local/bin/hub
+  gitCommand = hub
   prompt = "%D %c%b%#%w"
 [mergetool "nvim"]
   cmd = nvim -d $LOCAL $REMOTE $MERGED
