@@ -27,10 +27,9 @@ export EDITOR="nvim"
 
 source $ZSH/oh-my-zsh.sh
 
-export MYSQL_PORT_3306_TCP_ADDR=127.0.0.1
-export MYSQL_READER_PORT_3306_TCP_ADDR=127.0.0.1
-export MYSQL_READER_PORT_3306_TCP_PORT=3307
-export PATH=$HOME/pco-box/bin:/usr/local/bin:$PATH
+if [[ -d $HOME/pco-box ]]; then
+    source $HOME/pco-box/env.sh
+fi
 
 ##
 # DELUXE-USR-LOCAL-BIN-INSERT
