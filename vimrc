@@ -182,13 +182,13 @@ function! OpenCurrentFileTigLog()
   let current_file = expand('%')
   tabnew | call termopen('tig log -- '.current_file) | startinsert
 endfunction
-command Glog call OpenCurrentFileTigLog()
+command TIGLog call OpenCurrentFileTigLog()
 
 function! OpenCurrentFileTigBlame()
   let current_file = expand('%')
   tabnew | call termopen('tig blame -- '.current_file) | startinsert
 endfunction
-command Gblame call OpenCurrentFileTigBlame()
+command TIGBlame call OpenCurrentFileTigBlame()
 
 
 """""""""""""""
