@@ -203,7 +203,7 @@ function! ShowRoutes()
   :normal 1GdG
   " Put routes output in buffer
   if filereadable("Gemfile")
-    :0r! bundle exec rake -s routes
+    :0r! bundle exec rails routes
   else
     :0r! rake -s routes
   end
