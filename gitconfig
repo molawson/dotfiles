@@ -45,12 +45,14 @@
   rb = !git r --branches --remotes --tags
   rc = rebase --continue
   re = rebase
+  ri = rebase -i
   rs = restore
   rh = reset HEAD
   rib = rebase-branch
   ribo = rebase-branch-old
   ru = remote update --prune
   s = stash save
+  sg = stash save --staged
   sl = stash list
   so = stash pop
   sp = !git s --patch
