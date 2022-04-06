@@ -1,4 +1,12 @@
-PROMPT="%{$fg_bold[magenta]%}%m%{$reset_color%} %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+function machine_name() {
+  if [[ $(hostname) =~ 'MoLawson-*' ]]; then
+    echo 'humperdink'
+  else
+    echo $(hostname)
+  fi
+}
+
+PROMPT="%{$fg_bold[magenta]%}$(machine_name)%{$reset_color%} %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 PROMPT+=' %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
