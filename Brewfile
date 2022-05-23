@@ -6,7 +6,7 @@ brew "tig"
 brew "hub"
 brew "jump"
 brew "the_silver_searcher"
-brew "ctags"
+brew "universal-ctags"
 brew "tmux"
 brew "neovim"
 
