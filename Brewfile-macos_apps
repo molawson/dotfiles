@@ -26,6 +26,7 @@ cask "macdown"
 cask "macvim"
 cask "netspot"
 cask "notion"
+cask "obsidian"
 cask "paw"
 cask "rocket"
 cask "screenflow"
@@ -39,7 +40,6 @@ cask "viscosity"
 cask "zoom"
 
 brew "mas"
-mas "Bear", id: 1091189122
 mas "Calcbot", id: 931657367
 mas "Day One", id: 1055511498
 mas "Deliveries", id: 924726344
