@@ -18,3 +18,5 @@ alias fat="make atreus:mo && avrdude -p atmega32u4 -c avr109 -U flash:w:atreus_m
 alias byd="bundle install && yarn install && rake db:migrate && rake db:test:prepare"
 
 alias pcb="pco cloud-box"
+
+alias tig="TERM=xterm-256color tig"
