@@ -1,4 +1,5 @@
 set ignore-case = smart-case
+set diff-highlight = true
 
 color title-blur blue default
 color title-focus white blue bold
