@@ -4,12 +4,12 @@
   name = Mo Lawson
   email = mo@molawson.com
 [color]
-  ui = auto
+  ui = always
 [core]
   quotepath = false
   excludesfile = ~/.gitignore_global
   editor = nvim
-  pager = less -FX
+  pager = diff-highlight | less -FX
 [alias]
   aa = add --all
   amend = commit --amend

@@ -23,6 +23,8 @@ export PATH="node_modules/.bin:$PATH"
 
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 
+export PATH="$(brew --prefix git)/share/git-core/contrib/diff-highlight:$PATH"
+
 export EDITOR="nvim"
 
 source $ZSH/oh-my-zsh.sh
