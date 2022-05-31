@@ -41,6 +41,7 @@ bind generic vg view-grep
 
 bind generic K view-help
 bind generic <C-w><C-w> view-next
+bind generic E !git "%(prompt git )"
 bind generic S :source ~/.tigrc
 
 bind status D ?@rm %(file)
