@@ -13,4 +13,4 @@ bind generic vR view-reflog
 bind generic E :exec !git "%(prompt git )"
 bind generic S :source ~/.tigrc
 
-bind status D ?@rm %(file)
+bind status ud ?@rm %(file)
