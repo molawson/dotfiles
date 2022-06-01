@@ -14,3 +14,12 @@ bind generic E :exec !git "%(prompt git )"
 bind generic S :source ~/.tigrc
 
 bind status ud ?@rm %(file)
+
+bind status s none
+bind status ss !git stash save "%(prompt stash message: )"
+bind status sg !git stash save --staged "%(prompt stash --staged message: )"
+
+bind stash s none
+bind stash sa ?git stash apply %(stash)
+bind stash so ?git stash pop %(stash)
+bind stash sd ?git stash drop %(stash)
