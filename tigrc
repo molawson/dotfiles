@@ -10,6 +10,7 @@ bind generic o enter
 
 bind generic vR view-reflog
 
+bind generic B :exec @hub browse
 bind generic E :exec !git "%(prompt git )"
 bind generic S :source ~/.tigrc
 
