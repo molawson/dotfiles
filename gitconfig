@@ -68,7 +68,7 @@
 [format]
   pretty = format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
 [merge]
-  tool = nvim
+  tool = fugitive
 [mergetool]
   keepBackup = true
 [push]
@@ -85,8 +85,8 @@
   defaultCommand = st
   gitCommand = hub
   prompt = "%D %c%b%#%w"
-[mergetool "nvim"]
-  cmd = nvim -d $LOCAL $REMOTE $MERGED
+[mergetool "fugitive"]
+  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
   keepBackup = false
 [include]
   path = ~/.gitconfig_private
