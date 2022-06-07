@@ -15,6 +15,15 @@ bind generic B :exec @hub browse
 bind generic E :exec !git "%(prompt git )"
 bind generic S :source ~/.tigrc
 
+bind generic p none
+bind generic po !git po
+bind generic pu !git po -u %(branch)
+
+bind generic uo !git uo
+
+bind generic ci !git commit
+bind generic ca !git commit --amend
+
 bind status ud ?@rm %(file)
 
 bind status s none
