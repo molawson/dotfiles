@@ -24,6 +24,10 @@ bind generic uo !git uo
 bind generic ci !git commit
 bind generic ca !git commit --amend
 
+bind generic sc !git sw -c "%(prompt new branch name: )"
+bind generic sm ?git sw main
+bind generic sw ?git sw %(branch)
+
 bind status ud ?@rm %(file)
 bind stage ud ?@rm %(file)
 
