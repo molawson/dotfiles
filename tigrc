@@ -5,7 +5,7 @@ set diff-highlight = true
 
 color title-blur blue default
 color title-focus black blue bold
-color cursor black green bold
+color cursor black green
 
 bind generic o enter
 
