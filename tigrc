@@ -25,6 +25,7 @@ bind generic ci !git commit
 bind generic ca !git commit --amend
 
 bind status ud ?@rm %(file)
+bind stage ud ?@rm %(file)
 
 bind status s none
 bind status ss !git stash save "%(prompt stash message: )"
