@@ -9,6 +9,7 @@ brew "the_silver_searcher"
 brew "universal-ctags"
 brew "tmux"
 brew "neovim"
+brew "php"
 
 tap "thoughtbot/formulae"
 brew "gitsh"
