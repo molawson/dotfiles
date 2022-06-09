@@ -9,13 +9,25 @@ color cursor black green
 
 bind generic o enter
 
-bind generic vR view-reflog
+# remove single key view- bindings
+bind generic K none
+bind generic L none
+bind generic b none
+bind generic d none
+bind generic f none
+bind generic m none
+bind generic p none
+bind generic r none
+bind generic s none
+bind generic t none
+bind generic y none
+
+bind generic vL view-reflog
 
 bind generic B :exec @hub browse
 bind generic E :exec !git "%(prompt git )"
 bind generic S :source ~/.tigrc
 
-bind generic p none
 bind generic po !git po
 bind generic pu !git po -u %(repo:head)
 
@@ -31,11 +43,9 @@ bind generic sw ?git sw %(branch)
 bind status ud ?@rm %(file)
 bind stage ud ?@rm %(file)
 
-bind status s none
 bind status ss !git stash save "%(prompt stash message: )"
 bind status sg !git stash save --staged "%(prompt stash --staged message: )"
 
-bind stash s none
 bind stash sa ?git stash apply %(stash)
 bind stash so ?git stash pop %(stash)
 bind stash sd ?git stash drop %(stash)
