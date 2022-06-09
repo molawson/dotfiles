@@ -17,7 +17,7 @@ bind generic S :source ~/.tigrc
 
 bind generic p none
 bind generic po !git po
-bind generic pu !git po -u %(branch)
+bind generic pu !git po -u %(repo:head)
 
 bind generic uo !git uo
 
