@@ -40,6 +40,10 @@ bind generic sc !git sw -c "%(prompt new branch name: )"
 bind generic sm ?git sw main
 bind generic sw ?git sw %(branch)
 
+bind refs bm ?git merge %(branch)
+bind refs bd ?git branch -d %(branch)
+bind refs bD ?git branch -D %(branch)
+
 bind status ud ?@rm %(file)
 bind stage ud ?@rm %(file)
 
