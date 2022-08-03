@@ -7,8 +7,6 @@ color title-blur blue default
 color title-focus black blue bold
 color cursor black green
 
-bind generic o enter
-
 # remove single key view- bindings
 bind generic K none
 bind generic L none
@@ -36,9 +34,9 @@ bind generic uo !git uo
 bind generic ci !git commit
 bind generic ca !git commit --amend
 
-bind generic sc !+git sw -c "%(prompt new branch name: )"
-bind generic sm ?+git sw main
-bind generic sw ?+git sw %(branch)
+bind generic sc !git sw -c "%(prompt new branch name: )"
+bind generic sm ?git sw main
+bind generic sw ?git sw %(branch)
 
 bind refs bm ?git merge %(branch)
 bind refs bd ?git branch -d %(branch)
