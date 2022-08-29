@@ -376,7 +376,7 @@ let g:ale_fixers = {
 \   'elixir': ['mix_format'],
 \}
 let g:ale_linters = {
-\   'ruby': ['rubocop', 'srb'],
+\   'ruby': ['rubocop', 'srb', 'standard'],
 \}
 let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_fix_on_save = 1
