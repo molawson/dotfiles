@@ -63,4 +63,6 @@ mas "Xcode", id: 497799835
 tap "homebrew/cask-fonts"
 brew "font-fira-code"
 
+tap "homebrew/autoupdate"
+
 brew "reattach-to-user-namespace"

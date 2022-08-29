@@ -29,6 +29,18 @@ installHomebrew() {
   brew bundle
 }
 
+autoUpdateHomebrew() {
+  case $os in
+    $macOS)
+      brew autoupdate start --upgrade --cleanup
+      ;;
+    $ubuntu)
+      # https://github.com/Homebrew/homebrew-autoupdate/blob/23f018c9855e324e886a31f88e7e6138a66ec20b/cmd/autoupdate.rb#L78-L81
+      echo "You'll need to manage homebrew updates yourself... sorry!"
+      ;;
+  esac
+}
+
 installGpg() {
   case $os in
     $macOS)
@@ -89,6 +101,7 @@ fixTmux256ColorTerm() {
 echo "Running installation for $os..."
 createPrivateFiles
 installHomebrew
+autoUpdateHomebrew
 installGpg
 installOMZsh
 (cd "$HOME/.dotfiles"; rake install)
