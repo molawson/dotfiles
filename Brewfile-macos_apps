@@ -13,6 +13,7 @@ cask "bartender"
 cask "brave-browser"
 cask "carbon-copy-cloner"
 cask "chrysalis"
+cask "cleanshot"
 cask "dash"
 cask "discord"
 cask "hammerspoon"
@@ -61,7 +62,7 @@ mas "Tweetbot", id: 1384080005
 mas "Xcode", id: 497799835
 
 tap "homebrew/cask-fonts"
-brew "font-fira-code"
+brew "font-fira-code-nerd-font"
 
 tap "homebrew/autoupdate"
 
