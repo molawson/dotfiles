@@ -373,6 +373,8 @@ nnoremap <c-l> <c-w>l
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \   'ruby': ['prettier'],
+\   'javascriptreact': ['prettier', 'eslint'],
+\   'yaml': ['prettier'],
 \   'elixir': ['mix_format'],
 \}
 let g:ale_linters = {
