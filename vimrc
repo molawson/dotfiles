@@ -376,6 +376,7 @@ let g:ale_fixers = {
 \   'javascriptreact': ['prettier', 'eslint'],
 \   'yaml': ['prettier'],
 \   'elixir': ['mix_format'],
+\   'go': ['gofmt'],
 \}
 let g:ale_linters = {
 \   'ruby': ['rubocop', 'srb', 'standard'],
