@@ -372,8 +372,8 @@ nnoremap <c-l> <c-w>l
 
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
-\   'ruby': ['prettier'],
 \   'javascriptreact': ['prettier', 'eslint'],
+\   'ruby': ['prettier', 'syntax_tree'],
 \   'yaml': ['prettier'],
 \   'elixir': ['mix_format'],
 \   'go': ['gofmt'],
@@ -382,6 +382,7 @@ let g:ale_linters = {
 \   'ruby': ['rubocop', 'srb', 'standard'],
 \}
 let g:ale_ruby_rubocop_executable = 'bundle'
+let g:ale_ruby_syntax_tree_executable = 'bundle'
 let g:ale_fix_on_save = 1
 let g:ale_set_highlights = 0
 let g:airline#extensions#ale#enabled = 1
