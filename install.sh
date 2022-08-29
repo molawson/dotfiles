@@ -41,6 +41,10 @@ autoUpdateHomebrew() {
   esac
 }
 
+installGhExtensions() {
+  gh extension install dlvhdr/gh-dash
+}
+
 installGpg() {
   case $os in
     $macOS)
@@ -102,6 +106,7 @@ echo "Running installation for $os..."
 createPrivateFiles
 installHomebrew
 autoUpdateHomebrew
+installGhExtensions
 installGpg
 installOMZsh
 (cd "$HOME/.dotfiles"; rake install)

@@ -10,6 +10,7 @@ brew "universal-ctags"
 brew "tmux"
 brew "neovim"
 brew "php"
+brew "gh"
 
 tap "thoughtbot/formulae"
 brew "gitsh"
