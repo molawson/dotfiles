@@ -1,21 +1,29 @@
 #! /bin/bash
 
-session_name="$(basename "$PWD" | sed 's/^\.//')"
+function default() {
+  session_name="$(basename "$PWD" | sed 's/^\.//')"
 
-if [ -z "$(tmux list-sessions 2>/dev/null | grep ^$session_name:)" ]; then
-  tmux new -d -s $session_name
+  if [ -z "$(tmux list-sessions 2>/dev/null | grep ^$session_name:)" ]; then
+    tmux new -d -s $session_name
 
-  tmux rename-window "sh"
+    tmux rename-window "sh"
 
-  tmux new-window -t $session_name -n "vim"
-  tmux select-window -t "vim"
-  tmux send-keys "nvim" C-m
+    tmux new-window -t $session_name -n "vim"
+    tmux select-window -t "vim"
+    tmux send-keys "nvim" C-m
 
-  tmux new-window -t $session_name -n "tig"
-  tmux select-window -t "tig"
-  tmux send-keys "tig" C-m
+    tmux new-window -t $session_name -n "tig"
+    tmux select-window -t "tig"
+    tmux send-keys "tig" C-m
 
-  tmux select-window -t "sh"
+    tmux select-window -t "sh"
+  fi
+
+  tmux attach -t $session_name
+}
+
+if [ -f "$PWD/tmux.sh" ]; then
+  /bin/bash "$PWD/tmux.sh"
+else
+  default
 fi
-
-tmux attach -t $session_name
