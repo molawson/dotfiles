@@ -3,6 +3,8 @@ source ~/.tigrc-vim
 set ignore-case = smart-case
 set diff-highlight = true
 
+set main-view-id-display = yes
+
 color title-blur blue default
 color title-focus black blue bold
 color cursor black green
