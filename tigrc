@@ -22,6 +22,22 @@ bind generic s none
 bind generic t none
 bind generic y none
 
+bind generic o  enter
+
+# more intuitive toggles
+bind generic to :toggle sort-order
+bind generic ts :toggle sort-field
+bind generic tn :toggle line-number
+bind generic td :toggle date
+bind generic ta :toggle author
+bind generic tg :toggle line-graphics
+bind generic tf :toggle file-name
+bind generic tp :toggle ignore-space
+bind generic ti :toggle id
+bind generic tt :toggle commit-title-overflow
+bind generic tF :toggle file-filter
+bind generic tr :toggle commit-title-refs
+
 bind generic vL view-reflog
 
 bind generic B :exec @hub browse
