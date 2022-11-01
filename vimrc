@@ -377,6 +377,7 @@ let g:ale_fixers = {
 \   'yaml': ['prettier'],
 \   'elixir': ['mix_format'],
 \   'go': ['gofmt'],
+\   'lua': ['lua-format']
 \}
 let g:ale_linters = {
 \   'ruby': ['rubocop', 'srb', 'standard'],
