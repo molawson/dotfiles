@@ -158,7 +158,7 @@ set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 
 " Markdown code block syntax highlighting
-let g:markdown_fenced_languages=['ruby', 'eruby', 'javascript', 'html', 'sh']
+let g:markdown_fenced_languages=['ruby', 'eruby', 'javascript', 'html', 'sh', 'yaml']
 
 au! BufRead,BufNewFile *.pp setfiletype ruby
 
