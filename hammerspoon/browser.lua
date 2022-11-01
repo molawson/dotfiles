@@ -56,6 +56,9 @@ function httpCallback(scheme, _, _, fullURL)
     elseif fullURL:match(zoomRegex) then
         fullURL = fullURL:gsub(zoomRegex, "zoommtg://zoom.us/join?confno=%1")
         hs.urlevent.openURL(fullURL)
+    elseif fullURL:match(asanaRegex) then
+        fullURL = fullURL:gsub(asanaRegex, "asanadesktop:///app/")
+        hs.urlevent.openURL(fullURL)
     else
         for _, browser in ipairs(browsers) do
             if browser[1] == lastBrowser then
