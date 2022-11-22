@@ -19,6 +19,8 @@
   ca = !git ci -a
   cf = !git ci --fixup
   ci = commit
+  cl = clean-branches
+  clf = clean-branches --force
   cm = !git ci -m
   co = no-checkout
   d = diff

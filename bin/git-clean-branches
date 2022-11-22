@@ -1,0 +1,10 @@
+#! /bin/bash
+
+git remote update
+
+if [[ $1 == "--force" || $1 == "-f" ]]; then
+  git branch -vv | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }' | xargs -r git branch -D
+else
+  git branch -vv | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }' | xargs -r git branch -d
+fi
+

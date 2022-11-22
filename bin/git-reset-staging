@@ -1,0 +1,14 @@
+#! /bin/bash
+
+if [ -z "$(git status --porcelain)" ]; then 
+  echo "Resetting staging to main branch..."
+  git switch main
+  git pull origin
+  git branch -D staging
+  git switch -c staging
+  git push origin staging -f
+else 
+  echo "You have changes in your working directory."
+  echo "Commit or stash them before running this command."
+  exit 1
+fi
