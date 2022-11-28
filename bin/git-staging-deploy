@@ -1,0 +1,14 @@
+#! /bin/bash
+
+if [ -z "$(git status --porcelain)" ]; then 
+  echo "Sending current branch to staging..."
+  git switch staging
+  git pull origin
+  git merge --commit --no-edit -
+  git push origin
+  git switch -
+else 
+  echo "You have changes in your working directory."
+  echo "Commit or stash them before running this command."
+  exit 1
+fi

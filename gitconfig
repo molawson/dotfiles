@@ -54,10 +54,12 @@
   ribo = rebase-branch-old
   ru = remote update --prune
   s = stash save
+  sd = staging-deploy
   sg = stash save --staged
   sl = stash list
   so = stash pop
   sp = !git s --patch
+  sr = staging-reset
   ss = stash show
   ssp = !git ss --patch
   st = status -sb
