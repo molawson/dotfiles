@@ -103,3 +103,5 @@
 	required = true
 [commit]
   gpgsign = true
+[hub]
+	protocol = ssh
