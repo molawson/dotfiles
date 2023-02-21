@@ -7,6 +7,7 @@ function default() {
     tmux new -d -s $session_name
 
     tmux rename-window "sh"
+    tmux split-window -h
 
     tmux new-window -t $session_name -n "vim"
     tmux select-window -t "vim"
