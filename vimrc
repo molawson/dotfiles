@@ -228,7 +228,7 @@ function! AlternateForCurrentFile()
   let using_rspec = !isdirectory('test')
   let in_test = match(current_file, 'spec/') != -1 || match(current_file, 'test/') != -1
   let going_to_test = !in_test
-  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1 || match(current_file, '\<presenters\>') != -1 || match(current_file, '\<services\>') != -1 || match(current_file, '\<jobs\>') != -1 || match(current_file, '\<mailers\>') != -1 || match(current_file, '\<csvs\>') != -1 || match(current_file, '\<types\>') != -1 || match(current_file, '\<policies\>') != -1
+  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1 || match(current_file, '\<presenters\>') != -1 || match(current_file, '\<services\>') != -1 || match(current_file, '\<jobs\>') != -1 || match(current_file, '\<workers\>') != -1 || match(current_file, '\<mailers\>') != -1 || match(current_file, '\<csvs\>') != -1 || match(current_file, '\<types\>') != -1 || match(current_file, '\<policies\>') != -1
   let in_gem = !empty(glob('*.gemspec'))
   if going_to_test
     if in_app
