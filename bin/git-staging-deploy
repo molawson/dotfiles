@@ -7,25 +7,35 @@ boldEcho() {
   echo "${bold}$1${normal}" 
 }
 
+gitWithExit() {
+  git $@
+  if [ "$?" -ne 0 ]; then
+    echo
+    echo "ERROR: Something went wrong!"
+    echo "See the previous output 👆 for more details."
+    echo 
+    exit "$?"
+  fi
+}
+
 if [ -z "$(git status --porcelain)" ]; then 
   echo
   boldEcho "Deploying current branch to staging..."
   echo
   boldEcho "-> Updating local staging branch"
-  git switch staging
-  git pull origin
+  gitWithExit switch staging
+  gitWithExit pull origin
   echo
   boldEcho "-> Merging current branch into staging"
-  git merge --commit --no-edit -
+  gitWithExit merge --commit --no-edit -
   echo
   boldEcho "-> Pushing to staging"
-  git push origin
+  gitWithExit push origin
   echo
   boldEcho "-> Switching back to original branch"
-  git switch -
+  gitWithExit switch -
   echo
   boldEcho "DONE!"
-  echo
 else 
   boldEcho "You have changes in your working directory."
   boldEcho "Commit or stash them before running this command."

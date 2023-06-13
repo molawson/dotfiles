@@ -1,5 +1,7 @@
 #! /bin/bash
 
+git pull origin
+
 git remote update --prune
 
 deletedBranches() {
