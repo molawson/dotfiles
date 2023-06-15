@@ -62,8 +62,8 @@ setupRbenv() {
   git clone git://github.com/tpope/rbenv-aliases.git "$(rbenv root)/plugins/rbenv-aliases"
   rbenv alias --auto
 
-  rbenv install 2.7.5
-  rbenv global 2.7
+  rbenv install 3.2.2
+  rbenv global 3.2
 }
 
 setupNeovim() {
