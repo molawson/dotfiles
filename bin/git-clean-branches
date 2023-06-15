@@ -4,13 +4,13 @@ git pull origin
 
 git remote update --prune
 
-deletedBranches() {
+deleted_branches() {
   git branch -vv --no-color | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }'
 }
 
 if [[ $1 == "--force" || $1 == "-f" ]]; then
-  deletedBranches | xargs -r git branch -D
+  deleted_branches | xargs -r git branch -D
 else
-  deletedBranches | xargs -r git branch -d
+  deleted_branches | xargs -r git branch -d
 fi
 

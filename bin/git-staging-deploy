@@ -3,11 +3,11 @@
 bold=$(tput bold)
 normal=$(tput sgr0)
 
-boldEcho() {
+bold_echo() {
   echo "${bold}$1${normal}" 
 }
 
-gitWithExit() {
+git_with_exit() {
   git $@
   if [ "$?" -ne 0 ]; then
     echo
@@ -20,24 +20,24 @@ gitWithExit() {
 
 if [ -z "$(git status --porcelain)" ]; then 
   echo
-  boldEcho "Deploying current branch to staging..."
+  bold_echo "Deploying current branch to staging..."
   echo
-  boldEcho "-> Updating local staging branch"
-  gitWithExit switch staging
-  gitWithExit pull origin
+  bold_echo "-> Updating local staging branch"
+  git_with_exit switch staging
+  git_with_exit pull origin
   echo
-  boldEcho "-> Merging current branch into staging"
-  gitWithExit merge --commit --no-edit -
+  bold_echo "-> Merging current branch into staging"
+  git_with_exit merge --commit --no-edit -
   echo
-  boldEcho "-> Pushing to staging"
-  gitWithExit push origin
+  bold_echo "-> Pushing to staging"
+  git_with_exit push origin
   echo
-  boldEcho "-> Switching back to original branch"
-  gitWithExit switch -
+  bold_echo "-> Switching back to original branch"
+  git_with_exit switch -
   echo
-  boldEcho "DONE!"
+  bold_echo "DONE!"
 else 
-  boldEcho "You have changes in your working directory."
-  boldEcho "Commit or stash them before running this command."
+  bold_echo "You have changes in your working directory."
+  bold_echo "Commit or stash them before running this command."
   exit 1
 fi
