@@ -21,7 +21,11 @@ plugins=(gitfast rails bundler rake-fast)
 
 export PATH="node_modules/.bin:$PATH"
 
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+if [ -d "/opt/homebrew" ]; then 
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [ -d "/home/linuxbrew/.linuxbrew" ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 export PATH="$(brew --prefix git)/share/git-core/contrib/diff-highlight:$PATH"
 
