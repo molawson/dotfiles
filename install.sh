@@ -63,10 +63,11 @@ installGpg() {
 }
 
 setupRbenv() {
-  mkdir -p "$(rbenv root)/plugins"
-  # TODO: check if dir exists
-  git clone git://github.com/tpope/rbenv-aliases.git "$(rbenv root)/plugins/rbenv-aliases"
-  rbenv alias --auto
+  if [ ! -d "$(rbenv root)/plugins/rbenv-aliases" ]; then
+    mkdir -p "$(rbenv root)/plugins"
+    git clone git://github.com/tpope/rbenv-aliases.git "$(rbenv root)/plugins/rbenv-aliases"
+    rbenv alias --auto
+  fi
 
   rbenv install 3.2.2
   rbenv global 3.2
