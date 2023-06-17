@@ -26,12 +26,18 @@ installOMZsh() {
 
 installHomebrew() {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  if [ -d "/opt/homebrew" ]; then 
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  elif [ -d "/home/linuxbrew/.linuxbrew" ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  fi
   brew bundle
 }
 
 autoUpdateHomebrew() {
   case $os in
     $macOS)
+      mkdir -p /Users/molawson/Library/LaunchAgents
       brew autoupdate start --upgrade --cleanup
       ;;
     $ubuntu)
