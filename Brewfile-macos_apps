@@ -1,21 +1,17 @@
-tap "homebrew/cask-drivers"
-cask "elgato-control-center"
-cask "elgato-stream-deck"
-
 cask "1password"
 cask "acorn"
-cask "alfred"
 cask "anylist"
 cask "appcleaner"
-cask "arq"
 cask "audio-hijack"
+cask "backblaze"
 cask "bartender"
 cask "brave-browser"
 cask "carbon-copy-cloner"
-cask "chrysalis"
 cask "cleanshot"
 cask "dash"
 cask "discord"
+cask "elgato-control-center"
+cask "elgato-stream-deck"
 cask "hammerspoon"
 cask "istat-menus"
 cask "iterm2"
@@ -29,11 +25,11 @@ cask "netspot"
 cask "notion"
 cask "obsidian"
 cask "paw"
+cask "raycast"
 cask "rocket"
 cask "screenflow"
 cask "sequel-ace"
 cask "slack"
-cask "threads"
 cask "trailer"
 cask "transmit"
 cask "tuple"
@@ -43,16 +39,18 @@ cask "zoom"
 brew "mas"
 mas "Calcbot", id: 931657367
 mas "Day One", id: 1055511498
-mas "Deliveries", id: 924726344
 mas "Fantastical", id: 975937182
 mas "GarageBand", id: 682658836
 mas "Ghostery Lite", id: 1436953057
+mas "Hush", id: 1544743900
 mas "Instapaper Save", id: 1481302432
+mas "Ivory", id: 6444602274
 mas "Keynote", id: 409183694
 mas "LG Screen Manager", id: 1142051783
 mas "Magnet", id: 441258766
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "Parcel", id: 639968404
 mas "Shush", id: 496437906
 mas "Spark", id: 1176895641
 mas "Speedtest", id: 1153157709
@@ -62,7 +60,7 @@ mas "Tweetbot", id: 1384080005
 mas "Xcode", id: 497799835
 
 tap "homebrew/cask-fonts"
-brew "font-fira-code-nerd-font"
+cask "font-fira-code-nerd-font"
 
 tap "homebrew/autoupdate"
 
