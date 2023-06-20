@@ -3,4 +3,4 @@ bundle/cache
 vim/tmp
 vim/.netrwhist
 vim/plugged
-Brewfile.lock*
+Brewfile*.lock*
