@@ -78,6 +78,15 @@ setupNeovim() {
   sudo ln -s $HOME/.vim/plugged/fzf/bin/fzf /usr/local/bin/fzf
 }
 
+installGitHubCLIPlugins() {
+  case $os in
+    $macOS)
+      gh auth login
+      gh extension install dlvhdr/gh-dash
+      ;;
+  esac
+}
+
 setupOS() {
   case $os in
     $macOS)
@@ -117,6 +126,7 @@ installGhExtensions
 installGpg
 installOMZsh
 (cd "$HOME/.dotfiles"; rake install)
+installGitHubCLIPlugins
 setupRbenv
 setupNeovim
 fixTmux256ColorTerm
