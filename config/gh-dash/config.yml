@@ -1,0 +1,34 @@
+prSections:
+- title: Personal
+  filters: is:open author:@me -org:planningcenter
+- title: Work 
+  filters: is:open assignee:@me org:planningcenter
+- title: Review Requested
+  filters: is:open review-requested:@me
+- title: Edna
+  filters: is:open -author:@me repo:planningcenter/edna
+- title: Participated
+  filters: is:open involves:@me -author:@me -assignee:@me
+- title: Merged
+  filters: is:closed author:@me
+- title: Work (cracks)
+  # I should be automatically assigned if I'm the author, but some repos don't do that.
+  # This should catch those edge cases
+  filters: is:open author:@me -assignee:@me org:planningcenter
+
+issuesSections:
+- title: My Issues
+  filters: is:open author:@me
+- title: Assigned
+  filters: is:open assignee:@me
+defaults:
+  preview:
+    open: true
+    width: 100
+  prsLimit: 20
+  issuesLimit: 20
+  view: prs
+  refetchIntervalMinutes: 5
+keybindings:
+  prs: []
+repoPaths: {}
