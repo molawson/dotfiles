@@ -65,7 +65,7 @@ installGpg() {
 setupRbenv() {
   if [ ! -d "$(rbenv root)/plugins/rbenv-aliases" ]; then
     mkdir -p "$(rbenv root)/plugins"
-    git clone git://github.com/tpope/rbenv-aliases.git "$(rbenv root)/plugins/rbenv-aliases"
+    git clone git@github.com:tpope/rbenv-aliases.git "$(rbenv root)/plugins/rbenv-aliases"
     rbenv alias --auto
   fi
 
