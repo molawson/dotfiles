@@ -5,10 +5,10 @@ prSections:
   filters: is:open assignee:@me org:planningcenter
 - title: Review Requested
   filters: is:open review-requested:@me
-- title: Edna
-  filters: is:open -author:@me repo:planningcenter/edna
+- title: Reviewed
+  filters: is:open reviewed-by:@me
 - title: Participated
-  filters: is:open involves:@me -author:@me -assignee:@me
+  filters: is:open involves:@me -author:@me -assignee:@me -reviewed-by:@me -review-requested:@me
 - title: Merged
   filters: is:closed author:@me
 - title: Work (cracks)
