@@ -7,6 +7,11 @@ bold_echo() {
   echo "${bold}$1${normal}" 
 }
 
+announce() {
+  echo
+  bold_echo "$1"
+}
+
 git_with_exit() {
   git $@
   if [ "$?" -ne 0 ]; then
@@ -19,23 +24,17 @@ git_with_exit() {
 }
 
 if [ -z "$(git status --porcelain)" ]; then 
-  echo
-  bold_echo "Deploying current branch to staging..."
-  echo
-  bold_echo "-> Updating local staging branch"
+  announce "Deploying current branch to staging..."
+  announce "-> Updating local staging branch"
   git_with_exit switch staging
   git_with_exit pull origin
-  echo
-  bold_echo "-> Merging current branch into staging"
+  announce "-> Merging current branch into staging"
   git_with_exit merge --commit --no-edit -
-  echo
-  bold_echo "-> Pushing to staging"
+  announce "-> Pushing to staging"
   git_with_exit push origin
-  echo
-  bold_echo "-> Switching back to original branch"
+  announce "-> Switching back to original branch"
   git_with_exit switch -
-  echo
-  bold_echo "DONE!"
+  announce "DONE!"
 else 
   bold_echo "You have changes in your working directory."
   bold_echo "Commit or stash them before running this command."
