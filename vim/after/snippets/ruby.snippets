@@ -24,3 +24,26 @@ snippet in
 
 snippet ivi
 	@${1:ivar} = ${2:$1}${0}
+
+snippet rdesc
+	RSpec.describe ${1:`substitute(substitute(vim_snippets#Filename(), '_spec$', '', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`} do
+		${0}
+	end
+
+snippet desc
+	describe "${1:subject}" do
+		${0}
+	end
+snippet it
+	it "${1:description}" do
+		${0}
+	end
+
+snippet cont
+	context "${1:description}" do
+		${0}
+	end
+
+snippet dc
+	described_class
+

@@ -102,7 +102,7 @@ let g:tmuxline_preset = {
 
 " Display
 syntax on
-set guifont=Fira\ Code:h15
+set guifont=Fira\ Code:h16
 set encoding=utf-8
 
 if has('termguicolors')
@@ -317,6 +317,7 @@ map <leader>gaa :Files app/graphs/app_graph<cr>
 map <leader>gac :Files app/graphs/church_center_graph<cr>
 map <leader>gl :Files lib<cr>
 map <leader>gt :call FZFTestsDynamic()<cr>
+map <leader>gf :Files test/fixtures<cr>
 
 " Tests
 nnoremap <leader>. :call OpenTestAlternate()<cr>
