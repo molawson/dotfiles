@@ -9,6 +9,9 @@ prSections:
   filters: is:open reviewed-by:@me
 - title: Participated
   filters: is:open involves:@me -author:@me -assignee:@me -reviewed-by:@me -review-requested:@me
+- title: Active (Team)
+  filters: is:open draft:false repo:planningcenter/accounts repo:planningcenter/login
+  limit: 50
 - title: Merged
   filters: is:closed author:@me
 - title: Work (cracks)
