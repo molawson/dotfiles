@@ -1,6 +1,7 @@
 -- Copied from @danielma/dotfiles
 browsers = {
     {"Safari", "com.apple.Safari"}, {"Firefox", "org.mozilla.firefox"},
+    {"Firefox Developer Edition", "org.mozilla.firefoxdeveloperedition"},
     {"Google Chrome", "com.google.chrome"},
     {"Brave Browser", "com.brave.browser"},
     {"Microsoft Edge", "com.microsoft.edgemac"}
