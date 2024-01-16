@@ -77,6 +77,7 @@
   keepBackup = true
 [push]
   default = simple
+  autoSetupRemote = true
 [github]
   user = molawson
 [init]
