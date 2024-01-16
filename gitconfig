@@ -12,35 +12,34 @@
   pager = diff-highlight | less -FX
 [alias]
   aa = add --all
-  amend = commit --amend
   ap = add -p
   b = branch
   br = browse
-  ca = !git ci -a
-  cf = !git ci --fixup
+  ca = commit --amend
+  ce = commit --allow-empty
+  cf = commit --fixup
   ci = commit
   cl = clean-branches
   clf = clean-branches --force
-  cm = !git ci -m
   co = no-checkout
   d = diff
   db = diff-branch
   dc = diff --cached
   dh = diff HEAD^
-  ds = !git d --stat=100,100
+  ds = diff --stat=100,100
   dsc = !git dc --stat=100,100
-  dsh = !git d --stat=100,100 HEAD^
+  dsh = diff --stat=100,100 HEAD^
   fa = fetch --all
   ff = merge --ff-only
-  h = !git head
-  head = !git l -1
+  h = !git l -1
+  hd = !git h --pretty
   l = log --graph --abbrev-commit --date=relative
   la = !git l --all
-  ld = !git l -1 --pretty
   mt = mergetool
+  mk = merge --abort
   noff = merge --no-ff
   p = push
-  po = !git p origin
+  po = push origin
   pof = !git po --force-with-lease
   r = !git l -20
   ra = !git r --all
@@ -48,27 +47,30 @@
   rc = rebase --continue
   re = rebase
   ri = rebase -i
+  rk = rebase --abort
   rs = restore
   rh = reset HEAD
   rib = rebase-branch
   ribo = rebase-branch-old
   ru = remote update --prune
-  s = stash save
-  sd = staging-deploy
+  sc = switch -c
+  sd = stash drop
   sg = stash save --staged
+  sh = stash show
   sl = stash list
+  sm = switch main
   so = stash pop
-  sp = !git s --patch
-  sr = staging-reset
-  ss = stash show
-  ssp = !git ss --patch
+  ss = stash save
+  sp = stash save --patch
   st = status -sb
+  stgd = staging-deploy
+  stgr = staging-reset
   sw = switch
   swd = switch --detach
   t = !tig
   u = pull
-  uff = !git u --ff-only
-  uo = !git u origin
+  uff = pull --ff-only
+  uo = pull origin
 [format]
   pretty = format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
 [merge]
@@ -98,11 +100,11 @@
 [rebase]
   autosquash = true
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [commit]
   gpgsign = true
 [hub]
-	protocol = ssh
+  protocol = ssh
