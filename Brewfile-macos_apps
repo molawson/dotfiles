@@ -14,7 +14,6 @@ cask "hammerspoon"
 cask "istat-menus"
 cask "iterm2"
 cask "keybase"
-cask "kindle"
 cask "licecap"
 cask "loopback"
 cask "macdown"
@@ -22,7 +21,7 @@ cask "macvim"
 cask "netspot"
 cask "notion"
 cask "obsidian"
-cask "paw"
+cask "rapidapi"
 cask "raycast"
 cask "rocket"
 cask "screenflow"
@@ -45,6 +44,7 @@ mas "Hush", id: 1544743900
 mas "Instapaper Save", id: 1481302432
 mas "Ivory", id: 6444602274
 mas "Keynote", id: 409183694
+mas "Kindle", id: 302584613
 mas "LG Screen Manager", id: 1142051783
 mas "Magnet", id: 441258766
 mas "Numbers", id: 409203825
