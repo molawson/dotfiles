@@ -44,18 +44,17 @@ bind generic B :exec @hub browse
 bind generic E :exec !git "%(prompt git )"
 bind generic S :source ~/.tigrc
 
-bind generic po !git po
-bind generic pu !git po -u %(repo:head)
+bind generic po !git push origin
 
-bind generic uo !git uo
+bind generic uo !git pull origin
 
 bind generic ci !git commit
 bind generic ca !git commit --amend
 
-bind generic sc !git sw -c "%(prompt new branch name: )"
-bind generic sm ?git sw main
-bind generic sw ?git sw %(branch)
-bind generic s- ?git sw -
+bind generic sc !git switch -c "%(prompt new branch name: )"
+bind generic sm ?git switch main
+bind generic sw ?git switch %(branch)
+bind generic s- ?git switch -
 bind generic bR ?git reset --hard %(remote)/%(branch)
 
 bind refs bm ?git merge %(branch)
