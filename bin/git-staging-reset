@@ -1,31 +1,15 @@
 #! /bin/bash
 
-bold=$(tput bold)
-normal=$(tput sgr0)
+. $(dirname -- "$0")/_shared_git_cmd_functions
 
-bold_echo() {
-  echo "${bold}$1${normal}" 
-}
-
-if [ -z "$(git status --porcelain)" ]; then 
-  echo
-  bold_echo "Resetting staging to main branch..."
-  echo
-  bold_echo "-> Updating local main branch"
-  git switch main
-  git pull origin
-  echo
-  bold_echo "-> Recreating staging from main"
-  git branch -D staging
-  git switch -c staging
-  echo
-  bold_echo "-> Force pushing new staging branch"
-  git push origin staging -f
-  echo
-  bold_echo "DONE!"
-  echo
-else 
-  bold_echo "You have changes in your working directory."
-  bold_echo "Commit or stash them before running this command."
-  exit 1
-fi
+ensure_clean_working_directory
+announce "Resetting staging to main branch..."
+announce "-> Updating local main branch"
+git_with_exit switch main
+git_with_exit pull origin
+announce "-> Recreating staging from main"
+git_with_exit branch -D staging
+git_with_exit switch -c staging
+announce "-> Force pushing new staging branch"
+git_with_exit push origin staging -f
+announce "DONE!"

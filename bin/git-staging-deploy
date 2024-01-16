@@ -1,42 +1,16 @@
 #! /bin/bash
 
-bold=$(tput bold)
-normal=$(tput sgr0)
+. $(dirname -- "$0")/_shared_git_cmd_functions
 
-bold_echo() {
-  echo "${bold}$1${normal}" 
-}
-
-announce() {
-  echo
-  bold_echo "$1"
-}
-
-git_with_exit() {
-  git $@
-  if [ "$?" -ne 0 ]; then
-    echo
-    echo "ERROR: Something went wrong!"
-    echo "See the previous output 👆 for more details."
-    echo 
-    exit "$?"
-  fi
-}
-
-if [ -z "$(git status --porcelain)" ]; then 
-  announce "Deploying current branch to staging..."
-  announce "-> Updating local staging branch"
-  git_with_exit switch staging
-  git_with_exit pull origin
-  announce "-> Merging current branch into staging"
-  git_with_exit merge --commit --no-edit -
-  announce "-> Pushing to staging"
-  git_with_exit push origin
-  announce "-> Switching back to original branch"
-  git_with_exit switch -
-  announce "DONE!"
-else 
-  bold_echo "You have changes in your working directory."
-  bold_echo "Commit or stash them before running this command."
-  exit 1
-fi
+ensure_clean_working_directory
+announce "Deploying current branch to staging..."
+announce "-> Updating local staging branch"
+git_with_exit switch staging
+git_with_exit pull origin
+announce "-> Merging current branch into staging"
+git_with_exit merge --commit --no-edit -
+announce "-> Pushing to staging"
+git_with_exit push origin
+announce "-> Switching back to original branch"
+git_with_exit switch -
+announce "DONE!"

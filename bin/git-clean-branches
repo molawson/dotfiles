@@ -1,37 +1,23 @@
 #! /bin/bash
 
-bold=$(tput bold)
-normal=$(tput sgr0)
-
-bold_echo() {
-  echo "${bold}$1${normal}" 
-}
-
-announce() {
-  echo
-  bold_echo "$1"
-}
+. $(dirname -- "$0")/_shared_git_cmd_functions
 
 deleted_branches() {
-  git branch -vv --no-color | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }'
+  git_with_exit branch -vv --no-color | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }'
 }
 
+ensure_clean_working_directory
 announce "Cleaning up local branches merged upstream..."
-
 announce "-> Switching to main branch"
-git switch main
-
+git_with_exit switch main
 announce "-> Updating local main branch from origin, removing refs to deleted remote branches"
-git pull origin --prune
-
+git_with_exit pull origin --prune
 announce "-> Deleting merged local branches removed from origin"
 if [[ $1 == "--force" || $1 == "-f" ]]; then
-  deleted_branches | xargs -r git branch -D
+  deleted_branches | xargs -r git_with_exit branch -D
 else
-  deleted_branches | xargs -r git branch -d
+  deleted_branches | xargs -r git_with_exit branch -d
 fi
-
 announce "-> Putting you back where you were"
-git switch -
-
+git_with_exit switch -
 announce "DONE!"
