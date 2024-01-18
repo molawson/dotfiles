@@ -14,9 +14,9 @@ announce "-> Updating local main branch from origin, removing refs to deleted re
 git_with_exit pull origin --prune
 announce "-> Deleting merged local branches removed from origin"
 if [[ $1 == "--force" || $1 == "-f" ]]; then
-  deleted_branches | xargs -r git_with_exit branch -D
+  deleted_branches | xargs -r git branch -D
 else
-  deleted_branches | xargs -r git_with_exit branch -d
+  deleted_branches | xargs -r git branch -d
 fi
 announce "-> Putting you back where you were"
 git_with_exit switch -
