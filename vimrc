@@ -150,7 +150,7 @@ let g:vroom_use_terminal = 1
 let g:jsx_ext_required = 0
 
 if executable('ag')
-  let g:ackprg = 'ag -F --vimgrep'
+  let g:ackprg = 'ag --vimgrep'
 endif
 
 " Bash style tab completion
