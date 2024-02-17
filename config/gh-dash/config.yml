@@ -17,7 +17,7 @@ prSections:
 - title: Work (cracks)
   # I should be automatically assigned if I'm the author, but some repos don't do that.
   # This should catch those edge cases
-  filters: is:open author:@me -assignee:@me org:planningcenter
+  filters: is:open author:@me no:assignee org:planningcenter
 
 issuesSections:
 - title: My Issues
