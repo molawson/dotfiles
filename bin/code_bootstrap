@@ -3,6 +3,6 @@
 echo 'Applying git template & generating ctags for all git repos in ~/Code ...'
 for d in $HOME/Code/*/
 do
-  [[ -d $d/.git ]] && /bin/zsh -c "(cd "$d" && echo $d && git init -q && ./.git/hooks/ctags)"
+  [[ -d $d/.git ]] && /bin/zsh -c "(cd "$d" && echo $d && git init -q && ctags)"
 done
 echo 'Done!'

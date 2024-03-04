@@ -91,9 +91,6 @@ vim.g.markdown_fenced_languages = {
 -- Store all .swp files in a common location
 vim.opt.directory:prepend("$HOME/.vim/tmp//")
 
--- Add .git/tags for ctag support (vim-fugitive used to do this)
-vim.opt.tags:prepend("./.git/tags;")
-
 require("theme")
 require("statusline")
 require("mapping")

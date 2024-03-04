@@ -35,5 +35,6 @@ Plug("junegunn/fzf.vim")
 Plug("sheerun/vim-polyglot")
 Plug("sainnhe/sonokai")
 Plug("nvim-treesitter/nvim-treesitter", {["do"] = vim.fn.TSUpdate})
+Plug("ludovicchabant/vim-gutentags")
 
 vim.call("plug#end")
