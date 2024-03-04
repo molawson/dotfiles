@@ -2,8 +2,6 @@ local lspconfig = require("lspconfig")
 
 vim.o.signcolumn = "yes"
 
-lspconfig.rubocop.setup {cmd = {"bundle", "exec", "rubocop", "--lsp"}}
-lspconfig.syntax_tree.setup({cmd = {"bundle", "exec", "stree", "lsp"}})
 vim.api.nvim_create_autocmd("BufWritePre", {
     callback = function() vim.lsp.buf.format() end,
     group = vim.api.nvim_create_augroup("AutocmdForRubyFormatting", {})

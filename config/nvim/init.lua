@@ -98,6 +98,7 @@ require("theme")
 require("statusline")
 require("mapping")
 require("plugins")
+require("lang")
 
 -- Source per-project configuration from .git/vimrc if present
 local git_dir = io.popen("git rev-parse --git-dir 2>/dev/null"):read("l")
