@@ -130,5 +130,5 @@ installGitHubCLIPlugins
 setupRbenv
 setupNeovim
 fixTmux256ColorTerm
-/bin/bash "$HOME/.bin/ctags_init"
+/bin/bash "$HOME/.bin/code_bootstrap"
 setupOS
