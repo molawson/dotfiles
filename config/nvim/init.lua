@@ -43,11 +43,6 @@ vim.o.incsearch = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
--- Search results highlighted with underline
-vim.cmd.highlight({"Search", "ctermbg=None", "ctermfg=None", "cterm=underline"})
-vim.cmd
-    .highlight({"Search", "guibg=guibg", "guifg=guifg", "gui=underline,bold"})
-
 -- Clear the search buffer when hitting return
 local function map_clear_search()
     vim.keymap.set("n", "<cr>", ":nohlsearch<cr>", {silent = true})
@@ -96,6 +91,11 @@ require("statusline")
 require("mapping")
 require("plugins")
 require("lang")
+
+-- Search results highlighted with underline
+vim.cmd.highlight({"Search", "ctermbg=None", "ctermfg=None", "cterm=underline"})
+vim.cmd
+    .highlight({"Search", "guibg=guibg", "guifg=guifg", "gui=underline,bold"})
 
 -- Source per-project configuration from .git/vimrc if present
 local git_dir = io.popen("git rev-parse --git-dir 2>/dev/null"):read("l")
