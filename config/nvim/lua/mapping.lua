@@ -14,7 +14,7 @@ vim.keymap.set("n", "gp", "`[v`]")
 vim.keymap.set("n", "<leader>v", ":Files ~/.config/nvim<cr>")
 
 -- Reload .vimrc config
-vim.keymap.set("n", "<leader>V", ":source ~/.vimrc<cr>")
+vim.keymap.set("n", "<leader>V", ":source ~/.config/nvim/init.lua<cr>")
 
 vim.keymap.set("i", "<c-l>", "<space>=><space>")
 
