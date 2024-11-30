@@ -5,4 +5,5 @@
 --exclude=public
 --exclude=tmp
 --exclude=vendor
+--exclude=.devbox
 --languages=-markdown,rspec,sql

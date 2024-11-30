@@ -4,3 +4,4 @@ tags
 .keep
 tmp/
 node_modules/
+.devbox

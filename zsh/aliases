@@ -19,5 +19,6 @@ alias byd="bundle install && yarn install && rake db:migrate && rake db:test:pre
 
 alias pcb="pco cloud-box"
 alias bgr="launchctl stop AllTheProcfiles && launchctl start AllTheProcfiles"
+alias drp="devbox run --pure"
 
 alias tig="TERM=xterm-256color tig"
