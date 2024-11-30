@@ -22,6 +22,7 @@
   cl = clean-branches
   clf = clean-branches --force
   co = no-checkout
+  cp = cherry-pick
   d = diff
   db = diff-branch
   dc = diff --cached
