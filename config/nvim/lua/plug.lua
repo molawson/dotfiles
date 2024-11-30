@@ -34,7 +34,8 @@ Plug("junegunn/fzf", {["do"] = function() vim.fn["fzf#install"]() end})
 Plug("junegunn/fzf.vim")
 Plug("sheerun/vim-polyglot")
 Plug("sainnhe/sonokai")
-Plug("nvim-treesitter/nvim-treesitter", {["do"] = vim.fn.TSUpdate})
+Plug("nvim-treesitter/nvim-treesitter",
+     {["do"] = function() vim.cmd("TSUpdate") end})
 Plug("ludovicchabant/vim-gutentags")
 
 vim.call("plug#end")
