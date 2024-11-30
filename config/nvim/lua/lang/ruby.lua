@@ -60,6 +60,12 @@ if gemfile_lock() then
     local ale_linters = {}
     local lspconfig = require("lspconfig")
 
+    -- TODO: make smarter about whether edna has ruby-lsp
+    -- if is_bundled("edna") then
+    --     lspconfig.ruby_lsp.setup({
+    --         init_options = {linters = {"rubocop"}, formatter = "rubotree"}
+    --     })
+    -- else
     if is_bundled("standard") then
         if gem_supports_lsp("standard") then
             lspconfig.standardrb.setup({
@@ -92,6 +98,7 @@ if gemfile_lock() then
             table.insert(ale_fixers, "syntax_tree")
         end
     end
+    -- end
 
     if is_bundled("sorbet") then
         if gem_supports_lsp("sorbet") then
