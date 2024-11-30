@@ -66,8 +66,8 @@ vim.keymap.set("n", "<leader>gf", ":Files test/fixtures<cr>")
 vim.keymap.set("n", "<leader>.", tests.open_alternate)
 
 -- The Silver Searcher (Ag)
-vim.keymap.set("n", "<leader>ag", ":Ack! ")
-vim.keymap.set("n", "<leader>ac", ":Ack! <cword><cr>")
+vim.keymap.set("n", "<leader>ag", ":Ag ")
+vim.keymap.set("n", "<leader>ac", ":Ag <C-R><C-W><cr>")
 vim.keymap.set("n", "<leader>as", ":AckFromSearch!<cr>")
 vim.keymap.set("n", "<leader>ai", ":Ack! -i ")
 
@@ -76,4 +76,3 @@ vim.keymap.set("n", "<leader>n", files.rename)
 
 -- Create parent directories and write
 vim.keymap.set("n", "<leader>w", files.write_p)
-
