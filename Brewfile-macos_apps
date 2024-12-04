@@ -1,3 +1,4 @@
+cask "1password"
 cask "acorn"
 cask "anylist"
 cask "appcleaner"
@@ -23,6 +24,7 @@ cask "notion"
 cask "obsidian"
 cask "rapidapi"
 cask "raycast"
+cask "readdle-spark"
 cask "rocket"
 cask "screenflow"
 cask "slack"
@@ -35,30 +37,30 @@ cask "viscosity"
 cask "zoom"
 
 brew "mas"
+mas "1Password for Safari", id: 1569813296
 mas "Calcbot", id: 931657367
-mas "Day One", id: 1055511498
 mas "Fantastical", id: 975937182
 mas "GarageBand", id: 682658836
-mas "Ghostery Lite", id: 1436953057
+mas "Ghostery Privacy Ad Blocker", id: 6504861501
 mas "Hush", id: 1544743900
 mas "Instapaper Save", id: 1481302432
+mas "In Your Face: Meeting Reminder", id: 1476964367
 mas "Ivory", id: 6444602274
 mas "Keynote", id: 409183694
 mas "Kindle", id: 302584613
 mas "LG Screen Manager", id: 1142051783
 mas "Magnet", id: 441258766
 mas "Numbers", id: 409203825
+mas "Overcast", id: 888422857
 mas "Pages", id: 409201541
 mas "Parcel", id: 639968404
 mas "Shush", id: 496437906
 mas "Speedtest", id: 1153157709
 mas "Things", id: 904280696
 mas "Trello", id: 1278508951
-mas "Tweetbot", id: 1384080005
 mas "Xcode", id: 497799835
 
 tap "homebrew/cask-versions"
-cask "1password7"
 cask "firefox-developer-edition"
 
 tap "homebrew/cask-fonts"
