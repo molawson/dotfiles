@@ -69,4 +69,3 @@ cask "font-fira-code-nerd-font"
 tap "homebrew/autoupdate"
 
 brew "reattach-to-user-namespace"
-brew "mackup"
