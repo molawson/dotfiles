@@ -17,7 +17,13 @@ GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWCOLORHINTS=1
 
-plugins=(gitfast rails bundler rake-fast)
+plugins=(
+    bundler
+    gitfast
+    rails
+    rake-fast
+    rbenv
+)
 
 export PATH="node_modules/.bin:$PATH"
 
@@ -47,8 +53,6 @@ if [ $? -eq 1 ] ; then
     export PATH
 fi
 
-export RBENV_ROOT=$HOME/.rbenv
-eval "$(rbenv init -)"
 eval "$($HOME/Code/pco/bin/pco init -)"
 eval "$(jump shell)"
 eval "$(hub alias -s)"

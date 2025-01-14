@@ -11,16 +11,7 @@ task :install do
   Dir['config/*'].each do |file|
     install_file(File.join(ENV['PWD'], file), File.join(ENV['HOME'], ".#{file}"))
   end
-end
-
-namespace :install do
-  desc 'Symlink rbenv default-gems file'
-  task :default_gems do
-    file = 'default-gems'
-    system %Q{mkdir -p "$HOME/.rbenv"}
-    puts "linking ~/.rbenv/#{file}"
-    system %Q{ln -s "$PWD/#{file}" "$HOME/.rbenv/#{file}"}
-  end
+  install_file(File.join(ENV['PWD'], 'default-gems'), File.join(ENV['HOME'], ".rbenv", "default-gems"))
 end
 
 def install_file(source, destination)
