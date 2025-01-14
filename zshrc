@@ -19,6 +19,7 @@ GIT_PS1_SHOWCOLORHINTS=1
 
 plugins=(
     bundler
+    direnv
     gitfast
     rails
     rake-fast

@@ -1,5 +1,6 @@
 brew "zsh"
 brew "git"
+brew "direnv"
 brew "go"
 brew "rbenv"
 brew "rbenv-aliases"
