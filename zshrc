@@ -18,6 +18,7 @@ GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWCOLORHINTS=1
 
 plugins=(
+    asdf
     bundler
     direnv
     gitfast

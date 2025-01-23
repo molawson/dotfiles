@@ -67,6 +67,14 @@ setupRbenv() {
   rbenv global 3.4
 }
 
+setupAsdf() {
+  asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+  asdf plugin add alias https://github.com/andrewthauer/asdf-alias.git
+  asdf install nodejs latest:20
+  asdf alias nodejs --auto
+  asdf global nodejs 20
+}
+
 setupNeovim() {
   nvim --headless +PlugInstall +qall
   sudo ln -s $HOME/.vim/plugged/fzf/bin/fzf /usr/local/bin/fzf
@@ -122,6 +130,7 @@ installOMZsh
 (cd "$HOME/.dotfiles"; rake install)
 installGitHubCLIPlugins
 setupRbenv
+setupAsdf
 setupNeovim
 fixTmux256ColorTerm
 /bin/bash "$HOME/.bin/code_bootstrap"
