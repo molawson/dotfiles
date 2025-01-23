@@ -3,7 +3,7 @@ require 'rake'
 desc "install the dot files into user's home directory"
 task :install do
   @replace_all = false
-  files = Dir['*'] - %w[Rakefile README.md default-gems install.sh config tags]
+  files = Dir['*'] - %w[Rakefile README.md install.sh config tags]
   files.each do |file|
     install_file(File.join(ENV['PWD'], file), File.join(ENV['HOME'], ".#{file}"))
   end
@@ -11,7 +11,6 @@ task :install do
   Dir['config/*'].each do |file|
     install_file(File.join(ENV['PWD'], file), File.join(ENV['HOME'], ".#{file}"))
   end
-  install_file(File.join(ENV['PWD'], 'default-gems'), File.join(ENV['HOME'], ".rbenv", "default-gems"))
 end
 
 def install_file(source, destination)

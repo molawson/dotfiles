@@ -24,7 +24,6 @@ plugins=(
     gitfast
     rails
     rake-fast
-    rbenv
 )
 
 export PATH="node_modules/.bin:$PATH"

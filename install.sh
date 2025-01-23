@@ -62,17 +62,19 @@ installGpg() {
   esac
 }
 
-setupRbenv() {
-  rbenv install 3.4.1
-  rbenv global 3.4
-}
-
 setupAsdf() {
-  asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
   asdf plugin add alias https://github.com/andrewthauer/asdf-alias.git
+
+  asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
   asdf install nodejs latest:20
   asdf alias nodejs --auto
   asdf global nodejs 20
+
+  # TODO: test me!
+  asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+  asdf install ruby latest:3.4
+  asdf alias ruby --auto
+  asdf global ruby 3.4
 }
 
 setupNeovim() {
@@ -129,7 +131,6 @@ installGpg
 installOMZsh
 (cd "$HOME/.dotfiles"; rake install)
 installGitHubCLIPlugins
-setupRbenv
 setupAsdf
 setupNeovim
 fixTmux256ColorTerm
