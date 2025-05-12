@@ -37,5 +37,6 @@ Plug("sainnhe/sonokai")
 Plug("nvim-treesitter/nvim-treesitter",
      {["do"] = function() vim.cmd("TSUpdate") end})
 Plug("ludovicchabant/vim-gutentags")
+Plug("direnv/direnv.vim")
 
 vim.call("plug#end")
