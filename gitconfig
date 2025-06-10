@@ -109,3 +109,5 @@
   protocol = ssh
 [gpg]
   format = ssh
+[blame]
+  ignoreRevsFile = .git-blame-ignore-revs
