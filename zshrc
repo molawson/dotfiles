@@ -44,6 +44,7 @@ export PATH="$(brew --prefix git)/share/git-core/contrib/diff-highlight:$PATH"
 export EDITOR="nvim"
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.zsh/asdf-alias.zsh
 
 if [[ -d $HOME/pco-box ]]; then
     source $HOME/pco-box/env.sh
