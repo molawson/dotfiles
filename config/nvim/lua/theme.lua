@@ -16,13 +16,14 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 vim.g.sonokai_enable_italic = 1
 vim.cmd.colorscheme("sonokai")
 
-vim.fn.sign_define("DiagnosticSignError",
-                   {text = "", texthl = "DiagnosticSignError", numhl = ""})
-vim.fn.sign_define("DiagnosticSignWarn",
-                   {text = "", texthl = "DiagnosticSignWarn", numhl = ""})
-vim.fn.sign_define("DiagnosticSignInfo",
-                   {text = "", texthl = "DiagnosticSignInfo", numhl = ""})
-vim.fn.sign_define("DiagnosticSignHint",
-                   {text = "", texthl = "DiagnosticSignHint", numhl = ""})
-
-vim.diagnostic.config({underline = false})
+vim.diagnostic.config({
+    underline = false,
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.INFO] = "",
+            [vim.diagnostic.severity.HINT] = ""
+        }
+    }
+})
